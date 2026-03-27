@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - 'release'
+  # This line alone enables the manual trigger with branch selection
+  workflow_dispatch:
 
 jobs:
   publish:
