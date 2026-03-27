@@ -14,14 +14,23 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v6
 
-
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           flutter-version-file: pubspec.yaml
 
-      - run: flutter --version
+      - name: Verify Flutter installation
+        run: flutter --version
+
+      - name: ls in build
+        run: ls build/
+
+      - name: Build web
+        run: flutter build web --release
+
+      - name: ls in build
+        run: ls build/
 
 #      - uses: erickzanardo/flutter-gh-pages@v7
 #        with:
