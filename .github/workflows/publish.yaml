@@ -22,6 +22,7 @@ jobs:
         with:
           channel: stable
           flutter-version-file: pubspec.yaml
+          cache: true
 
       - name: Verify Flutter installation
         run: flutter --version
