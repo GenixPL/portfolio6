@@ -23,8 +23,8 @@ jobs:
       - name: Verify Flutter installation
         run: flutter --version
 
-      - name: ls in build
-        run: ls build/
+      - name: ls
+        run: ls
 
       - name: Build web
         run: flutter build web --release
