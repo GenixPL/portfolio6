@@ -1,22 +1,36 @@
-# Publishes web director by putting it inside the recognisable `docs` folder.
 name: Publish to Github Pages
 
 on:
   push:
     branches:
-      # NOTE: You may want to limit the trigger branch to be "main" or "master" etc.
       - 'release'
+  # This line alone enables the manual trigger with branch selection
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 # Only works with v2
+      - name: Checkout 
+        uses: actions/checkout@v6
 
-      - uses: subosito/flutter-action@v2
+      - name: Set up Flutter ⬇️
+        uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: stable
+          flutter-version-file: pubspec.yaml
+          cache: true
 
-      - uses: erickzanardo/flutter-gh-pages@v7
+      - name: Verify Flutter installation 👀
+        run: flutter --version
+
+      - name: Build web 🔨
+        run: flutter build web --release --base-href "/portfolio6/"
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          baseHref: /portfolio6/
+          folder: build/web
