@@ -14,27 +14,21 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout 
         uses: actions/checkout@v6
 
-      - name: Set up Flutter
+      - name: Set up Flutter ⬇️
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           flutter-version-file: pubspec.yaml
           cache: true
 
-      - name: Verify Flutter installation
+      - name: Verify Flutter installation 👀
         run: flutter --version
 
-      - name: ls
-        run: ls
-
-      - name: Build web
+      - name: Build web 🔨
         run: flutter build web --release --base-href "/portfolio6/"
-
-      - name: ls in build
-        run: ls build/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
