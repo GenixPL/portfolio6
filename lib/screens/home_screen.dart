@@ -22,37 +22,31 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (_, _) {
-          return [
-            GenSliverAppBar(),
-          ];
-        },
-        body: CustomScrollView(
-          slivers: [
-            ...[
-              SliverGap(10),
-              //
-              Container(
-                width: 50,
-                height: 30,
-                color: Colors.black,
-              ).sliver,
+      body: CustomScrollView(
+        slivers: [
+          GenSliverAppBar(),
+          ...[
+            SliverGap(10),
+            //
+            Container(
+              width: 50,
+              height: 30,
+              color: Colors.black,
+            ).sliver,
 
-              Container(
-                width: 50,
-                height: 300,
-                color: Colors.redAccent,
-              ).sliver,
+            Container(
+              width: 50,
+              height: 300,
+              color: Colors.redAccent,
+            ).sliver,
 
-              Container(
-                width: 50,
-                height: 300,
-                color: Colors.amber,
-              ).sliver,
-            ].withHorizontalPadding(32),
-          ],
-        ),
+            Container(
+              width: 50,
+              height: 300,
+              color: Colors.amber,
+            ).sliver,
+          ].withHorizontalPadding(32),
+        ],
       ),
     );
   }
