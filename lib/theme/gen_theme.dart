@@ -4,8 +4,6 @@ extension ThemeBuildContextExtensions on BuildContext {
   ThemeData get theme {
     return Theme.of(this);
   }
-
-
 }
 
 extension ThemeDataExtensions on ThemeData {
@@ -36,12 +34,18 @@ class GenTheme {
     );
 
     return ThemeData(
+      useMaterial3: true,
       colorScheme: colorScheme,
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           overlayColor: _singleColor(Colors.transparent),
           foregroundColor: _hoveredColor(colorScheme.secondary.withAlpha(200)),
         ),
+      ),
+      pageTransitionsTheme: PageTransitionsTheme(
+        builders: <TargetPlatform, PageTransitionsBuilder>{
+          for (TargetPlatform platform in TargetPlatform.values) platform: _PageTransitionBuilder(),
+        },
       ),
     );
   }
@@ -62,6 +66,22 @@ class GenTheme {
 
         return fallback;
       },
+    );
+  }
+}
+
+class _PageTransitionBuilder extends PageTransitionsBuilder {
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return FadeTransition(
+      opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+      child: child,
     );
   }
 }
