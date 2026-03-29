@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio6/theme/_theme.dart';
 
 class GenSliverAppBar extends StatelessWidget {
@@ -47,6 +49,10 @@ class GenSliverAppBar extends StatelessWidget {
 
     const double bottomLineHeight = 3;
 
+    final double spacing = 12 * scale;
+
+    final String? activePageName = GoRouterState.of(context).topRoute?.name;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
@@ -55,7 +61,7 @@ class GenSliverAppBar extends StatelessWidget {
 
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: 12 * scale,
+            horizontal: spacing,
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -79,6 +85,34 @@ class GenSliverAppBar extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: FontFamily.kontanter.assetName,
                   fontSize: 20.0,
+                ),
+              ),
+
+              const Spacer(),
+
+              TextButton(
+                onPressed: () {
+                  context.goNamed('home');
+                },
+                child: Text(
+                  'HOME',
+                  style: TextStyle(
+                    fontFamily: FontFamily.cpMono.assetName,
+                    color: activePageName == 'home' ? Theme.of(context).colorScheme.secondary : null,
+                  ),
+                ),
+              ),
+              Gap(spacing),
+              TextButton(
+                onPressed: () {
+                  context.goNamed('articles');
+                },
+                child: Text(
+                  'ARTICLES',
+                  style: TextStyle(
+                    fontFamily: FontFamily.cpMono.assetName,
+                    color: activePageName == 'articles' ? Theme.of(context).colorScheme.secondary : null,
+                  ),
                 ),
               ),
             ],
