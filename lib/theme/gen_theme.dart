@@ -1,5 +1,31 @@
 import 'package:flutter/material.dart';
 
+extension ThemeBuildContextExtensions on BuildContext {
+  ThemeData get theme {
+    return Theme.of(this);
+  }
+
+
+}
+
+extension ThemeDataExtensions on ThemeData {
+  Duration get basicAnimationDuration {
+    return Duration(milliseconds: 300);
+  }
+
+  Curve get basicAnimationCurve {
+    return Curves.ease;
+  }
+
+  Color get primary {
+    return colorScheme.primary;
+  }
+
+  Color get secondary {
+    return colorScheme.secondary;
+  }
+}
+
 class GenTheme {
   const GenTheme();
 
