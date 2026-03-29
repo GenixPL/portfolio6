@@ -1,19 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio6/screens/home_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:portfolio6/pages/_pages.dart';
+import 'package:portfolio6/theme/_theme.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: .dark(
-          primary: Colors.amber,
-          secondary: Colors.redAccent,
-        ),
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final GoRouter _router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        name: 'home',
+        builder: (_, _) => HomePage(),
       ),
-      home: const MyHomePage(),
+      GoRoute(
+        path: '/articles',
+        name: 'articles',
+        builder: (_, _) => ArticlesPage(),
+      ),
+    ],
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: _router,
+      theme: const GenTheme().build(),
     );
   }
 }

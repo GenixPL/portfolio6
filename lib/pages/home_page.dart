@@ -3,14 +3,14 @@ import 'package:gap/gap.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/gen_sliver_app_bar.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   late final ScrollController _scrollController = ScrollController();
 
   @override
