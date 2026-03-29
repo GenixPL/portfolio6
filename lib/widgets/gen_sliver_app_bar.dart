@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio6/theme/_theme.dart';
+import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 
 class GenSliverAppBar extends StatelessWidget {
@@ -53,6 +54,8 @@ class GenSliverAppBar extends StatelessWidget {
 
     final double spacing = 12 * scale;
 
+    final List<Widget> buttons = _buildMenuButtons(context);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
@@ -90,19 +93,15 @@ class GenSliverAppBar extends StatelessWidget {
 
               const Spacer(),
 
-              _buildMenuButton(
-                context: context,
-                name: 'home',
-                routeName: 'home',
-              ),
-              Gap(spacing),
-              _buildMenuButton(
-                context: context,
-                name: 'articles',
-                routeName: 'articles',
-              ),
-              Gap(spacing),
-              _MenuIcon(),
+              if (MediaQuery.sizeOf(context).width >= 450)
+                ...buttons.withGaps(
+                  spacing,
+                  sliver: false,
+                )
+              else
+                _MenuIcon(
+                  buttons: buttons,
+                ),
             ],
           ),
         ),
@@ -115,6 +114,21 @@ class GenSliverAppBar extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  List<Widget> _buildMenuButtons(BuildContext context) {
+    return [
+      _buildMenuButton(
+        context: context,
+        name: 'home',
+        routeName: 'home',
+      ),
+      _buildMenuButton(
+        context: context,
+        name: 'articles',
+        routeName: 'articles',
+      ),
+    ];
   }
 
   Widget _buildMenuButton({
@@ -140,7 +154,11 @@ class GenSliverAppBar extends StatelessWidget {
 }
 
 class _MenuIcon extends StatefulWidget {
-  const _MenuIcon();
+  const _MenuIcon({
+    required this.buttons,
+  });
+
+  final List<Widget> buttons;
 
   @override
   State<_MenuIcon> createState() => _MenuIconState();
@@ -160,45 +178,49 @@ class _MenuIconState extends State<_MenuIcon> {
         _hovered = false;
         setState(() {});
       },
-      child: Padding(
-        padding: const EdgeInsets.all(4),
-        child: AnimatedValueBuilder(
-          value: _hovered ? 1.0 : 0.0,
-          initialValue: 0.0,
-          builder: (from, to, progress, _) {
-            final double animationValue = lerpDouble(from, to, progress)!;
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: _onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(4),
+          child: AnimatedValueBuilder(
+            value: _hovered ? 1.0 : 0.0,
+            initialValue: 0.0,
+            builder: (from, to, progress, _) {
+              final double animationValue = lerpDouble(from, to, progress)!;
 
-            final Color? color = Color.lerp(
-              context.theme.primary,
-              context.theme.secondary,
-              animationValue,
-            );
+              final Color? color = Color.lerp(
+                context.theme.primary,
+                context.theme.secondary,
+                animationValue,
+              );
 
-            const double width = 22;
+              const double width = 22;
 
-            return SizedBox(
-              width: width,
-              height: 18,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildLine(
-                    width: width * 1.0,
-                    color: color,
-                  ),
-                  _buildLine(
-                    width: width * lerpDouble(1.0, 0.75, animationValue)!,
-                    color: color,
-                  ),
-                  _buildLine(
-                    width: width * lerpDouble(1.0, 0.5, animationValue)!,
-                    color: color,
-                  ),
-                ],
-              ),
-            );
-          },
+              return SizedBox(
+                width: width,
+                height: 18,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildLine(
+                      width: width * 1.0,
+                      color: color,
+                    ),
+                    _buildLine(
+                      width: width * lerpDouble(1.0, 0.75, animationValue)!,
+                      color: color,
+                    ),
+                    _buildLine(
+                      width: width * lerpDouble(1.0, 0.5, animationValue)!,
+                      color: color,
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -215,6 +237,45 @@ class _MenuIconState extends State<_MenuIcon> {
         color: color,
         borderRadius: BorderRadius.circular(8),
       ),
+    );
+  }
+
+  void _onTap() {
+    showDialog(
+      context: context,
+      barrierColor: Colors.black87,
+      useSafeArea: true,
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 12,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    onPressed: () => context.pop(),
+                    icon: Icon(Icons.close),
+                  ),
+                ],
+              ),
+
+              Column(
+                children: widget.buttons.withGaps(
+                  12,
+                  sliver: false,
+                ),
+              ),
+
+              const SizedBox(),
+            ],
+          ),
+        );
+      },
     );
   }
 }
