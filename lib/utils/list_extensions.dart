@@ -1,6 +1,30 @@
 import 'dart:math';
 
 extension ListExtensions<T> on List<T> {
+  /// Attempts to return a random elements from `this` list.
+  ///
+  /// Returns `null` if the list is empty,
+  /// returns random [T] otherwise.
+  T? get tryRandom {
+    if (isEmpty) {
+      return null;
+    }
+
+    final int randomIndex = Random().nextInt(length);
+
+    return this[randomIndex];
+  }
+
+  T? tryAt(int i) {
+    try {
+      return this[i];
+    } catch (e) {
+      return null;
+    }
+  }
+}
+
+extension IterableExtensions<T> on Iterable<T> {
   /// Just a convenience wrap around [map] and [toList].
   List<R> mapList<R>(R Function(T value) mapper) {
     final List<R> finalList = [];
@@ -25,25 +49,7 @@ extension ListExtensions<T> on List<T> {
     return finalList;
   }
 
-  /// Attempts to return a random elements from `this` list.
-  ///
-  /// Returns `null` if the list is empty,
-  /// returns random [T] otherwise.
-  T? get tryRandom {
-    if (isEmpty) {
-      return null;
-    }
-
-    final int randomIndex = Random().nextInt(length);
-
-    return this[randomIndex];
-  }
-
-  T? tryAt(int i) {
-    try {
-      return this[i];
-    } catch (e) {
-      return null;
-    }
+  T? get tryFirst {
+    return firstOrNull;
   }
 }

@@ -207,14 +207,17 @@ class _MenuIconState extends State<_MenuIcon> {
                     _buildLine(
                       width: width * 1.0,
                       color: color,
+                      animationValue: animationValue,
                     ),
                     _buildLine(
                       width: width * lerpDouble(1.0, 0.75, animationValue)!,
                       color: color,
+                      animationValue: animationValue,
                     ),
                     _buildLine(
                       width: width * lerpDouble(1.0, 0.5, animationValue)!,
                       color: color,
+                      animationValue: animationValue,
                     ),
                   ],
                 ),
@@ -229,13 +232,18 @@ class _MenuIconState extends State<_MenuIcon> {
   Widget _buildLine({
     required double width,
     required Color? color,
+    required double animationValue,
   }) {
     return Container(
       height: 2,
       width: width,
-      decoration: BoxDecoration(
+      decoration: ShapeDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(8),
+        shape: BeveledRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(2 * animationValue),
+          ),
+        ),
       ),
     );
   }

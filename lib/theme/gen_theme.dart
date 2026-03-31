@@ -22,6 +22,14 @@ extension ThemeDataExtensions on ThemeData {
   Color get secondary {
     return colorScheme.secondary;
   }
+
+  double get minPageHorizontalPadding {
+    return 32.0;
+  }
+
+  double get minPageVerticalPadding {
+    return 24.0;
+  }
 }
 
 class GenTheme {
@@ -29,6 +37,7 @@ class GenTheme {
 
   ThemeData build() {
     final ColorScheme colorScheme = .dark(
+      surface: Color(0xFF_18_18_18),
       primary: Colors.white,
       secondary: Colors.amberAccent,
     );
@@ -46,6 +55,9 @@ class GenTheme {
         builders: <TargetPlatform, PageTransitionsBuilder>{
           for (TargetPlatform platform in TargetPlatform.values) platform: _PageTransitionBuilder(),
         },
+      ),
+      chipTheme: ChipThemeData(
+        shape: RoundedRectangleBorder(),
       ),
     );
   }
