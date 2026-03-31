@@ -22,6 +22,10 @@ extension ThemeDataExtensions on ThemeData {
   Color get secondary {
     return colorScheme.secondary;
   }
+
+  double get minPagePadding {
+    return 32.0;
+  }
 }
 
 class GenTheme {

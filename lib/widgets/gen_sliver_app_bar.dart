@@ -235,7 +235,7 @@ class _MenuIconState extends State<_MenuIcon> {
       width: width,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(8),
+        // borderRadius: BorderRadius.circular(8),
       ),
     );
   }

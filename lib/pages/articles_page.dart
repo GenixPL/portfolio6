@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:portfolio6/models/_models.dart';
+import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:rss_dart/dart_rss.dart';
@@ -12,12 +15,12 @@ class ArticlesPage extends StatefulWidget {
 }
 
 class _ArticlesPageState extends State<ArticlesPage> {
-  List<_MediumFeedItem>? _mediumItems;
+  List<MediumFeedItem>? _mediumItems;
 
   @override
   void initState() {
     super.initState();
-    // _init();
+    _init();
   }
 
   Future<void> _init() async {
@@ -30,70 +33,36 @@ class _ArticlesPageState extends State<ArticlesPage> {
     }
 
     final rss = RssFeed.parse(fetch.body);
-    _mediumItems = _MediumFeedItem.listFromFeed(rss);
+    _mediumItems = MediumFeedItem.listFromFeed(rss);
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<_MediumFeedItem>? mediumItems = _mediumItems;
+    final List<MediumFeedItem>? mediumItems = _mediumItems;
 
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           GenSliverAppBar(),
 
-          if (mediumItems == null)
-            CircularProgressIndicator().sliver
-          else
-            ...[
-              for (_MediumFeedItem item in mediumItems)
-                Column(
-                  children: [
-                    Text(item.title ?? 'no title'),
-                    Text(item.publicationDate?.toIso8601String() ?? 'no pub date'),
-                    Text(item.tags.toString()),
-                    Text(item.url ?? 'bo url'),
-                    // Text( ?? 'no media url'),
-                    Image.network(item.mediaUrl ?? ''),
-                  ],
-                ).sliver,
-            ].withGaps(12),
-        ],
+          ...[
+            SliverGap(12),
+
+            if (mediumItems == null)
+              Center(
+                child: CircularProgressIndicator(),
+              ).sliver
+            else
+              ...[
+                for (MediumFeedItem item in mediumItems)
+                  ArticleCard(
+                    item: item,
+                  ).sliver,
+              ].withGaps(12),
+          ].withHorizontalPadding(context.theme.minPagePadding),
+        ].withSafeArea(),
       ),
     );
   }
-}
-
-class _MediumFeedItem {
-  const _MediumFeedItem({
-    required this.title,
-    required this.publicationDate,
-    required this.mediaUrl,
-    required this.url,
-    required this.tags,
-  });
-
-  static List<_MediumFeedItem> listFromFeed(RssFeed feed) {
-    final List<_MediumFeedItem> items = [];
-    for (RssItem item in feed.items) {
-      items.add(
-        _MediumFeedItem(
-          title: item.title,
-          publicationDate: DateTime.tryParse(item.pubDate ?? ''),
-          mediaUrl: item.content?.images.tryFirst,
-          url: item.link,
-          tags: item.categories.mapList<String?>((e) => e.value).whereType<String>().toList(),
-        ),
-      );
-    }
-
-    return items;
-  }
-
-  final String? title;
-  final DateTime? publicationDate;
-  final String? mediaUrl;
-  final String? url;
-  final List<String> tags;
 }
