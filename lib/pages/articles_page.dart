@@ -24,9 +24,16 @@ class _ArticlesPageState extends State<ArticlesPage> {
   }
 
   Future<void> _init() async {
+    await Future.delayed(Duration(milliseconds: 500));
+
     final Response fetch;
     try {
-      fetch = await get(Uri.parse('https://proxy.corsfix.com/?https://medium.com/feed/@GenixPL'));
+      fetch = await get(
+        Uri.parse(
+          'https://api.allorigins.win/raw?url='
+          'https://medium.com/feed/@GenixPL',
+        ),
+      );
     } catch (e) {
       print(e);
       return;
