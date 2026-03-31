@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:rss_dart/dart_rss.dart';
 
@@ -16,7 +18,7 @@ class MediumFeedItem {
       items.add(
         MediumFeedItem(
           title: item.title,
-          publicationDate: DateTime.tryParse(item.pubDate ?? ''),
+          publicationDate: HttpDate.parse(item.pubDate ?? ''),
           mediaUrl: item.content?.images.tryFirst,
           url: item.link,
           tags: item.categories.mapList<String?>((e) => e.value).whereType<String>().toList(),

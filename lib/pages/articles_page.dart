@@ -47,20 +47,20 @@ class _ArticlesPageState extends State<ArticlesPage> {
           GenSliverAppBar(),
 
           ...[
-            SliverGap(12),
-
-            if (mediumItems == null)
-              Center(
-                child: CircularProgressIndicator(),
-              ).sliver
-            else
-              ...[
-                for (MediumFeedItem item in mediumItems)
-                  ArticleCard(
-                    item: item,
-                  ).sliver,
-              ].withGaps(12),
-          ].withHorizontalPadding(context.theme.minPagePadding),
+                if (mediumItems == null)
+                  Center(
+                    child: CircularProgressIndicator(),
+                  ).sliver
+                else
+                  ...[
+                    for (MediumFeedItem item in mediumItems)
+                      ArticleCard(
+                        item: item,
+                      ).sliver,
+                  ].withGaps(24),
+              ]
+              .withPadding(context.theme.minPageVerticalPadding)
+              .withHorizontalPadding(context.theme.minPageHorizontalPadding),
         ].withSafeArea(),
       ),
     );

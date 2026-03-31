@@ -3,6 +3,23 @@ import 'package:gap/gap.dart';
 import 'package:portfolio6/utils/_utils.dart';
 
 extension WidgetListExtensions on List<Widget> {
+  List<Widget> withPadding(
+    double size, {
+    bool sliver = true,
+  }) {
+    if (isEmpty) {
+      return this;
+    }
+
+    return [
+      if (sliver) SliverGap(size) else Gap(size),
+
+      ...this,
+
+      if (sliver) SliverGap(size) else Gap(size),
+    ];
+  }
+
   /// Puts [Gap] in between "this" list's widgets.
   List<Widget> withGaps(
     double size, {
