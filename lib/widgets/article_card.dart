@@ -32,7 +32,7 @@ class ArticleCard extends StatelessWidget {
         },
         child: Container(
           constraints: BoxConstraints(
-            maxWidth: 480,
+            maxWidth: 580,
           ),
           decoration: ShapeDecoration(
             color: Color(0xff_09_09_09),
