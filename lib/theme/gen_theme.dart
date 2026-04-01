@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio6/theme/_theme.dart';
 
 extension ThemeBuildContextExtensions on BuildContext {
   ThemeData get theme {
@@ -45,6 +46,7 @@ class GenTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
+      fontFamily: FontFamily.assistant.assetName,
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           overlayColor: _singleColor(Colors.transparent),

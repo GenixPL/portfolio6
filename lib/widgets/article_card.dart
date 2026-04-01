@@ -40,7 +40,7 @@ class ArticleCard extends StatelessWidget {
               BoxShadow(
                 color: Colors.black,
                 blurRadius: 6,
-              )
+              ),
             ],
             shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -57,13 +57,21 @@ class ArticleCard extends StatelessWidget {
                   horizontal: horizontalPadding,
                   vertical: verticalPadding,
                 ),
-                // TODO(genix): change title font
-                child: Text(
-                  item.title ?? 'no title',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: FontFamily.cpMono.assetName,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: verticalPadding / 2,
+                  children: [
+                    Text(
+                      item.title ?? 'no title',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    if (item.description != null)
+                      Text(
+                        item.description ?? 'no description',
+                      ),
+                  ],
                 ),
               ),
 
