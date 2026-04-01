@@ -24,7 +24,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          GenSliverAppBar(),
+          GenSliverAppBar(
+            onMenuTap: () {},
+
+          ),
           ...[
             SliverGap(10),
             //

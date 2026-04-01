@@ -11,7 +11,10 @@ import 'package:portfolio6/widgets/_widgets.dart';
 class GenSliverAppBar extends StatelessWidget {
   const GenSliverAppBar({
     super.key,
+    required this.onMenuTap,
   });
+
+  final VoidCallback onMenuTap;
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +102,7 @@ class GenSliverAppBar extends StatelessWidget {
                 )
               else
                 _MenuIcon(
+                  onTap: onMenuTap,
                   buttons: buttons,
                 ),
             ],
@@ -154,9 +158,11 @@ class GenSliverAppBar extends StatelessWidget {
 
 class _MenuIcon extends StatefulWidget {
   const _MenuIcon({
+    required this.onTap,
     required this.buttons,
   });
 
+  final VoidCallback onTap;
   final List<Widget> buttons;
 
   @override
@@ -248,6 +254,9 @@ class _MenuIconState extends State<_MenuIcon> {
   }
 
   void _onTap() {
+    widget.onTap();
+    return;
+
     showDialog(
       context: context,
       barrierColor: Colors.black87,
