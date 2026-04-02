@@ -98,6 +98,8 @@ class ArticleCard extends StatelessWidget {
                       children: [
                         for (String tag in item.tags)
                           Chip(
+                            // Without this, web on mobile has bigger vertical spacing.
+                            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             mouseCursor: SystemMouseCursors.click,
                             label: Text(
                               tag,

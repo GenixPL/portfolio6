@@ -21,15 +21,5 @@ class ArticlesPage extends StatelessWidget {
               .withPadding(context.theme.minPageVerticalPadding)
               .withHorizontalPadding(context.theme.minPageHorizontalPadding),
     );
-
-    // return Scaffold(
-    //   body: CustomScrollView(
-    //     slivers: [
-    //       GenSliverAppBar(),
-    //
-    //       ...,
-    //     ].withSafeArea(),
-    //   ),
-    // );
   }
 }
