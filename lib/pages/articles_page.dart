@@ -3,7 +3,6 @@ import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
-import 'package:portfolio6/widgets/page_wrapper.dart';
 
 class ArticlesPage extends StatelessWidget {
   const ArticlesPage({super.key});

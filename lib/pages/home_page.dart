@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio6/utils/_utils.dart';
-import 'package:portfolio6/widgets/gen_sliver_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,10 +23,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          GenSliverAppBar(
-            onMenuTap: () {},
-
-          ),
+          // GenSliverAppBar(
+          //   onMenuTap: () {},
+          //
+          // ),
           ...[
             SliverGap(10),
             //

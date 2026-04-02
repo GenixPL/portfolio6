@@ -23,6 +23,7 @@ class _PageWrapperState extends State<PageWrapper> {
       body: CustomScrollView(
         slivers: [
           GenSliverAppBar(
+            menuOpen: _showMenu,
             onMenuTap: () {
               _showMenu = !_showMenu;
               setState(() {});

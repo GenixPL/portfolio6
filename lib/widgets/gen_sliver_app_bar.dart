@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -11,9 +10,11 @@ import 'package:portfolio6/widgets/_widgets.dart';
 class GenSliverAppBar extends StatelessWidget {
   const GenSliverAppBar({
     super.key,
+    required this.menuOpen,
     required this.onMenuTap,
   });
 
+  final bool menuOpen;
   final VoidCallback onMenuTap;
 
   @override
@@ -101,7 +102,8 @@ class GenSliverAppBar extends StatelessWidget {
                   sliver: false,
                 )
               else
-                _MenuIcon(
+                MenuIcon(
+                  menuOpen: menuOpen,
                   onTap: onMenuTap,
                   buttons: buttons,
                 ),
@@ -152,146 +154,6 @@ class GenSliverAppBar extends StatelessWidget {
           color: activePageName == routeName ? Theme.of(context).colorScheme.secondary : null,
         ),
       ),
-    );
-  }
-}
-
-class _MenuIcon extends StatefulWidget {
-  const _MenuIcon({
-    required this.onTap,
-    required this.buttons,
-  });
-
-  final VoidCallback onTap;
-  final List<Widget> buttons;
-
-  @override
-  State<_MenuIcon> createState() => _MenuIconState();
-}
-
-class _MenuIconState extends State<_MenuIcon> {
-  bool _hovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) {
-        _hovered = true;
-        setState(() {});
-      },
-      onExit: (_) {
-        _hovered = false;
-        setState(() {});
-      },
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: _onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: AnimatedValueBuilder(
-            value: _hovered ? 1.0 : 0.0,
-            initialValue: 0.0,
-            builder: (from, to, progress, _) {
-              final double animationValue = lerpDouble(from, to, progress)!;
-
-              final Color? color = Color.lerp(
-                context.theme.primary,
-                context.theme.secondary,
-                animationValue,
-              );
-
-              const double width = 22;
-
-              return SizedBox(
-                width: width,
-                height: 18,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _buildLine(
-                      width: width * 1.0,
-                      color: color,
-                      animationValue: animationValue,
-                    ),
-                    _buildLine(
-                      width: width * lerpDouble(1.0, 0.75, animationValue)!,
-                      color: color,
-                      animationValue: animationValue,
-                    ),
-                    _buildLine(
-                      width: width * lerpDouble(1.0, 0.5, animationValue)!,
-                      color: color,
-                      animationValue: animationValue,
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLine({
-    required double width,
-    required Color? color,
-    required double animationValue,
-  }) {
-    return Container(
-      height: 2,
-      width: width,
-      decoration: ShapeDecoration(
-        color: color,
-        shape: BeveledRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(2 * animationValue),
-          ),
-        ),
-      ),
-    );
-  }
-
-  void _onTap() {
-    widget.onTap();
-    return;
-
-    showDialog(
-      context: context,
-      barrierColor: Colors.black87,
-      useSafeArea: true,
-      builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 12,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () => context.pop(),
-                    icon: Icon(Icons.close),
-                  ),
-                ],
-              ),
-
-              Column(
-                children: widget.buttons.withGaps(
-                  12,
-                  sliver: false,
-                ),
-              ),
-
-              const SizedBox(),
-            ],
-          ),
-        );
-      },
     );
   }
 }
