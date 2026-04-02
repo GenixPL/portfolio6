@@ -1,6 +1,10 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio6/theme/_theme.dart';
+import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
+import 'package:web/web.dart' as web;
 
 class PageWrapper extends StatefulWidget {
   const PageWrapper({
@@ -24,18 +28,41 @@ class _PageWrapperState extends State<PageWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        physics: _showMenu ? NeverScrollableScrollPhysics() : null,
-        controller: _scrollController,
-        slivers: [
-          GenSliverAppBar(
-            containerKey: _containerKey,
-            menuOpen: _showMenu,
-            onMenuTap: _onMenuTap,
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          // Hide if menu is shown.
+          scrollbars: !_showMenu,
+        ),
+        child: _optionalRefreshWrap(
+          child: CustomScrollView(
+            physics: _showMenu ? NeverScrollableScrollPhysics() : (isMobile ? AlwaysScrollableScrollPhysics() : null),
+            controller: _scrollController,
+            slivers: [
+              GenSliverAppBar(
+                containerKey: _containerKey,
+                menuOpen: _showMenu,
+                onMenuTap: _onMenuTap,
+              ),
+              ...widget.slivers,
+            ],
           ),
-          ...widget.slivers,
-        ],
+        ),
       ),
+    );
+  }
+
+  Widget _optionalRefreshWrap({required Widget child}) {
+    if (!isMobile) {
+      return child;
+    }
+
+    return RefreshIndicator(
+      triggerMode: RefreshIndicatorTriggerMode.anywhere,
+      onRefresh: () async {
+        // This triggers a hard reload of the page in the browser
+        web.window.location.reload();
+      },
+      child: child,
     );
   }
 
