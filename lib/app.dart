@@ -17,11 +17,13 @@ class _MyAppState extends State<MyApp> {
         path: '/',
         name: 'home',
         builder: (_, _) => HomePage(),
-      ),
-      GoRoute(
-        path: '/articles',
-        name: 'articles',
-        builder: (_, _) => ArticlesPage(),
+        routes: [
+          GoRoute(
+            path: '/articles',
+            name: 'articles',
+            builder: (_, _) => ArticlesPage(),
+          ),
+        ],
       ),
     ],
   );

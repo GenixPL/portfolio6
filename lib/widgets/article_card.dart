@@ -32,7 +32,7 @@ class ArticleCard extends StatelessWidget {
         },
         child: Container(
           constraints: BoxConstraints(
-            maxWidth: 480,
+            maxWidth: 580,
           ),
           decoration: ShapeDecoration(
             color: Color(0xff_09_09_09),
@@ -112,44 +112,70 @@ class ArticleCard extends StatelessWidget {
                       ],
                     ),
 
-                    Row(
-                      children: [
-                        if (date != null)
-                          Text(
-                            '${date.day}'
-                            ' ${DateFormat.MMM().format(DateTime(0, date.month))}'
-                            '${date.year == DateTime.now().year ? "" : " ${date.year}"}',
-                          ),
+                    if (MediaQuery.sizeOf(context).width < 320)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (date != null) _buildDate(date) else const SizedBox(),
 
-                        Spacer(),
-                        if (url != null)
-                          TextButton(
-                            onPressed: () => launchUrlString(url),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                          if (url != null)
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(
-                                  // Space at the end add "padding" to the icon.
-                                  'READ MORE ',
-                                  style: TextStyle(
-                                    fontFamily: FontFamily.cpMono.assetName,
-                                  ),
-                                  textHeightBehavior: TextHeightBehavior(
-                                    applyHeightToLastDescent: false,
-                                  ),
-                                ),
-                                Icon(Icons.open_in_new_sharp),
+                                _buildReadMore(url),
                               ],
-                            ),
-                          ),
-                      ],
-                    ),
+                            )
+                          else
+                            const SizedBox(),
+                        ],
+                      )
+                    else
+                      Row(
+                        children: [
+                          if (date != null) _buildDate(date) else const SizedBox(),
+
+                          Spacer(),
+
+                          if (url != null) _buildReadMore(url) else const SizedBox(),
+                        ],
+                      ),
                   ],
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildDate(DateTime date) {
+    return Text(
+      '${date.day}'
+      ' ${DateFormat.MMM().format(DateTime(0, date.month))}'
+      '${date.year == DateTime.now().year ? "" : " ${date.year}"}',
+    );
+  }
+
+  Widget _buildReadMore(String url) {
+    return TextButton(
+      onPressed: () => launchUrlString(url),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            // Space at the end add "padding" to the icon.
+            'READ MORE ',
+            style: TextStyle(
+              fontFamily: FontFamily.cpMono.assetName,
+            ),
+            textHeightBehavior: TextHeightBehavior(
+              applyHeightToLastDescent: false,
+            ),
+          ),
+          Icon(Icons.open_in_new_sharp),
+        ],
       ),
     );
   }

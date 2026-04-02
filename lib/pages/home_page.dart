@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio6/utils/_utils.dart';
-import 'package:portfolio6/widgets/gen_sliver_app_bar.dart';
+import 'package:portfolio6/widgets/_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,33 +21,28 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          GenSliverAppBar(),
-          ...[
-            SliverGap(10),
-            //
-            Container(
-              width: 50,
-              height: 30,
-              color: Colors.black,
-            ).sliver,
+    return PageWrapper(
+      slivers: [
+        SliverGap(10),
+        //
+        Container(
+          width: 50,
+          height: 30,
+          color: Colors.black,
+        ).sliver,
 
-            Container(
-              width: 50,
-              height: 300,
-              color: Colors.redAccent,
-            ).sliver,
+        Container(
+          width: 50,
+          height: 300,
+          color: Colors.redAccent,
+        ).sliver,
 
-            Container(
-              width: 50,
-              height: 300,
-              color: Colors.amber,
-            ).sliver,
-          ].withHorizontalPadding(32),
-        ],
-      ),
+        Container(
+          width: 50,
+          height: 300,
+          color: Colors.amber,
+        ).sliver,
+      ].withHorizontalPadding(32),
     );
   }
 }

@@ -9,12 +9,9 @@ class ArticlesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          GenSliverAppBar(),
-
-          ...[
+    return PageWrapper(
+      slivers:
+          [
                 for (MediumFeedItem item in mediumFeedItems)
                   ArticleCard(
                     item: item,
@@ -23,8 +20,16 @@ class ArticlesPage extends StatelessWidget {
               .withGaps(24)
               .withPadding(context.theme.minPageVerticalPadding)
               .withHorizontalPadding(context.theme.minPageHorizontalPadding),
-        ].withSafeArea(),
-      ),
     );
+
+    // return Scaffold(
+    //   body: CustomScrollView(
+    //     slivers: [
+    //       GenSliverAppBar(),
+    //
+    //       ...,
+    //     ].withSafeArea(),
+    //   ),
+    // );
   }
 }
