@@ -1,9 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:portfolio6/theme/gen_theme.dart';
-import 'package:portfolio6/utils/widget_list_extensions.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 
 class MenuIcon extends StatefulWidget {
@@ -11,12 +9,10 @@ class MenuIcon extends StatefulWidget {
     super.key,
     required this.menuOpen,
     required this.onTap,
-    required this.buttons,
   });
 
   final bool menuOpen;
   final VoidCallback onTap;
-  final List<Widget> buttons;
 
   @override
   State<MenuIcon> createState() => _MenuIconState();
@@ -118,42 +114,5 @@ class _MenuIconState extends State<MenuIcon> {
   void _onTap() {
     widget.onTap();
     return;
-
-    showDialog(
-      context: context,
-      barrierColor: Colors.black87,
-      useSafeArea: true,
-      builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 12,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () => context.pop(),
-                    icon: Icon(Icons.close),
-                  ),
-                ],
-              ),
-
-              Column(
-                children: widget.buttons.withGaps(
-                  12,
-                  sliver: false,
-                ),
-              ),
-
-              const SizedBox(),
-            ],
-          ),
-        );
-      },
-    );
   }
 }

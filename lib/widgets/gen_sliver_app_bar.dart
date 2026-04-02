@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:go_router/go_router.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
@@ -10,10 +9,12 @@ import 'package:portfolio6/widgets/_widgets.dart';
 class GenSliverAppBar extends StatelessWidget {
   const GenSliverAppBar({
     super.key,
+    required this.containerKey,
     required this.menuOpen,
     required this.onMenuTap,
   });
 
+  final GlobalKey containerKey;
   final bool menuOpen;
   final VoidCallback onMenuTap;
 
@@ -29,6 +30,7 @@ class GenSliverAppBar extends StatelessWidget {
 
         return PinnedHeaderSliver(
           child: Container(
+            key: containerKey,
             height: height * scale,
             color: Color.lerp(
               backgroundColor,
@@ -56,8 +58,6 @@ class GenSliverAppBar extends StatelessWidget {
     const double bottomLineHeight = 3;
 
     final double spacing = 12 * scale;
-
-    final List<Widget> buttons = _buildMenuButtons(context);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,7 +97,9 @@ class GenSliverAppBar extends StatelessWidget {
               const Spacer(),
 
               if (MediaQuery.sizeOf(context).width >= 450)
-                ...buttons.withGaps(
+                ...MenuButton.buildButtons(
+                  onTap: () {},
+                ).withGaps(
                   spacing,
                   sliver: false,
                 )
@@ -105,7 +107,6 @@ class GenSliverAppBar extends StatelessWidget {
                 MenuIcon(
                   menuOpen: menuOpen,
                   onTap: onMenuTap,
-                  buttons: buttons,
                 ),
             ],
           ),
@@ -118,42 +119,6 @@ class GenSliverAppBar extends StatelessWidget {
           color: scrollOffset > 0 ? Colors.black.withAlpha(200) : Colors.transparent,
         ),
       ],
-    );
-  }
-
-  List<Widget> _buildMenuButtons(BuildContext context) {
-    return [
-      _buildMenuButton(
-        context: context,
-        name: 'home',
-        routeName: 'home',
-      ),
-      _buildMenuButton(
-        context: context,
-        name: 'articles',
-        routeName: 'articles',
-      ),
-    ];
-  }
-
-  Widget _buildMenuButton({
-    required BuildContext context,
-    required String name,
-    required String routeName,
-  }) {
-    final String? activePageName = GoRouterState.of(context).topRoute?.name;
-
-    return TextButton(
-      onPressed: () {
-        context.goNamed(routeName);
-      },
-      child: Text(
-        name.toUpperCase(),
-        style: TextStyle(
-          fontFamily: FontFamily.cpMono.assetName,
-          color: activePageName == routeName ? Theme.of(context).colorScheme.secondary : null,
-        ),
-      ),
     );
   }
 }
