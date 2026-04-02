@@ -24,17 +24,23 @@ class _PageWrapperState extends State<PageWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        physics: _showMenu ? NeverScrollableScrollPhysics() : null,
-        controller: _scrollController,
-        slivers: [
-          GenSliverAppBar(
-            containerKey: _containerKey,
-            menuOpen: _showMenu,
-            onMenuTap: _onMenuTap,
-          ),
-          ...widget.slivers,
-        ],
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          // Hide if menu is shown.
+          scrollbars: !_showMenu,
+        ),
+        child: CustomScrollView(
+          physics: _showMenu ? NeverScrollableScrollPhysics() : null,
+          controller: _scrollController,
+          slivers: [
+            GenSliverAppBar(
+              containerKey: _containerKey,
+              menuOpen: _showMenu,
+              onMenuTap: _onMenuTap,
+            ),
+            ...widget.slivers,
+          ],
+        ),
       ),
     );
   }
