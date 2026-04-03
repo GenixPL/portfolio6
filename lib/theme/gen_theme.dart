@@ -61,6 +61,11 @@ class GenTheme {
       chipTheme: ChipThemeData(
         shape: RoundedRectangleBorder(),
       ),
+      textTheme: TextTheme(
+        titleLarge: TextStyle(
+          fontWeight: FontWeight.w700,
+        ),
+      ),
     );
   }
 

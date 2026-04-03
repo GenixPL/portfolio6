@@ -101,6 +101,7 @@ class _PageWrapperState extends State<PageWrapper> {
           color: Colors.black.withAlpha(240),
           child: Center(
             child: Column(
+              spacing: 10,
               mainAxisAlignment: MainAxisAlignment.center,
               children: MenuButton.buildButtons(
                 onTap: _hideMenu,
