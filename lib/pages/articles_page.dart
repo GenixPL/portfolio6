@@ -39,18 +39,18 @@ class ArticlesPage extends StatelessWidget {
                   builder: (_, snapshot) {
                     // The _wereCached check was added here because the widget is sometimes
                     // rebuilt and jumps between `waiting` and `done`, which causes flickers.
-                    if (snapshot.connectionState == ConnectionState.waiting && !_wereCached) {
+                    // if (snapshot.connectionState == ConnectionState.waiting && !_wereCached) {
                       return GenProgressIndicator().sliver;
-                    }
+                    // }
 
-                    return SliverMainAxisGroup(
-                      slivers: [
-                        for (MediumFeedItem item in mediumFeedItems)
-                          ArticleCard(
-                            item: item,
-                          ).sliver,
-                      ].withGaps(24),
-                    );
+                    // return SliverMainAxisGroup(
+                    //   slivers: [
+                    //     for (MediumFeedItem item in mediumFeedItems)
+                    //       ArticleCard(
+                    //         item: item,
+                    //       ).sliver,
+                    //   ].withGaps(24),
+                    // );
                   },
                 ),
               ]

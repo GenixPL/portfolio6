@@ -85,7 +85,7 @@ class _GenProgressIndicatorState extends State<GenProgressIndicator> with Ticker
           dimension: widget.size ?? 75,
           child: CustomPaint(
             painter: _Painter(
-              color: widget.color ?? context.theme.primary,
+              color: widget.color ?? context.theme.secondary,
               valueFactor: _valueController.value % 1,
               widthFactor: _widthController.value,
             ),
