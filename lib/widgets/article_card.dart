@@ -63,13 +63,12 @@ class ArticleCard extends StatelessWidget {
                   children: [
                     Text(
                       item.title ?? 'no title',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: context.theme.textTheme.titleMedium,
                     ),
                     if (item.description != null)
                       Text(
                         item.description ?? 'no description',
+                        style: context.theme.textTheme.bodyMedium,
                       ),
                   ],
                 ),

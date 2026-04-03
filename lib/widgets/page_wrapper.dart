@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
@@ -67,14 +65,13 @@ class _PageWrapperState extends State<PageWrapper> {
   }
 
   void _onMenuTap() {
-    _showMenu = !_showMenu;
-    setState(() {});
-
     if (_overlayEntry != null) {
-      _overlayEntry!.remove();
-      _overlayEntry = null;
+      _hideMenu();
       return;
     }
+
+    _showMenu = true;
+    setState(() {});
 
     _overlayEntry = OverlayEntry(
       builder: (_) {
@@ -98,25 +95,31 @@ class _PageWrapperState extends State<PageWrapper> {
       opacity: _showMenu ? 1.0 : 0.0,
       curve: context.theme.basicAnimationCurve,
       duration: context.theme.basicAnimationDuration,
-      child: Container(
-        color: Colors.black.withAlpha(240),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: MenuButton.buildButtons(
-              onTap: () {
-                _showMenu = false;
-                setState(() {});
-                if (_overlayEntry != null) {
-                  _overlayEntry!.remove();
-                  _overlayEntry = null;
-                  return;
-                }
-              },
+      child: GestureDetector(
+        onTap: _hideMenu,
+        child: Container(
+          color: Colors.black.withAlpha(240),
+          child: Center(
+            child: Column(
+              spacing: 10,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: MenuButton.buildButtons(
+                onTap: _hideMenu,
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _hideMenu() {
+    _showMenu = false;
+    setState(() {});
+    if (_overlayEntry != null) {
+      _overlayEntry!.remove();
+      _overlayEntry = null;
+      return;
+    }
   }
 }
