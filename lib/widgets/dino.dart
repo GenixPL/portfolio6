@@ -68,7 +68,8 @@ class _DinoState extends State<Dino> {
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             return LayoutBuilder(
               builder: (context, constraints) {
-                final double sizeFactor = min(constraints.maxWidth, _defaultWidth) / _defaultWidth;
+                final double width = min(constraints.maxWidth, _defaultWidth);
+                final double sizeFactor = width / _defaultWidth;
 
                 return Center(
                   child: CustomPaint(
@@ -77,11 +78,9 @@ class _DinoState extends State<Dino> {
                       showText: _imagesCached,
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(
-                        52 * sizeFactor,
-                      ),
+                      padding: EdgeInsets.all(52 * sizeFactor),
                       child: SizedBox(
-                        width: _defaultWidth * sizeFactor,
+                        width: width,
                         child: AspectRatio(
                           aspectRatio: 44 / 47,
                           child: _imagesCached
