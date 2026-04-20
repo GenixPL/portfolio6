@@ -39,7 +39,7 @@ packages:
       path: "."
       ref: "1.1.1"
       resolved-ref: "5e52cee5942483f45bd0292686a1cc817ff379b1"
-      url: "git@github.com:GenixPL/dino_game.git"
+      url: "https://github.com/GenixPL/dino_game.git"
     source: git
     version: "0.0.1"
   flame:
