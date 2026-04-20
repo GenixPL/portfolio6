@@ -31,6 +31,18 @@ extension ThemeDataExtensions on ThemeData {
   double get minPageVerticalPadding {
     return 24.0;
   }
+
+  double get cardSpacing {
+    return 24.0;
+  }
+
+  double get maxHorizontalCardWidth {
+    return 580;
+  }
+
+  double get cornerCut {
+    return 24;
+  }
 }
 
 class GenTheme {

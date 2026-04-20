@@ -41,7 +41,9 @@ class _PageWrapperState extends State<PageWrapper> {
                 menuOpen: _showMenu,
                 onMenuTap: _onMenuTap,
               ),
-              ...widget.slivers,
+              ...widget.slivers
+                  .withPadding(context.theme.minPageVerticalPadding)
+                  .withHorizontalPadding(context.theme.minPageHorizontalPadding),
             ],
           ),
         ),

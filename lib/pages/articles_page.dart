@@ -48,11 +48,11 @@ class ArticlesPage extends StatelessWidget {
                   ArticleCard(
                     item: item,
                   ).sliver,
-              ].withGaps(24),
+              ].withGaps(context.theme.cardSpacing),
             );
           },
         ),
-      ].withPadding(context.theme.minPageVerticalPadding).withHorizontalPadding(context.theme.minPageHorizontalPadding),
+      ],
     );
   }
 }

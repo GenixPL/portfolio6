@@ -21,8 +21,6 @@ class ArticleCard extends StatelessWidget {
     final String? url = item.url;
     final DateTime? date = item.publicationDate;
 
-    const double cornerCut = 24;
-
     return Center(
       child: GenGestureDetector.base(
         onTap: () {
@@ -32,7 +30,7 @@ class ArticleCard extends StatelessWidget {
         },
         child: Container(
           constraints: BoxConstraints(
-            maxWidth: 580,
+            maxWidth: context.theme.maxHorizontalCardWidth,
           ),
           decoration: ShapeDecoration(
             color: Color(0xff_09_09_09),
@@ -44,8 +42,8 @@ class ArticleCard extends StatelessWidget {
             ],
             shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(cornerCut),
-                bottomRight: Radius.circular(cornerCut),
+                topLeft: Radius.circular(context.theme.cornerCut),
+                bottomRight: Radius.circular(context.theme.cornerCut),
               ),
             ),
           ),
