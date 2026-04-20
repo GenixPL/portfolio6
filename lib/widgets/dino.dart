@@ -6,7 +6,12 @@ import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 
 class Dino extends StatefulWidget {
-  const Dino({super.key});
+  const Dino({
+    super.key,
+    required this.onTap,
+  });
+
+  final VoidCallback onTap;
 
   @override
   State<Dino> createState() => _DinoState();
@@ -40,53 +45,61 @@ class _DinoState extends State<Dino> {
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
-      child: FutureBuilder(
-        future: () async {
+      child: GenGestureDetector.base(
+        onTap: () {
           if (_imagesCached) {
-            return;
+            widget.onTap();
           }
+        },
+        child: FutureBuilder(
+          future: () async {
+            if (_imagesCached) {
+              return;
+            }
 
-          await Future.wait([
-            precacheImage(AssetImage(_eyePath), context),
-            precacheImage(AssetImage(_noEyePath), context),
-            Future.delayed(Duration(milliseconds: 500)),
-          ]);
+            await Future.wait([
+              precacheImage(AssetImage(_eyePath), context),
+              precacheImage(AssetImage(_noEyePath), context),
+              Future.delayed(Duration(milliseconds: 500)),
+            ]);
 
-          _imagesCached = true;
-        }.call(),
-        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-          return LayoutBuilder(
-            builder: (context, constraints) {
-              final double sizeFactor = min(constraints.maxWidth, _defaultWidth) / _defaultWidth;
+            _imagesCached = true;
+          }.call(),
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            return LayoutBuilder(
+              builder: (context, constraints) {
+                final double sizeFactor = min(constraints.maxWidth, _defaultWidth) / _defaultWidth;
 
-              return Center(
-                child: CustomPaint(
-                  painter: _Painter(
-                    color: context.theme.primary,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(
-                      52 * sizeFactor,
+                return Center(
+                  child: CustomPaint(
+                    painter: _Painter(
+                      color: context.theme.primary,
+                      showText: _imagesCached,
                     ),
-                    child: SizedBox(
-                      width: _defaultWidth * sizeFactor,
-                      child: AspectRatio(
-                        aspectRatio: 44 / 47,
-                        child: _imagesCached
-                            ? Image.asset(
-                                _eye ? _eyePath : _noEyePath,
-                              )
-                            : Center(
-                                child: GenProgressIndicator(),
-                              ),
+                    child: Padding(
+                      padding: EdgeInsets.all(
+                        52 * sizeFactor,
+                      ),
+                      child: SizedBox(
+                        width: _defaultWidth * sizeFactor,
+                        child: AspectRatio(
+                          aspectRatio: 44 / 47,
+                          child: _imagesCached
+                              ? Image.asset(
+                                  _eye ? _eyePath : _noEyePath,
+                                )
+                              : Center(
+                                  child: GenProgressIndicator(),
+                                ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            },
-          );
-        },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -156,12 +169,14 @@ class _DinoState extends State<Dino> {
 class _Painter extends CustomPainter {
   _Painter({
     required this.color,
+    required this.showText,
   });
 
   static const double _lineHeightFactor = 0.125;
   static const double _lineWidthFactor = 0.375;
   static const double _strokeWidth = 8;
 
+  final bool showText;
   final Color color;
 
   @override
@@ -209,6 +224,12 @@ class _Painter extends CustomPainter {
     canvas.drawPath(path, paint);
 
     // "PLAY" text
+    if (showText) {
+      _painText(canvas, size);
+    }
+  }
+
+  void _painText(Canvas canvas, Size size) {
     final TextSpan textSpan = TextSpan(
       text: '<TAP TO PLAY>',
       style: TextStyle(
@@ -246,6 +267,10 @@ class _Painter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _Painter oldDelegate) {
     if (oldDelegate.color != color) {
+      return true;
+    }
+
+    if (oldDelegate.showText != showText) {
       return true;
     }
 

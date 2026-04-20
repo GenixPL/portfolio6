@@ -19,6 +19,11 @@ class _MyAppState extends State<MyApp> {
         builder: (_, _) => HomePage(),
         routes: [
           GoRoute(
+            path: '/dino',
+            name: 'dino',
+            builder: (_, _) => DinoPage(),
+          ),
+          GoRoute(
             path: '/articles',
             name: 'articles',
             builder: (_, _) => ArticlesPage(),
