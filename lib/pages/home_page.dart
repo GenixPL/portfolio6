@@ -25,10 +25,12 @@ class _HomePageState extends State<HomePage> {
       slivers: [
         Row(
           children: [
-            Dino(
-              onTap: () {
-                context.goNamed('dino');
-              },
+            Flexible(
+              child: Dino(
+                onTap: () {
+                  context.goNamed('dino');
+                },
+              ),
             ),
           ],
         ).sliver,
