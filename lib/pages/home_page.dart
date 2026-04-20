@@ -1,3 +1,4 @@
+import 'package:dino_game/dino_game.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio6/utils/_utils.dart';
@@ -23,12 +24,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return PageWrapper(
       slivers: [
-        SliverGap(10),
-        //
-        Container(
-          width: 50,
-          height: 30,
-          color: Colors.black,
+
+        Row(
+          children: [
+            Dino(),
+          ],
         ).sliver,
 
         Container(

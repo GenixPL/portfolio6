@@ -183,6 +183,10 @@ class _Painter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _Painter oldDelegate) {
+    if (oldDelegate.color != color) {
+      return true;
+    }
+
     if (oldDelegate.valueFactor != valueFactor) {
       return true;
     }
