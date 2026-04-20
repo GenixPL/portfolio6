@@ -65,6 +65,15 @@ class GenTheme {
           foregroundColor: _hoveredColor(colorScheme.secondary.withAlpha(200)),
         ),
       ),
+      inputDecorationTheme: InputDecorationTheme(
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: colorScheme.secondary),
+          borderRadius: BorderRadius.all(Radius.zero),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.zero),
+        ),
+      ),
       pageTransitionsTheme: PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
           for (TargetPlatform platform in TargetPlatform.values) platform: _PageTransitionBuilder(),

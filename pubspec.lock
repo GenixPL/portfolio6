@@ -37,8 +37,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "1.1.1"
-      resolved-ref: "5e52cee5942483f45bd0292686a1cc817ff379b1"
+      ref: "1.2.0"
+      resolved-ref: b95b213930ee5810d57b90768f79392d82e9b1ff
       url: "https://github.com/GenixPL/dino_game.git"
     source: git
     version: "0.0.1"
