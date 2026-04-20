@@ -25,7 +25,11 @@ class _HomePageState extends State<HomePage> {
     return PageWrapper(
       slivers: [
 
-        Dino().sliver,
+        Row(
+          children: [
+            Dino(),
+          ],
+        ).sliver,
 
         Container(
           width: 50,

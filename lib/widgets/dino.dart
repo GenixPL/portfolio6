@@ -178,6 +178,7 @@ class _Painter extends CustomPainter {
 
     final double halfStrokeWidth = _strokeWidth / 2;
 
+    // Top right line
     path.moveTo(
       size.width * (1 - _lineWidthFactor) - halfStrokeWidth,
       0 + halfStrokeWidth,
@@ -191,6 +192,7 @@ class _Painter extends CustomPainter {
       size.height * _lineHeightFactor + halfStrokeWidth,
     );
 
+    // Bottom left line
     path.moveTo(
       size.width * _lineWidthFactor + halfStrokeWidth,
       size.height - halfStrokeWidth,
@@ -205,6 +207,40 @@ class _Painter extends CustomPainter {
     );
 
     canvas.drawPath(path, paint);
+
+    // "PLAY" text
+    final TextSpan textSpan = TextSpan(
+      text: '<TAP TO PLAY>',
+      style: TextStyle(
+        color: color,
+        height: 1.0,
+        leadingDistribution: TextLeadingDistribution.even,
+        fontSize: _strokeWidth,
+        fontFamily: FontFamily.cpMono.assetName,
+      ),
+    );
+
+    final TextPainter textPainter = TextPainter(
+      text: textSpan,
+      textDirection: TextDirection.ltr, // Required
+      textHeightBehavior: TextHeightBehavior(
+        applyHeightToLastDescent: false,
+        applyHeightToFirstAscent: false,
+      ),
+    );
+
+    // You must call layout() before painting to calculate the size
+    textPainter.layout();
+
+    // Draw the text onto the canvas at a specific Offset
+    textPainter.paint(
+      canvas,
+      Offset(
+        size.width - textPainter.width,
+        // +1 is a manual correction due to the font
+        size.height - textPainter.height + 1,
+      ),
+    );
   }
 
   @override
