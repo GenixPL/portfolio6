@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 
@@ -33,20 +34,50 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
-        ).sliver,
+        ),
 
-        Container(
-          width: 50,
-          height: 300,
-          color: Colors.redAccent,
-        ).sliver,
+        _Section(),
+      ].slivers.withGapsAndPadding(32).withHorizontalPadding(32),
+    );
+  }
+}
 
-        Container(
-          width: 50,
-          height: 300,
-          color: Colors.amber,
-        ).sliver,
-      ].withHorizontalPadding(32),
+class _Section extends StatefulWidget {
+  const _Section({super.key});
+
+  @override
+  State<_Section> createState() => _SectionState();
+}
+
+class _SectionState extends State<_Section> {
+  late final PageController _pageController = PageController();
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 500,
+      child: ScrollWrapper(
+        axis: Axis.horizontal,
+        controller: _pageController,
+        child: PageView(
+          controller: _pageController,
+          children: [
+            for (MediumFeedItem item in mediumFeedItems.sublist(0, 3))
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ArticleCard(
+                  item: item,
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }
