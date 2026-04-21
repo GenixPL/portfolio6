@@ -86,6 +86,10 @@ class GenTheme {
         titleLarge: TextStyle(
           fontWeight: FontWeight.w700,
         ),
+        headlineSmall: TextStyle(
+          fontFamily: FontFamily.assistant.assetName,
+          fontWeight: FontWeight.w700,
+        ),
       ),
     );
   }

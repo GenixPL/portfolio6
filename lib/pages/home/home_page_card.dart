@@ -57,7 +57,7 @@ class HomePageCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       spacing: 8,
                       children: [
-                        if (title != null) ArticleTitle(title),
+                        if (title != null) ArticleTitle(title, ),
                         if (subtitle != null) ArticleDescription(subtitle),
                       ],
                     ),

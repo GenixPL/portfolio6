@@ -6,8 +6,10 @@ class ReadMore extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.external,
+    this.text = 'read more',
   });
 
+  final String text;
   final VoidCallback onTap;
   final bool external;
 
@@ -21,7 +23,7 @@ class ReadMore extends StatelessWidget {
         children: [
           Text(
             // Space at the end add "padding" to the icon.
-            'READ MORE ',
+            text.toUpperCase(),
             style: TextStyle(
               fontFamily: FontFamily.cpMono.assetName,
             ),
@@ -29,7 +31,8 @@ class ReadMore extends StatelessWidget {
               applyHeightToLastDescent: false,
             ),
           ),
-          Icon(Icons.open_in_new_sharp),
+          const SizedBox(width: 4),
+          Icon(external ? Icons.open_in_new_sharp : Icons.chevron_right_sharp),
         ],
       ),
     );
