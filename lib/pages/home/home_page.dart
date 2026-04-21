@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio6/models/_models.dart';
+import 'package:portfolio6/pages/home/home_page_card.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 class _Section extends StatefulWidget {
-  const _Section({super.key});
+  const _Section();
 
   @override
   State<_Section> createState() => _SectionState();
@@ -70,9 +71,19 @@ class _SectionState extends State<_Section> {
           children: [
             for (MediumFeedItem item in mediumFeedItems.sublist(0, 3))
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ArticleCard(
-                  item: item,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                ),
+                child: HomePageCard(
+                  title: item.title,
+                  subtitle: item.description,
+                  image: Image.network(
+                    item.mediaUrl,
+                    fit: BoxFit.cover,
+                  ),
+                  tags: item.tags,
+                  date: item.publicationDate,
+                  url: item.url,
                 ),
               ),
           ],

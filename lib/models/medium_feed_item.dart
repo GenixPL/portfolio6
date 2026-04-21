@@ -83,10 +83,10 @@ class MediumFeedItem {
     required this.tags,
   });
 
-  final String? title;
+  final String title;
   final String? description;
-  final DateTime? publicationDate;
-  final String? mediaUrl;
-  final String? url;
+  final DateTime publicationDate;
+  final String mediaUrl;
+  final String url;
   final List<String> tags;
 }
