@@ -71,26 +71,24 @@ class _DinoState extends State<Dino> {
                 final double width = min(constraints.maxWidth, _defaultWidth);
                 final double sizeFactor = width / _defaultWidth;
 
-                return Center(
-                  child: CustomPaint(
-                    painter: _Painter(
-                      color: context.theme.primary,
-                      showText: _imagesCached,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(52 * sizeFactor),
-                      child: SizedBox(
-                        width: width,
-                        child: AspectRatio(
-                          aspectRatio: 44 / 47,
-                          child: _imagesCached
-                              ? Image.asset(
-                                  _eye ? _eyePath : _noEyePath,
-                                )
-                              : Center(
-                                  child: GenProgressIndicator(),
-                                ),
-                        ),
+                return CustomPaint(
+                  painter: _Painter(
+                    color: context.theme.primary,
+                    showText: _imagesCached,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(52 * sizeFactor),
+                    child: SizedBox(
+                      width: width,
+                      child: AspectRatio(
+                        aspectRatio: 44 / 47,
+                        child: _imagesCached
+                            ? Image.asset(
+                                _eye ? _eyePath : _noEyePath,
+                              )
+                            : Center(
+                                child: GenProgressIndicator(),
+                              ),
                       ),
                     ),
                   ),

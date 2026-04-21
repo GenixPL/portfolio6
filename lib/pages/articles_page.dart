@@ -24,12 +24,9 @@ class ArticlesPage extends StatelessWidget {
             ];
 
             for (MediumFeedItem item in mediumFeedItems) {
-              final String? url = item.mediaUrl;
-              if (url != null) {
-                futures.add(
-                  precacheImage(NetworkImage(url), context),
-                );
-              }
+              futures.add(
+                precacheImage(NetworkImage(item.mediaUrl), context),
+              );
             }
 
             await Future.wait(futures);
