@@ -129,6 +129,15 @@ class _SectionState extends State<_Section> {
                         image: Image.network(
                           item.mediaUrl,
                           fit: BoxFit.cover,
+                          loadingBuilder: (_, child, progress) {
+                            if (progress == null) {
+                              return child;
+                            }
+
+                            return Center(
+                              child: GenProgressIndicator(),
+                            );
+                          },
                         ),
                         tags: item.tags,
                         date: item.publicationDate,
@@ -140,21 +149,21 @@ class _SectionState extends State<_Section> {
             ),
           ),
           Gap(8),
-          if (_pageController.hasClients)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              spacing: 8,
-              children: [
-                for (int i = 0; i < items.length; i++) _buildPageIndicator(i),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 8,
+            children: [
+              for (int i = 0; i < items.length; i++) _buildPageIndicator(i),
+            ],
+          ),
         ],
       ),
     );
   }
 
   Widget _buildPageIndicator(int i) {
-    final bool isCurrent = (i == _pageController.page?.round());
+    final int? currentPage = (_pageController.hasClients ? _pageController.page?.round() : 0);
+    final bool isCurrent = (i == currentPage);
     final double size = isCurrent ? 16 : 10;
     final Duration duration = context.theme.basicAnimationDuration;
     final Curve curve = context.theme.basicAnimationCurve;
