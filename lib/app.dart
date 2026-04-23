@@ -54,6 +54,19 @@ class _MyAppState extends State<MyApp> {
       routerConfig: _router,
       scrollBehavior: const GenScrollBehavior(),
       theme: const GenTheme().build(),
+      builder: (context, child) {
+        return Overlay(
+          initialEntries: [
+            if (child != null)
+              OverlayEntry(
+                // Needed to make all texts selectable
+                builder: (_) => SelectionArea(
+                  child: child,
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 }
