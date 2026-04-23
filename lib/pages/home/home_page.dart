@@ -129,6 +129,15 @@ class _SectionState extends State<_Section> {
                         image: Image.network(
                           item.mediaUrl,
                           fit: BoxFit.cover,
+                          loadingBuilder: (_, child, progress) {
+                            if (progress == null) {
+                              return child;
+                            }
+
+                            return Center(
+                              child: GenProgressIndicator(),
+                            );
+                          },
                         ),
                         tags: item.tags,
                         date: item.publicationDate,

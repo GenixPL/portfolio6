@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-// TODO(genix): change loading
-// TODO(genix): the indicator isnt visible before first move
 class HomePageCard extends StatelessWidget {
   const HomePageCard({
     super.key,

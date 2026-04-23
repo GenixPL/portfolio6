@@ -36,14 +36,19 @@ extension ThemeDataExtensions on ThemeData {
   double defaultPageVerticalPadding(BuildContext context) {
     final double maxHeight = MediaQuery.sizeOf(context).height;
     if (maxHeight < 800) {
-      return 32;
+      return 48;
     }
 
     return 64;
   }
 
   double defaultSpacing(BuildContext context) {
-    return defaultPageVerticalPadding(context);
+    final double maxHeight = MediaQuery.sizeOf(context).height;
+    if (maxHeight < 800) {
+      return 32;
+    }
+
+    return 48;
   }
 
   double get cardSpacing {
