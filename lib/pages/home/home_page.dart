@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   style: headStyle,
                   children: [
                     TextSpan(
-                      text: 'Hei!  ',
+                      text: 'Hei!\n',
                       style: contrastHeadStyle,
                     ),
                     TextSpan(
