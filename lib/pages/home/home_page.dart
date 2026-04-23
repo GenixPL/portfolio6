@@ -38,9 +38,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ).sliver,
-        SliverGap(80),
+
         _Section().sliver,
-      ],
+      ].withGaps(context.theme.defaultSpacing(context)),
     );
   }
 }

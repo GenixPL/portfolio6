@@ -42,6 +42,10 @@ extension ThemeDataExtensions on ThemeData {
     return 64;
   }
 
+  double defaultSpacing(BuildContext context) {
+    return defaultPageVerticalPadding(context);
+  }
+
   double get cardSpacing {
     return 24.0;
   }

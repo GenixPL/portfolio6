@@ -11,11 +11,6 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWrapper(
       slivers: [
-        // Text(
-        //   'personal projects'.toUpperCase(),
-        //   textAlign: TextAlign.center,
-        //   style: context.theme.textTheme.titleLarge,
-        // ).sliver,
         ...[
           for (Project project in personalProjects) ProjectCard(project).sliver,
         ].withGaps(context.theme.cardSpacing),
