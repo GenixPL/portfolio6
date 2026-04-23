@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         TextSpan(
                           text:
-                              ". Outside of programming I am deep into investing, and devoting my free time to long hikes, books, beer, cigars, and German rap.",
+                              ". Outside of programming I am deep into investing and devoting my free time to long hikes, books, beer, cigars, and German rap.",
                         ),
                       ],
                     ),
