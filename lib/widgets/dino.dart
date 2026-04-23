@@ -21,7 +21,7 @@ class _DinoState extends State<Dino> {
   static bool _imagesCached = false;
   static const String _eyePath = 'assets/images/dino_eye.png';
   static const String _noEyePath = 'assets/images/dino_no_eye.png';
-  static const double _defaultWidth = 264;
+  static const double _defaultWidth = 176;
 
   static const Duration _long = Duration(milliseconds: 1500);
   static const Duration _short = Duration(milliseconds: 175);
