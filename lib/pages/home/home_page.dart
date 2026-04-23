@@ -27,20 +27,141 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return PageWrapper(
       slivers: [
-        Row(
-          children: [
-            Flexible(
-              child: Dino(
-                onTap: () {
-                  context.goNamed('dino');
-                },
-              ),
-            ),
-          ],
-        ).sliver,
+        _buildAbout().sliver,
 
         _Section().sliver,
       ].withGaps(context.theme.defaultSpacing(context)),
+    );
+  }
+
+  Widget _buildAbout() {
+    final TextStyle headStyle = context.theme.textTheme.headlineSmall!;
+    final TextStyle contrastHeadStyle = headStyle.copyWith(
+      color: context.theme.secondary,
+    );
+    final TextStyle titleStyle = context.theme.textTheme.titleMedium!.copyWith(
+      fontWeight: FontWeight.w500,
+    );
+
+    final int programmingForMonths =
+        // 2016
+        4 +
+        // months since 2016
+        (DateTime.now().year - 2016) * 12 +
+        DateTime.now().month;
+
+    final int commercialForYears = DateTime.now().year - 2020;
+
+    return Wrap(
+      runAlignment: WrapAlignment.center,
+      alignment: WrapAlignment.center,
+      spacing: 16,
+      runSpacing: 16,
+      children: [
+        Dino(
+          onTap: () => context.goNamed('dino'),
+        ),
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.sizeOf(context).width > 860 ? 500 : double.infinity,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SelectableText.rich(
+                TextSpan(
+                  style: headStyle,
+                  children: [
+                    TextSpan(
+                      text: 'Hei!  ',
+                      style: contrastHeadStyle,
+                    ),
+                    TextSpan(
+                      text: "I'm ",
+                      style: headStyle,
+                    ),
+                    TextSpan(
+                      text: "łuKASZ NieDZiAłeK\n",
+                      style: headStyle.copyWith(
+                        fontFamily: FontFamily.kontanter.assetName,
+                      ),
+                    ),
+                    TextSpan(
+                      style: titleStyle,
+                      children: [
+                        TextSpan(
+                          text: "I have ",
+                        ),
+                        TextSpan(
+                          text: (programmingForMonths ~/ 12).toString(),
+                          style: contrastHeadStyle,
+                        ),
+                        TextSpan(
+                          text: ' years (and ',
+                        ),
+                        TextSpan(
+                          text: (programmingForMonths % 12).toString(),
+                          style: contrastHeadStyle,
+                        ),
+                        TextSpan(
+                          text: ' months) of programming experience, including ',
+                        ),
+                        TextSpan(
+                          text: '$commercialForYears+',
+                          style: contrastHeadStyle,
+                        ),
+                        TextSpan(
+                          text:
+                              " years of commercial work. I'm strongly focused on mobile development, with specializations in ",
+                        ),
+                        TextSpan(
+                          text: 'Flutter',
+                          style: contrastHeadStyle,
+                        ),
+                        TextSpan(
+                          text: ' and ',
+                        ),
+                        TextSpan(
+                          text: 'Android',
+                          style: contrastHeadStyle,
+                        ),
+                        TextSpan(
+                          text: ", but I've touched countless other technologies. I'm located somewhere between ",
+                        ),
+                        TextSpan(
+                          text: 'Warsaw',
+                          style: contrastHeadStyle,
+                        ),
+                        TextSpan(
+                          text: ' and ',
+                        ),
+                        TextSpan(
+                          text: 'Oslo',
+                          style: contrastHeadStyle,
+                        ),
+                        TextSpan(
+                          text:
+                              ". Outside of programming I am deep into investing, and devoting my free time to long hikes, books, beer, and cigars.",
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ReadMore(
+                    text: 'contact',
+                    onTap: () => context.goNamed('contact'),
+                    external: false,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
