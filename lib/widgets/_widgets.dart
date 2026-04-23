@@ -10,3 +10,4 @@ export 'gen_progress_indicator.dart';
 export 'project_card.dart';
 export 'scroll_wrapper.dart';
 export 'read_more.dart';
+export 'mouse_region_builder.dart';

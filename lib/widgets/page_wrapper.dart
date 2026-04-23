@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/rendering/sliver.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
@@ -8,9 +9,11 @@ class PageWrapper extends StatefulWidget {
   const PageWrapper({
     super.key,
     required this.slivers,
+    this.maxWidth = 900,
   });
 
   final List<Widget> slivers;
+  final int? maxWidth;
 
   @override
   State<PageWrapper> createState() => _PageWrapperState();
@@ -41,9 +44,23 @@ class _PageWrapperState extends State<PageWrapper> {
                 menuOpen: _showMenu,
                 onMenuTap: _onMenuTap,
               ),
-              ...widget.slivers
-                  .withPadding(context.theme.minPageVerticalPadding)
-                  .withHorizontalPadding(context.theme.minPageHorizontalPadding),
+              SliverLayoutBuilder(
+                builder: (context, SliverConstraints constraints) {
+                  return SliverPadding(
+                    padding: EdgeInsetsGeometry.symmetric(
+                      horizontal: ((constraints.crossAxisExtent - (widget.maxWidth ?? 0)) / 2).clamp(
+                        0.0,
+                        double.infinity,
+                      ),
+                    ),
+                    sliver: SliverMainAxisGroup(
+                      slivers: widget.slivers
+                          .withPadding(context.theme.defaultPageVerticalPadding(context))
+                          .withHorizontalPadding(context.theme.defaultPageHorizontalPadding(context)),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),

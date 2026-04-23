@@ -24,12 +24,26 @@ extension ThemeDataExtensions on ThemeData {
     return colorScheme.secondary;
   }
 
-  double get minPageHorizontalPadding {
+  double defaultPageHorizontalPadding(BuildContext context) {
+    final double maxWidth = MediaQuery.sizeOf(context).width;
+    if (maxWidth < 600) {
+      return 16;
+    }
+
     return 32.0;
   }
 
-  double get minPageVerticalPadding {
-    return 24.0;
+  double defaultPageVerticalPadding(BuildContext context) {
+    final double maxHeight = MediaQuery.sizeOf(context).height;
+    if (maxHeight < 800) {
+      return 32;
+    }
+
+    return 64;
+  }
+
+  double defaultSpacing(BuildContext context) {
+    return defaultPageVerticalPadding(context);
   }
 
   double get cardSpacing {
@@ -55,14 +69,26 @@ class GenTheme {
       secondary: Colors.amberAccent,
     );
 
+    final hovered = _hoveredColor(colorScheme.secondary.withAlpha(200));
+
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
+      snackBarTheme: _snackBar(
+        colorScheme: colorScheme,
+      ),
+      iconButtonTheme: IconButtonThemeData(
+        style: ButtonStyle(
+          splashFactory: NoSplash.splashFactory,
+          foregroundColor: hovered,
+          overlayColor: _singleColor(Colors.transparent),
+        ),
+      ),
       fontFamily: FontFamily.assistant.assetName,
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           overlayColor: _singleColor(Colors.transparent),
-          foregroundColor: _hoveredColor(colorScheme.secondary.withAlpha(200)),
+          foregroundColor: hovered,
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -89,6 +115,30 @@ class GenTheme {
         headlineSmall: TextStyle(
           fontFamily: FontFamily.assistant.assetName,
           fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+
+  SnackBarThemeData _snackBar({
+    required ColorScheme colorScheme,
+  }) {
+    return SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Color.lerp(
+        colorScheme.surface,
+        Colors.black,
+        0.5,
+      ),
+      width: 400,
+      insetPadding: EdgeInsets.all(24),
+      contentTextStyle: TextStyle(
+        color: colorScheme.primary,
+      ),
+      shape: BeveledRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          bottomRight: Radius.circular(16),
         ),
       ),
     );
