@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return PageWrapper(
       slivers: [
-        Gap(32),
         Row(
           children: [
             Flexible(
@@ -38,11 +37,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
-        ),
-        Gap(80),
-        _Section(),
-        Gap(32),
-      ].slivers.withHorizontalPadding(32),
+        ).sliver,
+        SliverGap(80),
+        _Section().sliver,
+      ],
     );
   }
 }

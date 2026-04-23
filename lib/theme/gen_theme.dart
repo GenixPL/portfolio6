@@ -24,12 +24,22 @@ extension ThemeDataExtensions on ThemeData {
     return colorScheme.secondary;
   }
 
-  double get minPageHorizontalPadding {
+  double defaultPageHorizontalPadding(BuildContext context) {
+    final double maxWidth = MediaQuery.sizeOf(context).width;
+    if (maxWidth < 600) {
+      return 16;
+    }
+
     return 32.0;
   }
 
-  double get minPageVerticalPadding {
-    return 24.0;
+  double defaultPageVerticalPadding(BuildContext context) {
+    final double maxHeight = MediaQuery.sizeOf(context).height;
+    if (maxHeight < 800) {
+      return 32;
+    }
+
+    return 64;
   }
 
   double get cardSpacing {
