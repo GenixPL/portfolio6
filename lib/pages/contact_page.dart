@@ -125,6 +125,10 @@ class ContactPage extends StatelessWidget {
                 assetUrl: 'assets/images/youtube_logo.png',
                 linkUrl: 'https://www.youtube.com/@ukaszniedziaek3097',
               ),
+              _buildLogo(
+                assetUrl: 'assets/images/linkedin_logo.png',
+                linkUrl: 'https://www.linkedin.com/in/łukasz-niedziałek-12b78930b/',
+              ),
             ],
           ),
         ),
