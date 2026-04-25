@@ -29,39 +29,41 @@ class _PageWrapperState extends State<PageWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(
-          // Hide if menu is shown.
-          scrollbars: !_showMenu,
-        ),
-        child: _optionalRefreshWrap(
-          child: CustomScrollView(
-            physics: _showMenu ? NeverScrollableScrollPhysics() : (isMobile ? AlwaysScrollableScrollPhysics() : null),
-            controller: _scrollController,
-            slivers: [
-              GenSliverAppBar(
-                containerKey: _containerKey,
-                menuOpen: _showMenu,
-                onMenuTap: _onMenuTap,
-              ),
-              SliverLayoutBuilder(
-                builder: (context, SliverConstraints constraints) {
-                  return SliverPadding(
-                    padding: EdgeInsetsGeometry.symmetric(
-                      horizontal: ((constraints.crossAxisExtent - (widget.maxWidth ?? 0)) / 2).clamp(
-                        0.0,
-                        double.infinity,
+      body: SelectionArea(
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            // Hide if menu is shown.
+            scrollbars: !_showMenu,
+          ),
+          child: _optionalRefreshWrap(
+            child: CustomScrollView(
+              physics: _showMenu ? NeverScrollableScrollPhysics() : ClampingScrollPhysics(),
+              controller: _scrollController,
+              slivers: [
+                GenSliverAppBar(
+                  containerKey: _containerKey,
+                  menuOpen: _showMenu,
+                  onMenuTap: _onMenuTap,
+                ),
+                SliverLayoutBuilder(
+                  builder: (context, SliverConstraints constraints) {
+                    return SliverPadding(
+                      padding: EdgeInsetsGeometry.symmetric(
+                        horizontal: ((constraints.crossAxisExtent - (widget.maxWidth ?? 0)) / 2).clamp(
+                          0.0,
+                          double.infinity,
+                        ),
                       ),
-                    ),
-                    sliver: SliverMainAxisGroup(
-                      slivers: widget.slivers
-                          .withPadding(context.theme.defaultPageVerticalPadding(context))
-                          .withHorizontalPadding(context.theme.defaultPageHorizontalPadding(context)),
-                    ),
-                  );
-                },
-              ),
-            ],
+                      sliver: SliverMainAxisGroup(
+                        slivers: widget.slivers
+                            .withPadding(context.theme.defaultPageVerticalPadding(context))
+                            .withHorizontalPadding(context.theme.defaultPageHorizontalPadding(context)),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
