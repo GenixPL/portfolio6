@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SelectableText.rich(
+              Text.rich(
                 TextSpan(
                   style: headStyle,
                   children: [
