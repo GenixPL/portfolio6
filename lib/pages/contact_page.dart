@@ -98,6 +98,7 @@ class ContactPage extends StatelessWidget {
         context: context,
         child: Icon(Icons.mail_outline_sharp),
         onTap: () => launchUrl(
+          // Without this web on mobile will open new tab.
           mode: LaunchMode.externalApplication,
           Uri(scheme: 'mailto', path: _email),
         ),
