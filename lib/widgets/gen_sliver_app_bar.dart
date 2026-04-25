@@ -6,6 +6,7 @@ import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 
+// TODO(genix): add hackathons page
 class GenSliverAppBar extends StatelessWidget {
   const GenSliverAppBar({
     super.key,
