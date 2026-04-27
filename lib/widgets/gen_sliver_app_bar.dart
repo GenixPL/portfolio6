@@ -114,7 +114,7 @@ class GenSliverAppBar extends StatelessWidget {
     required double scale,
   }) {
     return MouseRegionBuilder(
-      onTap: () => context.goNamed('home'),
+      onTap: menuOpen ? null : () => context.goNamed('home'),
       builder: (_, hovered) {
         return AnimatedValueBuilder<double>(
           value: hovered ? 1 : 0,
