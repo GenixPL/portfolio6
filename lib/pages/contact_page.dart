@@ -121,31 +121,31 @@ class ContactPage extends StatelessWidget {
     return [
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/github_logo.png'),
+        child: Image.asset('assets/images/social_logos/github_logo.png'),
         onTap: () => _openUrl('https://github.com/GenixPL'),
         text: 'GitHub',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/stackoverflow_logo.png'),
+        child: Image.asset('assets/images/social_logos/stackoverflow_logo.png'),
         onTap: () => _openUrl('https://stackoverflow.com/users/12372263/genix'),
         text: 'Stack Overflow',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/goodreads_logo.png'),
+        child: Image.asset('assets/images/social_logos/goodreads_logo.png'),
         onTap: () => _openUrl('https://www.goodreads.com/user/show/86850107-lukasz'),
         text: 'Goodreads',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/linkedin_logo.png'),
+        child: Image.asset('assets/images/social_logos/linkedin_logo.png'),
         onTap: () => _openUrl('https://www.linkedin.com/in/łukasz-niedziałek-12b78930b/'),
         text: 'LinkedIn',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/youtube_logo.png'),
+        child: Image.asset('assets/images/social_logos/youtube_logo.png'),
         onTap: () => _openUrl('https://www.youtube.com/@ukaszniedziaek3097'),
         text: 'YouTube',
       ),

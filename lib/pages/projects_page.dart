@@ -12,7 +12,21 @@ class ProjectsPage extends StatelessWidget {
     return PageWrapper(
       slivers: [
         ...[
-          for (Project project in personalProjects) ProjectCard(project).sliver,
+          for (Project project in personalProjects)
+            ArticleCard(
+              image: project.assetImagePath != null
+                  ? Image.asset(
+                      project.assetImagePath!,
+                      fit: BoxFit.cover,
+                    )
+                  : Icon(Icons.image),
+              title: project.name,
+              description: null,
+              dateText: project.dateText,
+              onTap: () => print('TAP'),
+              tags: project.tags,
+              external: false,
+            ).sliver,
         ].withGaps(context.theme.cardSpacing),
       ],
     );

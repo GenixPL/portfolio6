@@ -5,13 +5,13 @@ class ArticleDateWithButton extends StatelessWidget {
   const ArticleDateWithButton({
     super.key,
     required this.onReadMore,
-    required this.date,
-    required this.url,
+    required this.dateText,
+    required this.external,
   });
 
   final VoidCallback onReadMore;
-  final DateTime? date;
-  final String? url;
+  final String? dateText;
+  final bool external;
 
   @override
   Widget build(BuildContext context) {
@@ -40,23 +40,20 @@ class ArticleDateWithButton extends StatelessWidget {
   }
 
   Widget? _buildDate() {
-    final DateTime? date = this.date;
-    if (date == null) {
+    final String? dateText = this.dateText;
+    if (dateText == null) {
       return null;
     }
 
-    return ArticleDate(date);
+    return ArticleDate(dateText);
   }
 
   Widget? _buildReadMore() {
-    final String? url = this.url;
-    if (url == null) {
-      return null;
-    }
+
 
     return ReadMore(
       onTap: onReadMore,
-      external: true,
+      external: external,
     );
   }
 }

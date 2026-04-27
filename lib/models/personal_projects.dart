@@ -3,69 +3,74 @@ import 'package:portfolio6/models/_models.dart';
 final List<Project> personalProjects = [
   Project(
     id: 'rust-morse',
-    imagePath: '',
+    // TODO(genix): add
+    assetImagePath: null,
     name: 'Morse encoder-decoder CLI app in Rust',
     tags: ['rust', 'TUI', 'morse', 'audio'],
-    start: '5 Mar, 2026',
-    end: '27 Mar, 2026',
+    dateText: '5 - 27 Mar 2026',
   ),
 
   Project(
     id: 'sudoku',
-    imagePath: '',
+    // TODO(genix): add
+    assetImagePath: null,
     name: 'Sudoku mobile app',
     tags: ['flutter', 'mobile'],
-    start: '10 Mar, 2026',
-    end: '~12 Mar, 2026',
+    dateText: '10 - 12 Mar 2026',
   ),
 
   Project(
     id: 'quarantino',
-    imagePath: '',
+    assetImagePath: 'assets/images/projects/quarantino/quarantino-banner.jpg',
     name: 'Quarantino (covid hackathon project)',
     // TODO(genix): imp
     tags: ['hackathon', 'flutter', 'mobile'],
-    start: '17 Mar, 2020',
-    end: '22 Mar, 2020',
+    dateText: '17 - 22 Mar 2020',
+  ),
+
+  Project(
+    id: 'pictile',
+    assetImagePath: 'assets/images/projects/pictile/pictile-banner.jpg',
+    name: 'Pictile',
+    // TODO(genix): imp
+    tags: [],
+    // TODO(genix): add
+    dateText: null,
   ),
 
   Project(
     id: 'placelytics',
-    imagePath: '',
+    assetImagePath: 'assets/images/projects/placelytics/placelytics-banner.jpg',
     name: 'Placelytics (engineering project)',
     // TODO(genix): imp
     tags: ['flutter', 'mobile'],
-    start: '8 Oct, 2019',
-    end: '18 Apr, 2020',
+    dateText: '8 Oct 2019 - 18 Apr 2020',
   ),
 
   Project(
     id: 'the-hardest-game',
-    imagePath: '',
+    assetImagePath: 'assets/images/projects/thg/thg-banner.jpg',
     name: 'The Hardest Game',
     // TODO(genix): imp
     tags: ['flutter', 'mobile'],
-    start: null,
-    end: null,
+    dateText: null,
   ),
 
   Project(
     id: 'website',
-    imagePath: '',
+    assetImagePath: 'assets/images/projects/website/website-banner.jpg',
     name: 'The website',
     // TODO(genix): imp
     tags: [],
-    start: '2020',
-    end: 'Present',
+    dateText: '2020 - Present',
   ),
 
   Project(
     id: 'language-apps',
-    imagePath: '',
+    assetImagePath: 'assets/images/projects/myword/myword-banner.jpg',
     name: 'Language learning apps',
     // TODO(genix): imp
     tags: [],
-    start: '2018',
-    end: '2023',
+    dateText: '2018 - 2023',
   ),
 ];

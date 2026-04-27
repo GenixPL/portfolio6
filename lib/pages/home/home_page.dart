@@ -261,7 +261,7 @@ class _SectionState extends State<_Section> {
                           },
                         ),
                         tags: item.tags,
-                        date: item.publicationDate,
+                        dateText: item.publicationDate.articleFormat,
                         url: item.url,
                       ),
                     ),
