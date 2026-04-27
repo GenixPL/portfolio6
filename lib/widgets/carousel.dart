@@ -1,0 +1,93 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio6/theme/gen_theme.dart';
+import 'package:portfolio6/widgets/_widgets.dart';
+
+class Carousel extends StatefulWidget {
+  const Carousel({
+    super.key,
+    required this.constraints,
+    required this.children,
+  });
+
+  final BoxConstraints constraints;
+  final List<Widget> children;
+
+  @override
+  State<Carousel> createState() => _CarouselState();
+}
+
+class _CarouselState extends State<Carousel> {
+  final PageController _pageController = PageController();
+
+  @override
+  void initState() {
+    _pageController.addListener(() => setState(() {}));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RepaintBoundary(
+      child: Column(
+        children: [
+          ConstrainedBox(
+            constraints: widget.constraints,
+            child: ScrollWrapper(
+              axis: Axis.horizontal,
+              controller: _pageController,
+              child: PageView(
+                controller: _pageController,
+                children: widget.children,
+              ),
+            ),
+          ),
+          Gap(8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 8,
+            children: [
+              for (int i = 0; i < widget.children.length; i++) _buildPageIndicator(i),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPageIndicator(int i) {
+    final int? currentPage = (_pageController.hasClients ? _pageController.page?.round() : 0);
+    final bool isCurrent = (i == currentPage);
+    final double size = isCurrent ? 16 : 10;
+    final Duration duration = context.theme.basicAnimationDuration;
+    final Curve curve = context.theme.basicAnimationCurve;
+
+    return GenGestureDetector.base(
+      onTap: () {
+        _pageController.animateToPage(
+          i,
+          duration: duration,
+          curve: curve,
+        );
+      },
+      child: SizedBox(
+        width: 16,
+        height: 16,
+        child: Center(
+          child: AnimatedContainer(
+            duration: duration,
+            curve: curve,
+            height: size,
+            width: size,
+            color: isCurrent ? context.theme.secondary : context.theme.primary,
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -4,9 +4,11 @@ class ArticleTags extends StatelessWidget {
   const ArticleTags(
     this.tags, {
     super.key,
+    this.mouseCursor = SystemMouseCursors.click,
   });
 
   final List<String> tags;
+  final MouseCursor mouseCursor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class ArticleTags extends StatelessWidget {
           Chip(
             // Without this, web on mobile has bigger vertical spacing.
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            mouseCursor: SystemMouseCursors.click,
+            mouseCursor: mouseCursor,
             label: Text(
               tag,
               style: TextStyle(

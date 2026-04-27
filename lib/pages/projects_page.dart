@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
@@ -30,7 +31,12 @@ class ProjectsPage extends StatelessWidget {
               title: project.name,
               description: null,
               dateText: project.dateText,
-              onTap: () => print('TAP'),
+              onTap: () => context.goNamed(
+                'article',
+                pathParameters: {
+                  'id': project.id,
+                },
+              ),
               tags: project.tags,
               external: false,
             ).sliver,

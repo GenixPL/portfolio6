@@ -115,7 +115,7 @@ class GenTheme {
       ),
       textTheme: TextTheme(
         titleLarge: TextStyle(
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
         ),
         headlineSmall: TextStyle(
           fontFamily: FontFamily.assistant.assetName,

@@ -35,8 +35,11 @@ flutter:
   assets:
     - assets/files/
     - assets/images/
-    - assets/images/social_logos/
+    - assets/images/logos/
     - assets/images/projects/myword/
+    - assets/images/projects/myword/first_version/
+    - assets/images/projects/myword/second_version/
+    - assets/images/projects/myword/third_version/
     - assets/images/projects/pictile/
     - assets/images/projects/placelytics/
     - assets/images/projects/quarantino/

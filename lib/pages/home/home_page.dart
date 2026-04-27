@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/pages/home/home_page_card.dart';
@@ -166,27 +165,8 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class _Section extends StatefulWidget {
+class _Section extends StatelessWidget {
   const _Section();
-
-  @override
-  State<_Section> createState() => _SectionState();
-}
-
-class _SectionState extends State<_Section> {
-  late final PageController _pageController = PageController();
-
-  @override
-  void initState() {
-    _pageController.addListener(() => setState(() {}));
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -227,88 +207,42 @@ class _SectionState extends State<_Section> {
             ],
           ),
           Gap(12),
-          ConstrainedBox(
+          Carousel(
             constraints: BoxConstraints(
               minHeight: 400,
               maxHeight: 400,
               maxWidth: 600,
             ),
-            child: ScrollWrapper(
-              axis: Axis.horizontal,
-              controller: _pageController,
-              child: PageView(
-                controller: _pageController,
-                children: [
-                  for (MediumFeedItem item in items)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: horizontalPadding,
-                      ),
-                      child: HomePageCard(
-                        title: item.title,
-                        subtitle: item.description,
-                        image: Image.network(
-                          item.mediaUrl,
-                          fit: BoxFit.cover,
-                          loadingBuilder: (_, child, progress) {
-                            if (progress == null) {
-                              return child;
-                            }
-
-                            return Center(
-                              child: GenProgressIndicator(),
-                            );
-                          },
-                        ),
-                        tags: item.tags,
-                        dateText: item.publicationDate.articleFormat,
-                        url: item.url,
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          ),
-          Gap(8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            spacing: 8,
             children: [
-              for (int i = 0; i < items.length; i++) _buildPageIndicator(i),
+              for (MediumFeedItem item in items)
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: horizontalPadding,
+                  ),
+                  child: HomePageCard(
+                    title: item.title,
+                    subtitle: item.description,
+                    image: Image.network(
+                      item.mediaUrl,
+                      fit: BoxFit.cover,
+                      loadingBuilder: (_, child, progress) {
+                        if (progress == null) {
+                          return child;
+                        }
+
+                        return Center(
+                          child: GenProgressIndicator(),
+                        );
+                      },
+                    ),
+                    tags: item.tags,
+                    dateText: item.publicationDate.articleFormat,
+                    url: item.url,
+                  ),
+                ),
             ],
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildPageIndicator(int i) {
-    final int? currentPage = (_pageController.hasClients ? _pageController.page?.round() : 0);
-    final bool isCurrent = (i == currentPage);
-    final double size = isCurrent ? 16 : 10;
-    final Duration duration = context.theme.basicAnimationDuration;
-    final Curve curve = context.theme.basicAnimationCurve;
-
-    return GenGestureDetector.base(
-      onTap: () {
-        _pageController.animateToPage(
-          i,
-          duration: duration,
-          curve: curve,
-        );
-      },
-      child: SizedBox(
-        width: 16,
-        height: 16,
-        child: Center(
-          child: AnimatedContainer(
-            duration: duration,
-            curve: curve,
-            height: size,
-            width: size,
-            color: isCurrent ? context.theme.secondary : context.theme.primary,
-          ),
-        ),
       ),
     );
   }

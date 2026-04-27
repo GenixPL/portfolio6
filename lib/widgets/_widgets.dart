@@ -10,3 +10,7 @@ export 'gen_progress_indicator.dart';
 export 'scroll_wrapper.dart';
 export 'read_more.dart';
 export 'mouse_region_builder.dart';
+export 'carousel.dart';
+export 'logo.dart';
+
+export 'package:gap/gap.dart';

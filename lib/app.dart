@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
           ),
           GoRoute(
             path: '/article/:id',
+            name: 'article',
             builder: (_, GoRouterState state) {
               final String? articleId = state.pathParameters['id'];
 
