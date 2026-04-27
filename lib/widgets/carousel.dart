@@ -55,8 +55,8 @@ class _CarouselState extends State<Carousel> {
             ),
           ),
           Gap(8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            alignment: WrapAlignment.center,
             spacing: 8,
             children: [
               for (int i = 0; i < widget.children.length; i++) _buildPageIndicator(i),
