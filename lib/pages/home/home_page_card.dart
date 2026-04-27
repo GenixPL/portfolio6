@@ -10,7 +10,7 @@ class HomePageCard extends StatelessWidget {
     required this.image,
     required this.tags,
     required this.url,
-    required this.date,
+    required this.dateText,
   });
 
   final String? title;
@@ -18,7 +18,7 @@ class HomePageCard extends StatelessWidget {
   final Widget image;
   final List<String> tags;
   final String url;
-  final DateTime? date;
+  final String? dateText;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class HomePageCard extends StatelessWidget {
     final Widget image = this.image;
     final List<String> tags = this.tags;
     final String url = this.url;
-    final DateTime? date = this.date;
+    final String? dateText = this.dateText;
 
     void onTap() => launchUrlString(url);
 
@@ -69,8 +69,8 @@ class HomePageCard extends StatelessWidget {
                         ArticleTags(tags),
                         ArticleDateWithButton(
                           onReadMore: onTap,
-                          date: date,
-                          url: url,
+                          dateText: dateText,
+                          external: true,
                         ),
                       ],
                     ),

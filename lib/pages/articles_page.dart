@@ -3,6 +3,7 @@ import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ArticlesPage extends StatelessWidget {
   const ArticlesPage({super.key});
@@ -43,7 +44,16 @@ class ArticlesPage extends StatelessWidget {
               slivers: [
                 for (MediumFeedItem item in mediumFeedItems)
                   ArticleCard(
-                    item: item,
+                    onTap: () => launchUrlString(item.url),
+                    image: Image.network(
+                      item.mediaUrl,
+                      fit: BoxFit.cover,
+                    ),
+                    title: item.title,
+                    description: item.description,
+                    dateText: item.publicationDate.articleFormat,
+                    tags: item.tags,
+                    external: true,
                   ).sliver,
               ].withGaps(context.theme.cardSpacing),
             );

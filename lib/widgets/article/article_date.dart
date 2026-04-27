@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class ArticleDate extends StatelessWidget {
   const ArticleDate(
-    this.date, {
+    this.dateText, {
     super.key,
   });
 
-  final DateTime date;
+  final String dateText;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '${date.day}'
-      ' ${DateFormat.MMM().format(DateTime(0, date.month))}'
-      '${date.year == DateTime.now().year ? "" : " ${date.year}"}',
-    );
+    return Text(dateText);
   }
 }

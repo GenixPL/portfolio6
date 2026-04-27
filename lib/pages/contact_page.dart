@@ -98,6 +98,7 @@ class ContactPage extends StatelessWidget {
         context: context,
         child: Icon(Icons.mail_outline_sharp),
         onTap: () => launchUrl(
+          // Without this web on mobile will open new tab.
           mode: LaunchMode.externalApplication,
           Uri(scheme: 'mailto', path: _email),
         ),
@@ -120,31 +121,31 @@ class ContactPage extends StatelessWidget {
     return [
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/github_logo.png'),
+        child: Image.asset('assets/images/logos/github_logo.png'),
         onTap: () => _openUrl('https://github.com/GenixPL'),
         text: 'GitHub',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/stackoverflow_logo.png'),
+        child: Image.asset('assets/images/logos/stackoverflow_logo.png'),
         onTap: () => _openUrl('https://stackoverflow.com/users/12372263/genix'),
         text: 'Stack Overflow',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/goodreads_logo.png'),
+        child: Image.asset('assets/images/logos/goodreads_logo.png'),
         onTap: () => _openUrl('https://www.goodreads.com/user/show/86850107-lukasz'),
         text: 'Goodreads',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/linkedin_logo.png'),
+        child: Image.asset('assets/images/logos/linkedin_logo.png'),
         onTap: () => _openUrl('https://www.linkedin.com/in/łukasz-niedziałek-12b78930b/'),
         text: 'LinkedIn',
       ),
       _buildLogo(
         context: context,
-        child: Image.asset('assets/images/youtube_logo.png'),
+        child: Image.asset('assets/images/logos/youtube_logo.png'),
         onTap: () => _openUrl('https://www.youtube.com/@ukaszniedziaek3097'),
         text: 'YouTube',
       ),
@@ -203,34 +204,10 @@ class ContactPage extends StatelessWidget {
     required VoidCallback onTap,
     required String text,
   }) {
-    const double size = 40;
-
     final List<Widget> children = [
-      MouseRegionBuilder(
-        builder: (BuildContext context, bool hovered) {
-          return Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(1),
-                child: SizedBox.square(
-                  dimension: size,
-                  child: child,
-                ),
-              ),
-              Positioned.fill(
-                child: AnimatedContainer(
-                  decoration: BoxDecoration(
-                    color: hovered ? Colors.black.withAlpha(200) : Colors.transparent,
-                    shape: BoxShape.circle,
-                  ),
-                  duration: context.theme.basicAnimationDuration,
-                  curve: context.theme.basicAnimationCurve,
-                ),
-              ),
-            ],
-          );
-        },
+      Logo(
         onTap: onTap,
+        child: child,
       ),
       Text(
         text,

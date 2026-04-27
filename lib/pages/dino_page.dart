@@ -1,7 +1,6 @@
 import 'package:dino_game/dino_game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';

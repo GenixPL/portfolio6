@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class ArticleCard extends StatelessWidget {
   const ArticleCard({
     super.key,
-    required this.item,
+    required this.image,
+    required this.title,
+    required this.description,
+    required this.dateText,
+    required this.onTap,
+    required this.tags,
+    required this.external,
   });
 
-  final MediumFeedItem item;
+  final Widget image;
+  final String title;
+  final String? description;
+  final String? dateText;
+  final VoidCallback onTap;
+  final List<String> tags;
+  final bool external;
 
   @override
   Widget build(BuildContext context) {
     const double horizontalPadding = 16;
     const double verticalPadding = 16;
-
-    void onTap()  => launchUrlString(item.url);
 
     return Center(
       child: GenGestureDetector.base(
@@ -53,18 +61,15 @@ class ArticleCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: verticalPadding / 2,
                   children: [
-                    ArticleTitle(item.title),
-                    if (item.description != null) ArticleDescription(item.description ?? 'no description'),
+                    ArticleTitle(title),
+                    if (description != null) ArticleDescription(description ?? 'no description'),
                   ],
                 ),
               ),
 
               SizedBox(
                 height: 240,
-                child: Image.network(
-                  item.mediaUrl,
-                  fit: BoxFit.cover,
-                ),
+                child: image,
               ),
 
               Padding(
@@ -76,12 +81,12 @@ class ArticleCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   spacing: verticalPadding,
                   children: [
-                    ArticleTags(item.tags),
+                    ArticleTags(tags),
 
                     ArticleDateWithButton(
                       onReadMore: onTap,
-                      date: item.publicationDate,
-                      url: item.url,
+                      dateText: dateText,
+                      external: external,
                     ),
                   ],
                 ),

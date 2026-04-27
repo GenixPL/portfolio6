@@ -29,6 +29,17 @@ class _MyAppState extends State<MyApp> {
             builder: (_, _) => ArticlesPage(),
           ),
           GoRoute(
+            path: '/article/:id',
+            name: 'article',
+            builder: (_, GoRouterState state) {
+              final String? articleId = state.pathParameters['id'];
+
+              return InternalArticlePage(
+                id: articleId,
+              );
+            },
+          ),
+          GoRoute(
             path: '/work',
             name: 'work',
             builder: (_, _) => WorkPage(),
