@@ -5,3 +5,4 @@ export 'projects_page.dart';
 export 'work_page.dart';
 export 'dino_page.dart';
 export 'hackathons_page.dart';
+export 'internal_article_page.dart';

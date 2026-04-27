@@ -1,0 +1,13 @@
+import 'package:portfolio6/models/_models.dart';
+import 'package:portfolio6/models/personal_projects/language_apps_personal_project.dart';
+
+final List<PersonalProject> personalProjects = [
+  WebsitePersonalProject(),
+  // TODO(genix): add python color remover
+  RustMorsePersonalProject(),
+  SudokuPersonalProject(),
+  ThgPersonalProject(),
+  PictilePersonalProject(),
+  PlacelyticsPersonalProject(),
+  LanguageAppsPersonalProject(),
+];

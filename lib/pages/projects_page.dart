@@ -12,14 +12,21 @@ class ProjectsPage extends StatelessWidget {
     return PageWrapper(
       slivers: [
         ...[
-          for (Project project in personalProjects)
+          for (PersonalProject project in personalProjects)
             ArticleCard(
               image: project.assetImagePath != null
                   ? Image.asset(
                       project.assetImagePath!,
                       fit: BoxFit.cover,
                     )
-                  : Icon(Icons.image),
+                  : Center(
+                      child: Text(
+                        'NO IMAGE',
+                        style: TextStyle(
+                          fontFamily: FontFamily.cpMono.assetName,
+                        ),
+                      ),
+                    ),
               title: project.name,
               description: null,
               dateText: project.dateText,
