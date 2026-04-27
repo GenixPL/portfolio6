@@ -17,11 +17,18 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
-  final PageController _pageController = PageController();
+  late final PageController _pageController = PageController();
 
   @override
   void initState() {
     _pageController.addListener(() => setState(() {}));
+
+    // Makes sure the widget is rendered at least once with
+    // clients attached to the controller.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {});
+    });
+
     super.initState();
   }
 
@@ -48,8 +55,8 @@ class _CarouselState extends State<Carousel> {
             ),
           ),
           Gap(8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            alignment: WrapAlignment.center,
             spacing: 8,
             children: [
               for (int i = 0; i < widget.children.length; i++) _buildPageIndicator(i),

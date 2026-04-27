@@ -1,3 +1,5 @@
+import 'dart:ui_web' as ui;
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart' hide Title;
 import 'package:portfolio6/models/_models.dart';
@@ -5,6 +7,7 @@ import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:web/web.dart' hide Text;
 
 // Stateful because of how much context is used
 // (and passing it would be annoying).
@@ -59,6 +62,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             Tags() => _buildTagsSliver(component),
             AssetImageCarousel() => _buildAssetImageCarouselSliver(component),
             GithubLink() => _buildGithubLinkSliver(component),
+            YouTube() => _buildYouTubeSliver(component),
           },
       ],
     );
@@ -141,5 +145,50 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
         ),
       ],
     ).sliver;
+  }
+
+  Widget _buildYouTubeSliver(YouTube youTube) {
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: _YouTube(
+        url: 'https://www.youtube.com/embed/h5CSd-B2x0w',
+      ),
+    ).sliver;
+  }
+}
+
+class _YouTube extends StatefulWidget {
+  const _YouTube({
+    super.key,
+    required this.url,
+  });
+
+  final String url;
+
+  @override
+  State<_YouTube> createState() => _YouTubeState();
+}
+
+class _YouTubeState extends State<_YouTube> {
+  late final String _viewId;
+
+  @override
+  void initState() {
+    super.initState();
+    _viewId = 'iframe-${DateTime.now().millisecondsSinceEpoch}';
+
+    ui.platformViewRegistry.registerViewFactory(_viewId, (int viewId) {
+      return HTMLIFrameElement()
+        ..src = widget.url
+        ..style.border = 'none'
+        ..style.width = '100%'
+        ..style.height = '100%'
+        ..allowFullscreen = true;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return HtmlElementView(viewType: _viewId);
   }
 }

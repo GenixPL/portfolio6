@@ -8,7 +8,7 @@ class MouseRegionBuilder extends StatefulWidget {
     required this.builder,
   });
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Widget Function(BuildContext context, bool hovered) builder;
 
   @override
@@ -23,10 +23,16 @@ class _MouseRegionBuilderState extends State<MouseRegionBuilder> {
     return RepaintBoundary(
       child: MouseRegion(
         onEnter: (_) {
+          if (widget.onTap == null) {
+            return;
+          }
           _hovered = true;
           setState(() {});
         },
         onExit: (_) {
+          if (widget.onTap == null) {
+            return;
+          }
           _hovered = false;
           setState(() {});
         },
