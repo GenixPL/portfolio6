@@ -55,7 +55,7 @@ class LanguageAppsPersonalProject extends PersonalProject {
       Space.medium(),
       AssetImageCarousel(
         imgPaths: [
-          for (int i = 1; i <= 8; i++) 'assets/images/projects/myword/first_version/$i.png',
+          for (int i = 1; i <= 8; i++) 'assets/images/projects/myword/first_version/$i.jpg',
         ],
       ),
 

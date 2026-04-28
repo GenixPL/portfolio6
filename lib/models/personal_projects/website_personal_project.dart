@@ -51,7 +51,7 @@ class WebsitePersonalProject extends PersonalProject {
       Space.medium(),
       AssetImageCarousel(
         imgPaths: [
-          for (int i = 1; i <= 3; i++) 'assets/images/projects/website/1_$i.png',
+          for (int i = 1; i <= 3; i++) 'assets/images/projects/website/1_$i.jpg',
         ],
       ),
 
@@ -77,7 +77,7 @@ class WebsitePersonalProject extends PersonalProject {
       // TODO(genix): aspect ratio
       AssetImageCarousel(
         imgPaths: [
-          for (int i = 1; i <= 6; i++) 'assets/images/projects/website/2_$i.png',
+          for (int i = 1; i <= 6; i++) 'assets/images/projects/website/2_$i.jpg',
         ],
       ),
 
@@ -117,7 +117,7 @@ class WebsitePersonalProject extends PersonalProject {
       Space.medium(),
       AssetImageCarousel(
         imgPaths: [
-          for (int i = 1; i <= 8; i++) 'assets/images/projects/website/4_$i.png',
+          for (int i = 1; i <= 8; i++) 'assets/images/projects/website/4_$i.jpg',
         ],
       ),
 
@@ -138,7 +138,7 @@ class WebsitePersonalProject extends PersonalProject {
       Space.medium(),
       AssetImageCarousel(
         imgPaths: [
-          for (int i = 1; i <= 5; i++) 'assets/images/projects/website/5_$i.png',
+          for (int i = 1; i <= 5; i++) 'assets/images/projects/website/5_$i.jpg',
         ],
       ),
 
