@@ -95797,7 +95797,7 @@ A.Ax.prototype={}
 A.QR.prototype={}
 A.Qp.prototype={
 gpi(){var s,r,q,p,o=t.s,n=A.b(["Android","Java","SQLite"],o),m=A.b([],o)
-for(s=1;s<=8;++s)m.push("assets/images/projects/myword/first_version/"+s+".png")
+for(s=1;s<=8;++s)m.push("assets/images/projects/myword/first_version/"+s+".jpg")
 r=A.b(["NativeScript","Firebase Auth","Facebook Login","Firestore","TypeScript","HTML","CSS"],o)
 q=A.b([],o)
 for(s=1;s<=14;++s)q.push("assets/images/projects/myword/second_version/"+s+".jpg")
@@ -95824,17 +95824,17 @@ for(s=1;s<=6;++s)r.push("assets/images/projects/thg/"+s+".jpg")
 return A.b([new A.m7(u.B),new A.aF(24),new A.mx("The Hardest Game",!0),new A.aF(64),new A.Ax(),new A.aF(24),new A.cp("A simple but difficult puzzle game for smartphones. Its aim is to find the right sequence of moves to get from point A to point B. Making each move is connected with the addition of points, the total number of which must not exceed the allowed threshold."),new A.aF(24),new A.f4("Coauthors"),new A.aF(8),new A.cp("Rafa\u0142 Dziuryk (the main author)"),new A.aF(24),new A.f4("My part"),new A.aF(8),new A.fX(this.d),new A.aF(24),new A.cp("My only interference in the project was graphic overhaul."),new A.aF(8),new A.cp("Rafa\u0142 published a post on a Flutter forum about his project, and I found the game so cool that I couldn't leave it in the same graphic state as it was - very simple UI elements and lack of support for different screen sizes and horizontal view."),new A.aF(64),new A.hy(r),new A.aF(64),new A.yC("https://www.youtube.com/embed/KSW5koz3zkU")],t.AN)}}
 A.Vp.prototype={
 gpi(){var s,r,q,p,o,n,m,l,k=t.s,j=A.b(["Flutter","Dart"],k),i=A.b([],k)
-for(s=1;s<=3;++s)i.push("assets/images/projects/website/1_"+s+".png")
+for(s=1;s<=3;++s)i.push("assets/images/projects/website/1_"+s+".jpg")
 r=A.b(["Flutter","Dart"],k)
 q=A.b([],k)
-for(s=1;s<=6;++s)q.push("assets/images/projects/website/2_"+s+".png")
+for(s=1;s<=6;++s)q.push("assets/images/projects/website/2_"+s+".jpg")
 p=A.b(["React","HTML","JavaScript","CSS"],k)
 o=A.b(["Vue","HTML","JavaScript","CSS"],k)
 n=A.b([],k)
-for(s=1;s<=8;++s)n.push("assets/images/projects/website/4_"+s+".png")
+for(s=1;s<=8;++s)n.push("assets/images/projects/website/4_"+s+".jpg")
 m=A.b(["Flutter","Dart"],k)
 l=A.b([],k)
-for(s=1;s<=5;++s)l.push("assets/images/projects/website/5_"+s+".png")
+for(s=1;s<=5;++s)l.push("assets/images/projects/website/5_"+s+".jpg")
 return A.b([new A.m7(u.b),new A.aF(24),new A.mx("The website",!0),new A.aF(64),new A.cp("Blut, Schwei\xdf und Tr\xe4nen..."),new A.aF(8),new A.cp("...and yet another story of never-ending search for time to do personal projects."),new A.aF(64),new A.f4("First version"),new A.aF(8),new A.fX(j),new A.aF(24),new A.ir("https://github.com/GenixPL/portfolio"),new A.aF(24),new A.cp("At that point my web programming has so far been limited to one ASP.NET course and not quite a successful attempt to use NativeScript - it can definitely be said that I had zero experience with web technologies. But! Flutter (which I knew) allowed you to write web applications, what could go wrong?"),new A.aF(8),new A.cp("I designed the app like a mobile app, which didn't result in the best Ux. Additionally, it were the very beginnings (2020) of Flutter Web - huge performance issues."),new A.aF(24),new A.hy(i),new A.aF(64),new A.f4("Second version"),new A.aF(8),new A.fX(r),new A.aF(24),new A.ir("https://github.com/GenixPL/portfolio2"),new A.aF(24),new A.cp("I liked the second version much more. I had no problem writing more advanced views (experience helps, who would have thought). However, because I was writing the second version only on my stronger computer, after firing it on a weaker one and phone, I quickly came to the conclusion that Flutter Web still had a long way to go (I saw only dark future for it, so thank god for WASM). A decision was made to rewrite it in a proper web framework."),new A.aF(24),new A.hy(q),new A.aF(64),new A.f4("Third version"),new A.aF(8),new A.fX(p),new A.aF(8),new A.cp("I chose React because I thought it might come in handy in the form of React Native. However, but after 2 days of growing hatred, I moved, at the persuasion of my colleague, to..."),new A.aF(64),new A.f4("Fourth version"),new A.aF(8),new A.fX(o),new A.aF(24),new A.ir("https://github.com/GenixPL/portfolio4"),new A.aF(24),new A.cp("...to Vue and it was a good(ish) decision. However, my lack of experience in web technologies (js, html, css) was definitely not helpful when it comes to writing nice webpages. My torments had no end, as did the hours of debugging and trying to write a simple button the way I wanted it. Fortunately, step by step, somehow I moved forward, and the version lived for some years."),new A.aF(24),new A.hy(n),new A.aF(64),new A.f4("Fifth version"),new A.aF(8),new A.fX(m),new A.aF(24),new A.ir("https://github.com/GenixPL/portfolio5"),new A.aF(24),new A.cp("Yet another attempt, far from finished."),new A.aF(24),new A.hy(l),new A.aF(64),new A.f4("Sixth version"),new A.aF(8),new A.fX(A.b(["Flutter","Dart"],k)),new A.aF(24),new A.ir("https://github.com/GenixPL/portfolio6"),new A.aF(24),new A.cp("And another one, the current one, and hopefully the last one."),new A.aF(8),new A.cp("Both me and Flutter Web have come a long way. WASM makes it performance-reasonable, and I have take some solid time off and finally pushed myself to write proper 1.0.0 of the website.")],t.AN)}}
 A.vh.prototype={
 M(a){return new A.lj(A.b([A.aFq(new A.a5Y(a),new A.a5Z(a).$0(),t.H)],t.p),null)}}
