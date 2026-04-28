@@ -4,9 +4,6 @@ import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/services.dart'; // Required for rootBundle
-import 'package:web/web.dart' as web; // For the download logic
-import 'dart:js_interop';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -108,9 +105,10 @@ class ContactPage extends StatelessWidget {
         context: context,
         child: Icon(Icons.download_sharp),
         // TODO(genix): update cv
-        onTap: () => _downloadPdfFromAssets(
-          'assets/files/niedzialek_cv.pdf',
-          'niedzialek_cv.pdf',
+        onTap: () => downloadFile(
+          assetPath: 'assets/files/niedzialek_cv.pdf',
+          fileName: 'niedzialek_cv.pdf',
+          type: 'application/pdf',
         ),
         text: 'Resume',
       ),
@@ -164,34 +162,6 @@ class ContactPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: children,
     );
-  }
-
-  Future<void> _downloadPdfFromAssets(String assetPath, String fileName) async {
-    try {
-      // 1. Load the PDF file from assets as ByteData
-      final ByteData data = await rootBundle.load(assetPath);
-
-      // 2. Convert ByteData to Uint8List
-      final Uint8List bytes = data.buffer.asUint8List();
-
-      // 3. Create a Blob and trigger download (Modern package:web approach)
-      final blob = web.Blob([bytes.toJS].toJS, web.BlobPropertyBag(type: 'application/pdf'));
-
-      final url = web.URL.createObjectURL(blob);
-      final anchor = web.document.createElement('a') as web.HTMLAnchorElement
-        ..href = url
-        ..download = fileName
-        ..style.display = 'none';
-
-      web.document.body?.append(anchor);
-      anchor.click();
-
-      // Cleanup
-      anchor.remove();
-      web.URL.revokeObjectURL(url);
-    } catch (e) {
-      print('Error downloading asset: $e');
-    }
   }
 
   void _openUrl(String url) {

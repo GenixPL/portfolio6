@@ -6,8 +6,13 @@ class PlacelyticsPersonalProject extends PersonalProject {
         id: 'placelytics',
         assetImagePath: 'assets/images/projects/placelytics/placelytics-banner.jpg',
         name: 'Placelytics (engineering project)',
-        // TODO(genix): imp
-        tags: ['flutter', 'mobile'],
+        tags: [
+          'Flutter',
+          'Firebase Auth',
+          'Firestore',
+          'Google Maps',
+          'Rive',
+        ],
         dateText: '8 Oct 2019 - 18 Apr 2020',
       );
 
@@ -37,15 +42,7 @@ class PlacelyticsPersonalProject extends PersonalProject {
       Space.medium(),
       Title(text: 'My part'),
       Space.small(),
-      Tags(
-        tags: [
-          'Flutter',
-          'Firebase Auth',
-          'Firestore',
-          'Google Maps',
-          'Rive',
-        ],
-      ),
+      Tags(tags: tags),
 
       Space.small(),
       Body(
@@ -63,7 +60,9 @@ class PlacelyticsPersonalProject extends PersonalProject {
       ),
 
       Space.big(),
-      YouTube(url: 'h5CSd-B2x0w'),
+      YouTube(
+        embedUrl: 'https://www.youtube.com/embed/h5CSd-B2x0w',
+      ),
     ];
   }
 }

@@ -70,8 +70,16 @@ class GithubLink extends InternalArticleComponent {
 
 class YouTube extends InternalArticleComponent {
   const YouTube({
-    required this.url,
+    required this.embedUrl,
   });
 
-  final String url;
+  final String embedUrl;
+}
+
+class AssetApk extends InternalArticleComponent {
+  const AssetApk({
+    required this.path,
+  });
+
+  final String path;
 }
