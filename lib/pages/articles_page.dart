@@ -13,6 +13,7 @@ class ArticlesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWrapper(
+      pageId: 'articles',
       slivers: [
         FutureBuilder<void>(
           future: () async {
