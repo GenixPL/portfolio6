@@ -127,11 +127,8 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
   }
 
   Widget _buildYouTubeSliver(YouTube youTube) {
-    return AspectRatio(
-      aspectRatio: 16 / 9,
-      child: YouTubePlayer(
-        url: youTube.embedUrl,
-      ),
+    return YouTubePlayer(
+      url: youTube.embedUrl,
     ).sliver;
   }
 

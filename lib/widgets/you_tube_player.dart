@@ -1,6 +1,7 @@
 import 'dart:ui_web' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:web/web.dart';
 
 class YouTubePlayer extends StatefulWidget {
@@ -18,6 +19,8 @@ class YouTubePlayer extends StatefulWidget {
 class _YouTubePlayerState extends State<YouTubePlayer> {
   late final String _viewId;
 
+  bool _loaded = false;
+
   @override
   void initState() {
     super.initState();
@@ -29,12 +32,29 @@ class _YouTubePlayerState extends State<YouTubePlayer> {
         ..style.border = 'none'
         ..style.width = '100%'
         ..style.height = '100%'
-        ..allowFullscreen = true;
+        ..allowFullscreen = true
+        ..onLoad.listen((event) {
+          _loaded = true;
+          setState(() {});
+        });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return HtmlElementView(viewType: _viewId);
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: Stack(
+        children: [
+          if (!_loaded)
+            Center(
+              child: GenProgressIndicator(),
+            ),
+          HtmlElementView(
+            viewType: _viewId,
+          ),
+        ],
+      ),
+    );
   }
 }
