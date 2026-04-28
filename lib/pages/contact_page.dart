@@ -41,7 +41,7 @@ class ContactPage extends StatelessWidget {
       children: [
         _logoColumn(
           context: context,
-          children: _buildSocial(context),
+          children: _buildOther(context),
         ),
 
         Padding(
@@ -55,7 +55,7 @@ class ContactPage extends StatelessWidget {
 
         _logoColumn(
           context: context,
-          children: _buildOther(context),
+          children: _buildSocial(context),
         ),
       ],
     );
@@ -140,6 +140,12 @@ class ContactPage extends StatelessWidget {
         child: Image.asset('assets/images/logos/linkedin_logo.png'),
         onTap: () => _openUrl('https://www.linkedin.com/in/łukasz-niedziałek-12b78930b/'),
         text: 'LinkedIn',
+      ),
+      _buildLogo(
+        context: context,
+        child: Image.asset('assets/images/logos/spotify_logo.png'),
+        onTap: () => _openUrl('https://open.spotify.com/user/47jyt37hiwy2ry4ao3y8bdtt7?si=29305cec818042fe'),
+        text: 'Spotify',
       ),
       _buildLogo(
         context: context,
