@@ -73,6 +73,7 @@ class WebsitePersonalProject extends PersonalProject {
             "A decision was made to rewrite it in a proper web framework.",
       ),
       Space.medium(),
+      // TODO(genix): smaller images
       // TODO(genix): aspect ratio
       AssetImageCarousel(
         imgPaths: [
