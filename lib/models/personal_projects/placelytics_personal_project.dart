@@ -54,6 +54,7 @@ class PlacelyticsPersonalProject extends PersonalProject {
 
       Space.big(),
       AssetImageCarousel(
+        aspectRatio: 540 / 1080,
         imgPaths: [
           for (int i = 2; i <= 19; i++) 'assets/images/projects/placelytics/$i.jpg',
         ],

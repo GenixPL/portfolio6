@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart' hide Title;
 import 'package:portfolio6/models/_models.dart';
@@ -105,9 +107,8 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
 
   Widget _buildAssetImageCarouselSliver(AssetImageCarousel assetImageCarousel) {
     return Carousel(
-      constraints: BoxConstraints.tightFor(
-        height: 600,
-      ),
+      aspectRatio: assetImageCarousel.aspectRatio,
+      maxHeight: min(600, MediaQuery.sizeOf(context).height - 100),
       children: [
         for (String path in assetImageCarousel.imgPaths)
           Padding(

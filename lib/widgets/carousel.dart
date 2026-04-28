@@ -5,11 +5,13 @@ import 'package:portfolio6/widgets/_widgets.dart';
 class Carousel extends StatefulWidget {
   const Carousel({
     super.key,
-    required this.constraints,
+    required this.aspectRatio,
+    required this.maxHeight,
     required this.children,
   });
 
-  final BoxConstraints constraints;
+  final double? aspectRatio;
+  final double maxHeight;
   final List<Widget> children;
 
   @override
@@ -40,20 +42,32 @@ class _CarouselState extends State<Carousel> {
 
   @override
   Widget build(BuildContext context) {
+    final Widget scrollWrapper = ScrollWrapper(
+      axis: Axis.horizontal,
+      controller: _pageController,
+      child: PageView(
+        controller: _pageController,
+        children: widget.children,
+      ),
+    );
+
+    final double? aspectRatio = widget.aspectRatio;
+
     return RepaintBoundary(
       child: Column(
         children: [
           ConstrainedBox(
-            constraints: widget.constraints,
-            child: ScrollWrapper(
-              axis: Axis.horizontal,
-              controller: _pageController,
-              child: PageView(
-                controller: _pageController,
-                children: widget.children,
-              ),
+            constraints: BoxConstraints(
+              maxHeight: widget.maxHeight,
             ),
+            child: aspectRatio == null
+                ? scrollWrapper
+                : AspectRatio(
+                    aspectRatio: aspectRatio,
+                    child: scrollWrapper,
+                  ),
           ),
+
           Gap(8),
           Wrap(
             alignment: WrapAlignment.center,
