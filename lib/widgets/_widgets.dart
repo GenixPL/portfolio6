@@ -12,5 +12,7 @@ export 'read_more.dart';
 export 'mouse_region_builder.dart';
 export 'carousel.dart';
 export 'logo.dart';
+export 'you_tube_player.dart';
+export 'logo_with_link.dart';
 
 export 'package:gap/gap.dart';

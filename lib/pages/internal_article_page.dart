@@ -1,5 +1,3 @@
-import 'dart:ui_web' as ui;
-
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart' hide Title;
 import 'package:portfolio6/models/_models.dart';
@@ -7,7 +5,6 @@ import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:web/web.dart' hide Text;
 
 // Stateful because of how much context is used
 // (and passing it would be annoying).
@@ -63,6 +60,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             AssetImageCarousel() => _buildAssetImageCarouselSliver(component),
             GithubLink() => _buildGithubLinkSliver(component),
             YouTube() => _buildYouTubeSliver(component),
+            AssetApk() => _buildAssetApk(component),
           },
       ],
     );
@@ -121,74 +119,31 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
   }
 
   Widget _buildGithubLinkSliver(GithubLink githubLink) {
-    void onTap() => launchUrlString(githubLink.url);
-
-    return Row(
-      children: [
-        Logo(
-          onTap: onTap,
-          child: Image.asset('assets/images/logos/github_logo.png'),
-        ),
-        Gap(8),
-        GenGestureDetector.base(
-          onTap: onTap,
-          child: SelectionContainer.disabled(
-            child: Text(
-              githubLink.url,
-              style: TextStyle(
-                color: Colors.blue,
-                decoration: TextDecoration.underline,
-                decorationColor: Colors.blue,
-              ),
-            ),
-          ),
-        ),
-      ],
+    return LogoWithLink(
+      onTap: () => launchUrlString(githubLink.url),
+      text: githubLink.url,
+      logo: Image.asset('assets/images/logos/github_logo.png'),
     ).sliver;
   }
 
   Widget _buildYouTubeSliver(YouTube youTube) {
     return AspectRatio(
       aspectRatio: 16 / 9,
-      child: _YouTube(
-        url: 'https://www.youtube.com/embed/h5CSd-B2x0w',
+      child: YouTubePlayer(
+        url: youTube.embedUrl,
       ),
     ).sliver;
   }
-}
 
-class _YouTube extends StatefulWidget {
-  const _YouTube({
-    super.key,
-    required this.url,
-  });
-
-  final String url;
-
-  @override
-  State<_YouTube> createState() => _YouTubeState();
-}
-
-class _YouTubeState extends State<_YouTube> {
-  late final String _viewId;
-
-  @override
-  void initState() {
-    super.initState();
-    _viewId = 'iframe-${DateTime.now().millisecondsSinceEpoch}';
-
-    ui.platformViewRegistry.registerViewFactory(_viewId, (int viewId) {
-      return HTMLIFrameElement()
-        ..src = widget.url
-        ..style.border = 'none'
-        ..style.width = '100%'
-        ..style.height = '100%'
-        ..allowFullscreen = true;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return HtmlElementView(viewType: _viewId);
+  Widget _buildAssetApk(AssetApk assetApk) {
+    return LogoWithLink(
+      onTap: () => downloadFile(
+        assetPath: 'assets/files/the_hardest_game.apk',
+        fileName: 'the_hardest_game.apk',
+        type: 'application/vnd.android.package-archive',
+      ),
+      text: 'the_hardest_game.apk',
+      logo: Image.asset('assets/images/logos/apk_logo.png'),
+    ).sliver;
   }
 }

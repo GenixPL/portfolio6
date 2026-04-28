@@ -6,8 +6,7 @@ class LanguageAppsPersonalProject extends PersonalProject {
         id: 'language-apps',
         assetImagePath: 'assets/images/projects/myword/myword-banner.jpg',
         name: 'Language learning apps',
-        // TODO(genix): imp
-        tags: [],
+        tags: ['< MANY >'],
         dateText: '2018 - 2023',
       );
 
@@ -23,7 +22,7 @@ class LanguageAppsPersonalProject extends PersonalProject {
       Space.big(),
       Body(
         text:
-            'I long wanted to create a tailor-suited application for language learning. '
+            'I had long wanted to create a tailor-suited application for language learning. '
             'I wanted to have my own (easily expandable) data sets, and learning modes that '
             'I deemed effective.',
       ),
