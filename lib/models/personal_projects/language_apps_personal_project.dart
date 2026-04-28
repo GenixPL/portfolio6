@@ -54,6 +54,7 @@ class LanguageAppsPersonalProject extends PersonalProject {
       ),
       Space.medium(),
       AssetImageCarousel(
+        aspectRatio: 540 / 1110,
         imgPaths: [
           for (int i = 1; i <= 8; i++) 'assets/images/projects/myword/first_version/$i.jpg',
         ],
@@ -94,6 +95,7 @@ class LanguageAppsPersonalProject extends PersonalProject {
       ),
       Space.medium(),
       AssetImageCarousel(
+        aspectRatio: 437 / 778,
         imgPaths: [for (int i = 1; i <= 14; i++) 'assets/images/projects/myword/second_version/$i.jpg'],
       ),
 
@@ -130,6 +132,7 @@ class LanguageAppsPersonalProject extends PersonalProject {
       Space.small(),
       Space.medium(),
       AssetImageCarousel(
+        aspectRatio: 540 / 1080,
         imgPaths: [for (int i = 1; i <= 10; i++) 'assets/images/projects/myword/third_version/$i.jpg'],
       ),
 

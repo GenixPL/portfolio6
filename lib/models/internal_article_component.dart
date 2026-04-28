@@ -54,9 +54,11 @@ class Tags extends InternalArticleComponent {
 
 class AssetImageCarousel extends InternalArticleComponent {
   const AssetImageCarousel({
+    required this.aspectRatio,
     required this.imgPaths,
   });
 
+  final double aspectRatio;
   final List<String> imgPaths;
 }
 

@@ -64,6 +64,7 @@ class ThgPersonalProject extends PersonalProject {
 
       Space.big(),
       AssetImageCarousel(
+        aspectRatio: 540 / 1080,
         imgPaths: [
           for (int i = 1; i <= 6; i++) 'assets/images/projects/thg/$i.jpg',
         ],

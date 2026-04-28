@@ -175,74 +175,77 @@ class _Section extends StatelessWidget {
     const double horizontalPadding = 12;
 
     return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(width: horizontalPadding),
-                  Text(
-                    'latest articles'.toUpperCase(),
-                    style: context.theme.textTheme.headlineSmall,
-                  ),
-                ],
-              ),
-
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(width: horizontalPadding),
-                  ReadMore(
-                    text: 'see all',
-                    onTap: () => context.goNamed('articles'),
-                    external: false,
-                  ),
-                  SizedBox(width: horizontalPadding),
-                ],
-              ),
-            ],
-          ),
-          Gap(12),
-          Carousel(
-            constraints: BoxConstraints(
-              minHeight: 400,
-              maxHeight: 400,
-              maxWidth: 600,
-            ),
-            children: [
-              for (MediumFeedItem item in items)
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: horizontalPadding,
-                  ),
-                  child: HomePageCard(
-                    title: item.title,
-                    subtitle: item.description,
-                    image: Image.network(
-                      item.mediaUrl,
-                      fit: BoxFit.cover,
-                      loadingBuilder: (_, child, progress) {
-                        if (progress == null) {
-                          return child;
-                        }
-
-                        return Center(
-                          child: GenProgressIndicator(),
-                        );
-                      },
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 600,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(width: horizontalPadding),
+                    Text(
+                      'latest articles'.toUpperCase(),
+                      style: context.theme.textTheme.headlineSmall,
                     ),
-                    tags: item.tags,
-                    dateText: item.publicationDate.articleFormat,
-                    url: item.url,
-                  ),
+                  ],
                 ),
-            ],
-          ),
-        ],
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(width: horizontalPadding),
+                    ReadMore(
+                      text: 'see all',
+                      onTap: () => context.goNamed('articles'),
+                      external: false,
+                    ),
+                    SizedBox(width: horizontalPadding),
+                  ],
+                ),
+              ],
+            ),
+            Gap(12),
+            Center(
+              child: Carousel(
+                maxHeight: 400,
+                aspectRatio: null,
+                children: [
+                  for (MediumFeedItem item in items)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: horizontalPadding,
+                      ),
+                      child: HomePageCard(
+                        title: item.title,
+                        subtitle: item.description,
+                        image: Image.network(
+                          item.mediaUrl,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (_, child, progress) {
+                            if (progress == null) {
+                              return child;
+                            }
+
+                            return Center(
+                              child: GenProgressIndicator(),
+                            );
+                          },
+                        ),
+                        tags: item.tags,
+                        dateText: item.publicationDate.articleFormat,
+                        url: item.url,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
