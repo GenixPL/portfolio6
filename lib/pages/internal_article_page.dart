@@ -28,6 +28,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     final InternalArticle? article = internalArticles.firstWhereOrNull((e) => e.id == widget.id);
 
     return PageWrapper(
+      pageId: 'article-${widget.id}',
       slivers: [
         if (article == null)
           _buildNotFoundSliver()

@@ -6,12 +6,14 @@ import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:web/web.dart' as web;
 
 class PageWrapper extends StatefulWidget {
-  const PageWrapper({
+  PageWrapper({
     super.key,
+    required this.pageId,
     required this.slivers,
     this.maxWidth = 900,
   });
 
+  final String pageId;
   final List<Widget> slivers;
   final int? maxWidth;
 
@@ -20,11 +22,39 @@ class PageWrapper extends StatefulWidget {
 }
 
 class _PageWrapperState extends State<PageWrapper> {
-  final ScrollController _scrollController = ScrollController();
+  static final Map<String, double> _scrollOffsets = {};
+
+  late final ScrollController _scrollController = ScrollController(
+    initialScrollOffset: _scrollOffsets[widget.pageId] ?? 0.0,
+  );
+
   final GlobalKey _containerKey = GlobalKey();
 
   OverlayEntry? _overlayEntry;
   bool _showMenu = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController.addListener(() {
+      _scrollOffsets[widget.pageId] = _scrollController.offset;
+    });
+
+    // Restore after layout is complete
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final savedOffset = _scrollOffsets[widget.pageId] ?? 0.0;
+      if (savedOffset > 0 && _scrollController.hasClients) {
+        _scrollController.jumpTo(savedOffset);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

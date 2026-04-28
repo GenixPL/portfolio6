@@ -11,6 +11,7 @@ class ProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWrapper(
+      pageId: 'projects',
       slivers: [
         ...[
           for (PersonalProject project in personalProjects)

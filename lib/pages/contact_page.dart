@@ -17,6 +17,7 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWrapper(
+      pageId: 'contact',
       slivers: [
         Center(
           child: ConstrainedBox(

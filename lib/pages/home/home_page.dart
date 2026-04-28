@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return PageWrapper(
+      pageId: 'home',
       slivers: [
         _buildAbout().sliver,
 
