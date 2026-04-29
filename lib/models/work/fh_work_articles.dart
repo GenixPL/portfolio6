@@ -96,6 +96,7 @@ class FhWorkArticle extends WorkArticle {
 
       Space.medium(),
       // TODO(genix): scroll doesnt work over yt (pointer_interceptor)
+      // TODO(genix): display a thumbnail https://img.youtube.com/vi/<id>/hqdefault.jpg and play in separate window
       YouTube(
         embedUrl: "https://www.youtube.com/embed/BCPDjRZ25Nw?list=PLoipzfN0Ixbgt74hq2agzL1KTs6C4uJpl",
       ),
