@@ -20,7 +20,7 @@ class CoopWorkArticle extends WorkArticle {
         startDateText: 'Jun 2024',
         endDateText: 'Jan 2026',
         location: '[Oslo]',
-        positionText: 'Position: Sr. Mobile Dev',
+        positions: ['Sr. Mobile Dev'],
         description: 'Work: Retail application',
       );
 

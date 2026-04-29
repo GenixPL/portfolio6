@@ -9,7 +9,7 @@ abstract class WorkArticle implements InternalArticle {
     required this.startDateText,
     required this.endDateText,
     required this.location,
-    required this.positionText,
+    required this.positions,
     required this.description,
   });
 
@@ -28,8 +28,11 @@ abstract class WorkArticle implements InternalArticle {
 
   final String location;
 
-  final String positionText;
+  final List<String> positions;
 
+  String get positionText {
+    return 'Position${positions.length > 1 ? 's' : ''}: ${positions.join(', ')}';
+  }
 
   final String description;
 

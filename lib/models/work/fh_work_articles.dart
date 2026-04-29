@@ -22,7 +22,7 @@ class FhWorkArticle extends WorkArticle {
         startDateText: 'Apr 2020',
         endDateText: 'May 2024',
         location: '[Warsaw, Oslo]',
-        positionText: 'Positions: Jr. Mobile Dev, Sr. Mobile Dev, Mobile Tech Lead',
+        positions: ['Jr. Mobile Dev', 'Sr. Mobile Dev', 'Mobile Tech Lead'],
         description: 'Work: Smart home application',
       );
 
