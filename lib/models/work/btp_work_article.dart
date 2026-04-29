@@ -5,7 +5,7 @@ class BtpWorkArticle extends WorkArticle {
   BtpWorkArticle()
     : super(
         id: 'beside-the-park',
-        assetImagePath: 'assets/images/work/btp/btp-banner.png',
+        assetImagePath: 'assets/images/work/btp/btp-banner.jpg',
         name: 'Beside The Park',
         tags: ['Java', 'Objective-C', 'Location Services'],
         startDateText: 'Apr 2018',
@@ -30,7 +30,7 @@ class BtpWorkArticle extends WorkArticle {
       Space.big(),
       Title(text: 'Position'),
       Space.small(),
-      Body(text: positions.join(',')),
+      Body(text: positions.join(', ')),
 
       Space.medium(),
       Title(text: 'Technologies'),
@@ -51,7 +51,16 @@ class BtpWorkArticle extends WorkArticle {
             "on one of their clients' products - a tracking SDK, "
             "which was mainly used in London navigation-related apps.",
       ),
-      Space.small(),
+
+      Space.big(),
+      AssetImageCarousel(
+        aspectRatio: 540 / 960,
+        imgPaths: [
+          for (int i = 1; i <= 2; i++) 'assets/images/work/btp/2_$i.jpg',
+        ],
+      ),
+
+      Space.medium(),
       Body(
         text:
             "The codebase was one of these big legacy monoliths that tried to "
@@ -97,6 +106,14 @@ class BtpWorkArticle extends WorkArticle {
         text:
             "Unfortunately I wasn't able to keep up with my studies and the job "
             "at the same time, so I went to full-time studying after vacations.",
+      ),
+
+      Space.big(),
+      AssetImageCarousel(
+        aspectRatio: 4 / 3,
+        imgPaths: [
+          for (int i = 1; i <= 2; i++) 'assets/images/work/btp/1_$i.jpg',
+        ],
       ),
     ];
   }

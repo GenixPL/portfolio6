@@ -31,9 +31,11 @@ class Headline extends InternalArticleComponent {
 class Body extends InternalArticleComponent {
   const Body({
     required this.text,
+    this.center = false,
   });
 
   final String text;
+  final bool center;
 }
 
 class Title extends InternalArticleComponent {
@@ -92,4 +94,12 @@ class ListItem extends InternalArticleComponent {
   });
 
   final String text;
+}
+
+class AssetImage extends InternalArticleComponent {
+  const AssetImage({
+    required this.path,
+  });
+
+  final String path;
 }

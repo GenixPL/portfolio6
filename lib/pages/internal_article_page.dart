@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart' hide Title;
+import 'package:flutter/material.dart' hide Title, AssetImage;
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
@@ -63,8 +63,9 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             AssetImageCarousel() => _buildAssetImageCarouselSliver(component),
             GithubLink() => _buildGithubLinkSliver(component),
             YouTube() => _buildYouTubeSliver(component),
-            AssetApk() => _buildAssetApk(component),
-            ListItem() => _buildListItem(component),
+            AssetApk() => _buildAssetApkSliver(component),
+            ListItem() => _buildListItemSliver(component),
+            AssetImage() => _buildAssetImageSliver(component),
           },
       ],
     );
@@ -89,6 +90,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
   Widget _buildBodySliver(Body body) {
     return Text(
       body.text,
+      textAlign: body.center ? TextAlign.center : null,
       style: _bodyTextStyle,
     ).sliver;
   }
@@ -135,7 +137,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     ).sliver;
   }
 
-  Widget _buildAssetApk(AssetApk assetApk) {
+  Widget _buildAssetApkSliver(AssetApk assetApk) {
     return LogoWithLink(
       onTap: () => downloadFile(
         assetPath: 'assets/files/the_hardest_game.apk',
@@ -147,7 +149,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     ).sliver;
   }
 
-  Widget _buildListItem(ListItem listItem) {
+  Widget _buildListItemSliver(ListItem listItem) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 4,
@@ -164,6 +166,12 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
           ),
         ),
       ],
+    ).sliver;
+  }
+
+  Widget _buildAssetImageSliver(AssetImage assetImage) {
+    return Image.asset(
+      assetImage.path,
     ).sliver;
   }
 
