@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio6/app.dart';
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/pages/home/home_page_card.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,7 +31,50 @@ class _HomePageState extends State<HomePage> {
       slivers: [
         _buildAbout().sliver,
 
-        _Section().sliver,
+        _Section(
+          title: 'latest articles',
+          onTap: () => context.goNamed('articles'),
+          children: [
+            for (MediumFeedItem item in mediumFeedItems.sublist(0, 5))
+              HomePageCard(
+                title: item.title,
+                subtitle: item.description,
+                image: Image.network(
+                  item.mediaUrl,
+                  fit: BoxFit.cover,
+                  loadingBuilder: (_, child, progress) {
+                    if (progress == null) {
+                      return child;
+                    }
+
+                    return Center(
+                      child: GenProgressIndicator(),
+                    );
+                  },
+                ),
+                tags: item.tags,
+                dateText: item.publicationDate.articleFormat,
+
+                onTap: () => launchUrlString(item.url),
+              ),
+          ],
+        ).sliver,
+
+        _Section(
+          title: 'work',
+          onTap: () => context.goNamed('work'),
+          children: [
+            for (WorkArticle work in workArticles)
+              HomePageCard(
+                title: work.name,
+                subtitle: work.descriptionText,
+                image:  Image.asset(work.assetImagePath),
+                tags: work.tags,
+                dateText: work.dateText,
+                onTap: () => ArticleRoute.go(context, work.id),
+              ),
+          ],
+        ).sliver,
       ].withGaps(context.theme.defaultSpacing(context)),
     );
   }
@@ -167,12 +212,18 @@ class _HomePageState extends State<HomePage> {
 }
 
 class _Section extends StatelessWidget {
-  const _Section();
+  const _Section({
+    required this.title,
+    required this.onTap,
+    required this.children,
+  });
+
+  final String title;
+  final VoidCallback onTap;
+  final List<HomePageCard> children;
 
   @override
   Widget build(BuildContext context) {
-    final List<MediumFeedItem> items = mediumFeedItems.sublist(0, 5);
-
     const double horizontalPadding = 12;
 
     return Center(
@@ -191,7 +242,7 @@ class _Section extends StatelessWidget {
                   children: [
                     SizedBox(width: horizontalPadding),
                     Text(
-                      'latest articles'.toUpperCase(),
+                      title.toUpperCase(),
                       style: context.theme.textTheme.headlineSmall,
                     ),
                   ],
@@ -202,7 +253,7 @@ class _Section extends StatelessWidget {
                     SizedBox(width: horizontalPadding),
                     ReadMore(
                       text: 'see all',
-                      onTap: () => context.goNamed('articles'),
+                      onTap: onTap,
                       external: false,
                     ),
                     SizedBox(width: horizontalPadding),
@@ -216,31 +267,12 @@ class _Section extends StatelessWidget {
                 maxHeight: 400,
                 aspectRatio: null,
                 children: [
-                  for (MediumFeedItem item in items)
+                  for (HomePageCard child in children)
                     Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: horizontalPadding,
                       ),
-                      child: HomePageCard(
-                        title: item.title,
-                        subtitle: item.description,
-                        image: Image.network(
-                          item.mediaUrl,
-                          fit: BoxFit.cover,
-                          loadingBuilder: (_, child, progress) {
-                            if (progress == null) {
-                              return child;
-                            }
-
-                            return Center(
-                              child: GenProgressIndicator(),
-                            );
-                          },
-                        ),
-                        tags: item.tags,
-                        dateText: item.publicationDate.articleFormat,
-                        url: item.url,
-                      ),
+                      child: child,
                     ),
                 ],
               ),

@@ -2,6 +2,7 @@ import 'package:portfolio6/models/_models.dart';
 
 final List<InternalArticle> internalArticles = [
   ...personalProjects,
+  ...workArticles,
 ];
 
 class InternalArticle {

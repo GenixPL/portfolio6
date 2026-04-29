@@ -43,12 +43,7 @@ extension ThemeDataExtensions on ThemeData {
   }
 
   double defaultSpacing(BuildContext context) {
-    final double maxHeight = MediaQuery.sizeOf(context).height;
-    if (maxHeight < 800) {
-      return 32;
-    }
-
-    return 48;
+    return 72;
   }
 
   double get cardSpacing {

@@ -5,6 +5,7 @@ export 'gen_gesture_detector.dart';
 export 'gen_sliver_app_bar.dart';
 export 'menu_icon.dart';
 export 'page_wrapper.dart';
+export 'no_image.dart';
 export 'menu_button.dart';
 export 'gen_progress_indicator.dart';
 export 'scroll_wrapper.dart';

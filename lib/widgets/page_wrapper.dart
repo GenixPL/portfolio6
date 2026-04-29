@@ -6,7 +6,7 @@ import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:web/web.dart' as web;
 
 class PageWrapper extends StatefulWidget {
-  PageWrapper({
+  const PageWrapper({
     super.key,
     required this.pageId,
     required this.slivers,

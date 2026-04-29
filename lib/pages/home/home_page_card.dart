@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePageCard extends StatelessWidget {
   const HomePageCard({
@@ -9,7 +8,7 @@ class HomePageCard extends StatelessWidget {
     required this.subtitle,
     required this.image,
     required this.tags,
-    required this.url,
+    required this.onTap,
     required this.dateText,
   });
 
@@ -17,7 +16,7 @@ class HomePageCard extends StatelessWidget {
   final String? subtitle;
   final Widget image;
   final List<String> tags;
-  final String url;
+  final VoidCallback onTap;
   final String? dateText;
 
   @override
@@ -26,10 +25,7 @@ class HomePageCard extends StatelessWidget {
     final String? subtitle = this.subtitle;
     final Widget image = this.image;
     final List<String> tags = this.tags;
-    final String url = this.url;
     final String? dateText = this.dateText;
-
-    void onTap() => launchUrlString(url);
 
     return GenGestureDetector.base(
       onTap: onTap,

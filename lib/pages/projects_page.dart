@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:portfolio6/app.dart';
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
@@ -21,23 +21,11 @@ class ProjectsPage extends StatelessWidget {
                       project.assetImagePath!,
                       fit: BoxFit.cover,
                     )
-                  : Center(
-                      child: Text(
-                        'NO IMAGE',
-                        style: TextStyle(
-                          fontFamily: FontFamily.cpMono.assetName,
-                        ),
-                      ),
-                    ),
+                  : NoImage(),
               title: project.name,
               description: null,
               dateText: project.dateText,
-              onTap: () => context.goNamed(
-                'article',
-                pathParameters: {
-                  'id': project.id,
-                },
-              ),
+              onTap: () => ArticleRoute.go(context, project.id),
               tags: project.tags,
               external: false,
             ).sliver,

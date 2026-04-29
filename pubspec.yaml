@@ -35,8 +35,11 @@ flutter:
 
   assets:
     - assets/files/
+
     - assets/images/
+
     - assets/images/logos/
+
     - assets/images/projects/myword/
     - assets/images/projects/myword/first_version/
     - assets/images/projects/myword/second_version/
@@ -46,6 +49,11 @@ flutter:
     - assets/images/projects/quarantino/
     - assets/images/projects/thg/
     - assets/images/projects/website/
+
+    - assets/images/work/
+    - assets/images/work/btp/
+    - assets/images/work/coop/
+    - assets/images/work/fh/
 
   fonts:
     - family: CPMono
