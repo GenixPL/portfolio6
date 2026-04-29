@@ -10,6 +10,7 @@ class HomePageCard extends StatelessWidget {
     required this.tags,
     required this.onTap,
     required this.dateText,
+    required this.external,
   });
 
   final String? title;
@@ -18,6 +19,7 @@ class HomePageCard extends StatelessWidget {
   final List<String> tags;
   final VoidCallback onTap;
   final String? dateText;
+  final bool external;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +68,7 @@ class HomePageCard extends StatelessWidget {
                         ArticleDateWithButton(
                           onReadMore: onTap,
                           dateText: dateText,
-                          external: true,
+                          external: external,
                         ),
                       ],
                     ),

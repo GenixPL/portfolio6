@@ -8,6 +8,7 @@ import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+// TODO(genix): add Clox
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -54,8 +55,30 @@ class _HomePageState extends State<HomePage> {
                 ),
                 tags: item.tags,
                 dateText: item.publicationDate.articleFormat,
-
+                external: true,
                 onTap: () => launchUrlString(item.url),
+              ),
+          ],
+        ).sliver,
+
+        _Section(
+          title: 'latest projects',
+          onTap: () => context.goNamed('projects'),
+          children: [
+            for (PersonalProject project in personalProjects.sublist(0, 4))
+              HomePageCard(
+                title: project.name,
+                subtitle: null,
+                image: project.assetImagePath == null
+                    ? NoImage()
+                    : Image.asset(
+                        project.assetImagePath!,
+                        fit: BoxFit.cover,
+                      ),
+                tags: project.tags,
+                dateText: project.dateText,
+                external: false,
+                onTap: () => ArticleRoute.go(context, project.id),
               ),
           ],
         ).sliver,
@@ -68,9 +91,13 @@ class _HomePageState extends State<HomePage> {
               HomePageCard(
                 title: work.name,
                 subtitle: work.descriptionText,
-                image:  Image.asset(work.assetImagePath),
+                image: Image.asset(
+                  work.assetImagePath,
+                  fit: BoxFit.cover,
+                ),
                 tags: work.tags,
                 dateText: work.dateText,
+                external: false,
                 onTap: () => ArticleRoute.go(context, work.id),
               ),
           ],
