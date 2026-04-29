@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/theme/gen_theme.dart';
 
 class ArticleDescription extends StatelessWidget {

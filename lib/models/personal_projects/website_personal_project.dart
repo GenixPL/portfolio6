@@ -148,7 +148,7 @@ class WebsitePersonalProject extends PersonalProject {
       Title(text: 'Sixth version'),
       Space.small(),
       Tags(
-        tags: ['Flutter', 'Dart'],
+        tags: ['Flutter', 'Dart', 'Flame Engine'],
       ),
       Space.medium(),
       GithubLink(

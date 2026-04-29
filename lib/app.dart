@@ -3,6 +3,30 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio6/pages/_pages.dart';
 import 'package:portfolio6/theme/_theme.dart';
 
+class ArticleRoute extends GoRoute {
+  ArticleRoute()
+    : super(
+        path: '/article/:id',
+        name: 'article',
+        builder: (_, GoRouterState state) {
+          final String? articleId = state.pathParameters['id'];
+
+          return InternalArticlePage(
+            id: articleId,
+          );
+        },
+      );
+
+  static void go(BuildContext context, String articleId) {
+    context.goNamed(
+      'article',
+      pathParameters: {
+        'id': articleId,
+      },
+    );
+  }
+}
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -28,17 +52,7 @@ class _MyAppState extends State<MyApp> {
             name: 'articles',
             builder: (_, _) => ArticlesPage(),
           ),
-          GoRoute(
-            path: '/article/:id',
-            name: 'article',
-            builder: (_, GoRouterState state) {
-              final String? articleId = state.pathParameters['id'];
-
-              return InternalArticlePage(
-                id: articleId,
-              );
-            },
-          ),
+          ArticleRoute(),
           GoRoute(
             path: '/work',
             name: 'work',

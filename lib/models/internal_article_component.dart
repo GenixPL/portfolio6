@@ -85,3 +85,11 @@ class AssetApk extends InternalArticleComponent {
 
   final String path;
 }
+
+class ListItem extends InternalArticleComponent {
+  const ListItem({
+    required this.text,
+  });
+
+  final String text;
+}

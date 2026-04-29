@@ -64,6 +64,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             GithubLink() => _buildGithubLinkSliver(component),
             YouTube() => _buildYouTubeSliver(component),
             AssetApk() => _buildAssetApk(component),
+            ListItem() => _buildListItem(component),
           },
       ],
     );
@@ -88,7 +89,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
   Widget _buildBodySliver(Body body) {
     return Text(
       body.text,
-      style: context.theme.textTheme.bodyLarge,
+      style: _bodyTextStyle,
     ).sliver;
   }
 
@@ -144,5 +145,29 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
       text: 'the_hardest_game.apk',
       logo: Image.asset('assets/images/logos/apk_logo.png'),
     ).sliver;
+  }
+
+  Widget _buildListItem(ListItem listItem) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 4,
+      children: [
+        Text(
+          '-',
+          style: _bodyTextStyle,
+        ),
+
+        Flexible(
+          child: Text(
+            listItem.text,
+            style: _bodyTextStyle,
+          ),
+        ),
+      ],
+    ).sliver;
+  }
+
+  TextStyle get _bodyTextStyle {
+    return context.theme.textTheme.bodyLarge!;
   }
 }
