@@ -68,7 +68,10 @@ class _HomePageState extends State<HomePage> {
               HomePageCard(
                 title: work.name,
                 subtitle: work.descriptionText,
-                image:  Image.asset(work.assetImagePath),
+                image: Image.asset(
+                  work.assetImagePath,
+                  fit: BoxFit.cover,
+                ),
                 tags: work.tags,
                 dateText: work.dateText,
                 onTap: () => ArticleRoute.go(context, work.id),
