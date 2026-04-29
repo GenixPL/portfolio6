@@ -35,4 +35,5 @@ jobs:
         with:
           token: ${{ secrets.MAIN_DEPLOY_TOKEN }}
           repository-name: GenixPL/genixpl.github.io
+          branch: master
           folder: build/web
