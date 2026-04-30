@@ -67,6 +67,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             ListItem() => _buildListItemSliver(component),
             AssetImage() => _buildAssetImageSliver(component),
             WebLink() => _buildWebLinkSliver(component),
+            MediumLink() => _buildMediumLinkSliver(component),
           },
       ],
     );
@@ -186,6 +187,15 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     ).sliver;
   }
 
+  Widget _buildMediumLinkSliver(MediumLink mediumLink) {
+    return LogoWithLink(
+      onTap: () => launchUrlString(mediumLink.url),
+      text: mediumLink.url,
+      logo: Image.asset(
+        'assets/images/logos/medium_logo.png',
+      ),
+    ).sliver;
+  }
 
   TextStyle get _bodyTextStyle {
     return context.theme.textTheme.bodyLarge!;

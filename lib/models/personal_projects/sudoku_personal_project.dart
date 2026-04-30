@@ -4,8 +4,7 @@ class SudokuPersonalProject extends PersonalProject {
   SudokuPersonalProject()
     : super(
         id: 'sudoku',
-        // TODO(genix): add
-        assetImagePath: null,
+        assetImagePath: 'assets/images/projects/sudoku/sudoku-banner.png',
         name: 'Sudoku mobile app',
         tags: ['flutter', 'mobile'],
         dateText: '10 - 12 Mar 2026',
@@ -13,6 +12,25 @@ class SudokuPersonalProject extends PersonalProject {
 
   @override
   List<InternalArticleComponent> get components {
-    return [];
+    return [
+      AssetBanner(
+        path: assetImagePath!,
+      ),
+      Space.medium(),
+      Headline(
+        text: name,
+        center: true,
+      ),
+
+      Space.big(),
+      MediumLink(
+        url: 'https://medium.com/@GenixPL/missing-fun-of-speedrunning-personal-projects-ad85b08706cd',
+      ),
+
+      Space.medium(),
+      YouTube(
+        embedUrl: 'https://www.youtube.com/embed/ct4PwCOy9D8',
+      ),
+    ];
   }
 }
