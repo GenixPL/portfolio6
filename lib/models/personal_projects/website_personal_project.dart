@@ -165,6 +165,22 @@ class WebsitePersonalProject extends PersonalProject {
             'WASM makes it performance-reasonable, and I have take some solid time off and '
             'finally pushed myself to write proper 1.0.0 of the website.',
       ),
+
+      Space.medium(),
+      Body(
+        text:
+            "One of interesting problems that I encountered, and that tickled my engineering soul, "
+            "was a problem originating from that WASM - JS battle. Most of the website is written "
+            "in Dart (compiled to WASM), but I wanted to preserve that original YouTube player look "
+            "(these 3rd party players look  completely out of place / fake). Which could be "
+            "achieved by injecting an HTML iframe into the Dart widget tree. Which worked. But now the "
+            "scrolling, which is handled by Dart, over that element didn't work, because that element "
+            "goes outside of its control. After some googling, gemining, and trying different "
+            "things, I realized that it was not something that could be changed, so I ended up "
+            "displaying thumbnails on the pages that can scroll (all of them can), here Gemini helped "
+            "again by giving me YouTube urls to the thumbnails, and the thumbnails navigate to a separate, "
+            "non-scrollable, dialog that includes the \"native\" YouTube iframe.",
+      ),
     ];
   }
 }

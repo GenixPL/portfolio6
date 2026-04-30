@@ -1,10 +1,12 @@
 import 'dart:ui_web' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
-import 'package:web/web.dart';
+import 'package:web/web.dart' hide Text;
 
-class YouTubePlayer extends StatefulWidget {
+class YouTubePlayer extends StatelessWidget {
   const YouTubePlayer({
     super.key,
     required this.url,
@@ -13,10 +15,94 @@ class YouTubePlayer extends StatefulWidget {
   final String url;
 
   @override
-  State<YouTubePlayer> createState() => _YouTubePlayerState();
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: 300,
+      ),
+      child: GenGestureDetector.base(
+        onTap: () => _showDialog(context),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.network(
+              _getMaxThumbnailUrl(),
+              errorBuilder: (_, _, _) {
+                return Image.network(_getDefaultThumbnailUrl());
+              },
+            ),
+            Image.asset(
+              'assets/images/yt_icon.png',
+              width: 84,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierColor: Colors.black87,
+      builder: (context) {
+        return Center(
+          child: Padding(
+            padding: EdgeInsets.all(
+              context.theme.defaultPageHorizontalPadding(context),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: context.pop,
+                      icon: Icon(Icons.close_sharp),
+                    ),
+                  ],
+                ),
+                Flexible(
+                  child: _Player(
+                    url: url,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  String _getVideoId() {
+    final split1 = url.split('/');
+    final split2 = split1.last.split('?');
+    return split2.first;
+  }
+
+  String _getMaxThumbnailUrl() {
+    return 'https://img.youtube.com/vi/${_getVideoId()}/maxresdefault.jpg';
+  }
+
+  String _getDefaultThumbnailUrl() {
+    return 'https://img.youtube.com/vi/${_getVideoId()}/hqdefault.jpg';
+  }
 }
 
-class _YouTubePlayerState extends State<YouTubePlayer> {
+class _Player extends StatefulWidget {
+  const _Player({
+    required this.url,
+  });
+
+  final String url;
+
+  @override
+  State<_Player> createState() => _PlayerState();
+}
+
+class _PlayerState extends State<_Player> {
   late final String _viewId;
 
   bool _loaded = false;
@@ -27,8 +113,17 @@ class _YouTubePlayerState extends State<YouTubePlayer> {
     _viewId = 'iframe-${DateTime.now().millisecondsSinceEpoch}';
 
     ui.platformViewRegistry.registerViewFactory(_viewId, (int viewId) {
+      Uri uri = Uri.parse(widget.url);
+      uri = uri.replace(
+        queryParameters: {
+          ...uri.queryParameters,
+          'autoplay': '1',
+          'mute': '1',
+        },
+      );
+
       return HTMLIFrameElement()
-        ..src = widget.url
+        ..src = uri.toString()
         ..style.border = 'none'
         ..style.width = '100%'
         ..style.height = '100%'
