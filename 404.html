@@ -1,5 +1,16 @@
 <!-- Gemini code -->
 <script type="text/javascript">
+    // This has to be changed between the "prod" - genixpl.github.io,
+    // and "beta" - genixpl.github.io/portfolio6.
+    // On macOS the command is:
+    // ``` bash
+    // sed -i '' '14c\
+    //     var pathSegmentsToKeep = 0;' web/404.html
+    // ```
+    // and on Linux:
+    // ``` bash
+    // sed -i '14s/.*/    var pathSegmentsToKeep = 0;/' wweb/404.html
+    // ```
     var pathSegmentsToKeep = 1;
 
     var l = window.location;
