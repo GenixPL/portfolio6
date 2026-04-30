@@ -111,3 +111,11 @@ class WebLink extends InternalArticleComponent {
 
   final String url;
 }
+
+class MediumLink extends InternalArticleComponent {
+  const MediumLink({
+    required this.url,
+  });
+
+  final String url;
+}

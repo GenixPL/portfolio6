@@ -22,15 +22,19 @@ class LogoWithLink extends StatelessWidget {
           child: logo,
         ),
         Gap(8),
-        GenGestureDetector.base(
-          onTap: onTap,
-          child: SelectionContainer.disabled(
-            child: Text(
-              text,
-              style: TextStyle(
-                color: Colors.blue,
-                decoration: TextDecoration.underline,
-                decorationColor: Colors.blue,
+        Flexible(
+          child: GenGestureDetector.base(
+            onTap: onTap,
+            child: SelectionContainer.disabled(
+              child: Text(
+                text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.blue,
+                ),
               ),
             ),
           ),
