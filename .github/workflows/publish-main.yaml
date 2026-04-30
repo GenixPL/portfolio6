@@ -29,6 +29,9 @@ jobs:
       - name: Verify Flutter installation 👀
         run: flutter --version
 
+      - name: Change handling of 404s
+        run: sed -i '14s/.*/    var pathSegmentsToKeep = 0;/' wweb/404.html
+
       - name: Build web 🔨
         run: flutter build web --release
 
