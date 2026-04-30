@@ -181,6 +181,10 @@ class WebsitePersonalProject extends PersonalProject {
             "again by giving me YouTube urls to the thumbnails, and the thumbnails navigate to a separate, "
             "non-scrollable, dialog that includes the \"native\" YouTube iframe.",
       ),
+      Space.small(),
+      Body(
+        text: 'Plus the thumbnails load faster.',
+      ),
     ];
   }
 }

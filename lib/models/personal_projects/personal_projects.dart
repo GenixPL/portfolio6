@@ -3,7 +3,7 @@ import 'package:portfolio6/models/personal_projects/language_apps_personal_proje
 
 final List<PersonalProject> personalProjects = [
   WebsitePersonalProject(),
-  // TODO(genix): add python color remover
+  ColorRemoverPersonalProject(),
   RustMorsePersonalProject(),
   SudokuPersonalProject(),
   ThgPersonalProject(),
