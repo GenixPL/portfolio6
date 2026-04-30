@@ -170,8 +170,10 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
   }
 
   Widget _buildAssetImageSliver(AssetImage assetImage) {
-    return Image.asset(
-      assetImage.path,
+    return Center(
+      child: Image.asset(
+        assetImage.path,
+      ),
     ).sliver;
   }
 
