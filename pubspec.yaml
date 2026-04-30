@@ -48,6 +48,7 @@ flutter:
     - assets/images/projects/quarantino/
     - assets/images/projects/rust-morse/
     - assets/images/projects/thg/
+    - assets/images/projects/color-remover/
     - assets/images/projects/website/
 
     - assets/images/work/

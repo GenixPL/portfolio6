@@ -66,6 +66,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             AssetApk() => _buildAssetApkSliver(component),
             ListItem() => _buildListItemSliver(component),
             AssetImage() => _buildAssetImageSliver(component),
+            WebLink() => _buildWebLinkSliver(component),
           },
       ],
     );
@@ -176,6 +177,15 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
       ),
     ).sliver;
   }
+
+  Widget _buildWebLinkSliver(WebLink webLink) {
+    return LogoWithLink(
+      onTap: () => launchUrlString(webLink.url),
+      text: webLink.url,
+      logo: Icon(Icons.public_sharp),
+    ).sliver;
+  }
+
 
   TextStyle get _bodyTextStyle {
     return context.theme.textTheme.bodyLarge!;

@@ -103,3 +103,11 @@ class AssetImage extends InternalArticleComponent {
 
   final String path;
 }
+
+class WebLink extends InternalArticleComponent {
+  const WebLink({
+    required this.url,
+  });
+
+  final String url;
+}
