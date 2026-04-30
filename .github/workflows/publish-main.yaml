@@ -1,0 +1,44 @@
+name: Publish to genixpl.github.io
+
+on:
+  push:
+    branches:
+      - 'release-main'
+  # This line alone enables the manual trigger with branch selection
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.MAIN_DEPLOY_TOKEN }}
+
+      - name: Set up Flutter ⬇️
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml
+          cache: true
+
+      - name: Verify Flutter installation 👀
+        run: flutter --version
+
+      - name: Change handling of 404s
+        run: sed -i '14s/.*/    var pathSegmentsToKeep = 0;/' web/404.html
+
+      - name: Build web 🔨
+        run: flutter build web --release
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.MAIN_DEPLOY_TOKEN }}
+          repository-name: GenixPL/genixpl.github.io
+          branch: master
+          folder: build/web
