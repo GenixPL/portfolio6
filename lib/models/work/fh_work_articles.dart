@@ -73,7 +73,7 @@ class FhWorkArticle extends WorkArticle {
       AssetImageCarousel(
         aspectRatio: 540 / 1170,
         imgPaths: [
-          for (int i = 1; i <= 3; i++) '/Users/genix/Projects/portfolio6/assets/images/work/fh/1_$i.jpg',
+          for (int i = 1; i <= 3; i++) 'assets/images/work/fh/1_$i.jpg',
         ],
       ),
       Space.medium(),
@@ -153,7 +153,7 @@ class FhWorkArticle extends WorkArticle {
       AssetImageCarousel(
         aspectRatio: 621 / 1344,
         imgPaths: [
-          for (int i = 1; i <= 8; i++) '/Users/genix/Projects/portfolio6/assets/images/work/fh/2_$i.jpg',
+          for (int i = 1; i <= 8; i++) 'assets/images/work/fh/2_$i.jpg',
         ],
       ),
 
@@ -177,7 +177,7 @@ class FhWorkArticle extends WorkArticle {
       AssetImageCarousel(
         aspectRatio: 16 / 9,
         imgPaths: [
-          for (int i = 1; i <= 23; i++) '/Users/genix/Projects/portfolio6/assets/images/work/fh/3_$i.jpg',
+          for (int i = 1; i <= 23; i++) 'assets/images/work/fh/3_$i.jpg',
         ],
       ),
 
@@ -185,13 +185,13 @@ class FhWorkArticle extends WorkArticle {
       AssetImageCarousel(
         aspectRatio: 540 / 1200,
         imgPaths: [
-          for (int i = 1; i <= 11; i++) '/Users/genix/Projects/portfolio6/assets/images/work/fh/4_$i.jpg',
+          for (int i = 1; i <= 11; i++) 'assets/images/work/fh/4_$i.jpg',
         ],
       ),
 
       Space.medium(),
       AssetImage(
-        path: '/Users/genix/Projects/portfolio6/assets/images/work/fh/5_1.jpg',
+        path: 'assets/images/work/fh/5_1.jpg',
       ),
     ];
   }
