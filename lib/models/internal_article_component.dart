@@ -12,7 +12,7 @@ class AssetBanner extends InternalArticleComponent {
 
 class Space extends InternalArticleComponent {
   const Space.big() : size = 64;
-  const Space.medium() : size = 24;
+  const Space.medium() : size = 32;
   const Space.small() : size = 8;
 
   final double size;
