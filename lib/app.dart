@@ -64,6 +64,11 @@ class _MyAppState extends State<MyApp> {
             builder: (_, _) => ProjectsPage(),
           ),
           GoRoute(
+            path: '/hackathons',
+            name: 'hackathons',
+            builder: (_, _) => HackathonsPage(),
+          ),
+          GoRoute(
             path: '/contact',
             name: 'contact',
             builder: (_, _) => ContactPage(),

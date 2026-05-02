@@ -35,6 +35,11 @@ class MenuButton extends StatelessWidget {
         onTap: onTap,
       ),
       MenuButton(
+        name: 'hackathons',
+        routeName: 'hackathons',
+        onTap: onTap,
+      ),
+      MenuButton(
         name: 'contact',
         routeName: 'contact',
         onTap: onTap,
