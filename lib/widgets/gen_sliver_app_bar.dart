@@ -18,7 +18,7 @@ class GenSliverAppBar extends StatelessWidget {
     required this.onMenuTap,
   });
 
-  static const double _shortAppBarWidth = 720;
+  static const double _shortAppBarWidth = 800;
 
   final GlobalKey containerKey;
   final bool menuOpen;

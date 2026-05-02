@@ -5,7 +5,7 @@ class SudokuPersonalProject extends PersonalProject {
     : super(
         id: 'sudoku',
         assetImagePath: 'assets/images/projects/sudoku/sudoku-banner.png',
-        name: 'Sudoku mobile app',
+        name: 'Sudoku',
         tags: ['flutter', 'mobile'],
         dateText: '10 - 12 Mar 2026',
       );
@@ -23,6 +23,13 @@ class SudokuPersonalProject extends PersonalProject {
       ),
 
       Space.big(),
+      WebLink(url: 'https://genixpl.github.io/sudoku'),
+      Space.small(),
+      AssetApk(
+        path: 'assets/files/sudoku.apk',
+      ),
+
+      Space.medium(),
       MediumLink(
         url: 'https://medium.com/@GenixPL/missing-fun-of-speedrunning-personal-projects-ad85b08706cd',
       ),

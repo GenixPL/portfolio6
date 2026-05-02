@@ -140,13 +140,15 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
   }
 
   Widget _buildAssetApkSliver(AssetApk assetApk) {
+    final fileName = assetApk.path.split('/').last;
+
     return LogoWithLink(
       onTap: () => downloadFile(
-        assetPath: 'assets/files/the_hardest_game.apk',
-        fileName: 'the_hardest_game.apk',
+        assetPath: assetApk.path ,
+        fileName: fileName,
         type: 'application/vnd.android.package-archive',
       ),
-      text: 'the_hardest_game.apk',
+      text: fileName,
       logo: Image.asset('assets/images/logos/apk_logo.png'),
     ).sliver;
   }

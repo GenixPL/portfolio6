@@ -6,7 +6,17 @@ class WebsitePersonalProject extends PersonalProject {
         id: 'website',
         assetImagePath: 'assets/images/projects/website/website-banner.jpg',
         name: 'The website',
-        tags: ['< MANY >'],
+        tags: [
+          'Flutter',
+          'Dart',
+          'React',
+          'HTML',
+          'JavaScript',
+          'CSS',
+          'Vue',
+          'Flame Engine',
+          'Gemini',
+        ],
         dateText: '2020 - Present',
       );
 
