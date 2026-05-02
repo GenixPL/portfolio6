@@ -23,6 +23,11 @@ abstract class Hackathon implements InternalArticle {
 
   final String assetImagePath;
 
+  String get description {
+    return 'Duration: $duration\n'
+        'Organizer: $organizer';
+  }
+
   @override
   List<InternalArticleComponent> get components;
 }

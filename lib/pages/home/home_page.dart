@@ -102,6 +102,26 @@ class _HomePageState extends State<HomePage> {
               ),
           ],
         ).sliver,
+
+        _Section(
+          title: 'hackathons',
+          onTap: () => context.goNamed('hackathons'),
+          children: [
+            for (Hackathon hackathon in hackathons)
+              HomePageCard(
+                title: hackathon.name,
+                subtitle: hackathon.description,
+                image: Image.asset(
+                  hackathon.assetImagePath,
+                  fit: BoxFit.cover,
+                ),
+                tags: [],
+                dateText: hackathon.dateText,
+                external: false,
+                onTap: () => ArticleRoute.go(context, hackathon.id),
+              ),
+          ],
+        ).sliver,
       ].withGaps(context.theme.defaultSpacing(context)),
     );
   }

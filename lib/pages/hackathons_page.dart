@@ -21,9 +21,7 @@ class HackathonsPage extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
               title: hackathon.name,
-              description:
-                  'Duration: ${hackathon.duration}\n'
-                  'Organizer: ${hackathon.organizer}',
+              description: hackathon.description,
               dateText: hackathon.dateText,
               onTap: () => ArticleRoute.go(context, hackathon.id),
               tags: [],
