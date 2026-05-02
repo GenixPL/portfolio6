@@ -290,7 +290,13 @@ class _Section extends StatelessWidget {
                     SizedBox(width: horizontalPadding),
                     Text(
                       title.toUpperCase(),
-                      style: context.theme.textTheme.headlineSmall,
+                      style: context.theme.textTheme.headlineSmall!.copyWith(
+                        height: 1,
+                      ),
+                      textHeightBehavior: TextHeightBehavior(
+                        applyHeightToFirstAscent: false,
+                        applyHeightToLastDescent: false,
+                      ),
                     ),
                   ],
                 ),
