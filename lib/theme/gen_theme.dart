@@ -85,7 +85,7 @@ class GenTheme {
           overlayColor: _singleColor(Colors.transparent),
         ),
       ),
-      fontFamily: FontFamily.assistant.assetName,
+      fontFamily: FontFamily.inter.assetName,
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           overlayColor: _singleColor(Colors.transparent),
@@ -114,7 +114,7 @@ class GenTheme {
           fontWeight: FontWeight.w600,
         ),
         headlineSmall: TextStyle(
-          fontFamily: FontFamily.assistant.assetName,
+          fontFamily: FontFamily.inter.assetName,
           fontWeight: FontWeight.w700,
         ),
       ),

@@ -20,7 +20,7 @@ class GithubContributionCalendarTableTile extends StatelessWidget {
             context.theme.secondary,
             _getColorT(value),
           ),
-          borderRadius: const BorderRadius.all(Radius.circular(4)),
+          borderRadius: const BorderRadius.all(Radius.circular(1)),
         ),
       ),
     );

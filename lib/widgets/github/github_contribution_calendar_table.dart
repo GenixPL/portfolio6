@@ -20,9 +20,7 @@ class GithubContributionCalendarTable extends StatefulWidget {
 }
 
 class _GithubContributionCalendarTableState extends State<GithubContributionCalendarTable> {
-  final ScrollController _scrollController = ScrollController(
-    initialScrollOffset: 1.0,
-  );
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void dispose() {
@@ -34,20 +32,21 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
   Widget build(BuildContext context) {
     return Row(
       spacing: 8,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildDay('Sun'),
+            _buildDay(''),
             _buildDay('Mon'),
-            _buildDay('Tue'),
+            _buildDay(''),
             _buildDay('Wed'),
-            _buildDay('Thu'),
+            _buildDay(''),
             _buildDay('Fri'),
-            _buildDay('Sat'),
+            _buildDay(''),
           ],
         ),
-        Expanded(
+        Flexible(
           child: GridView.builder(
             controller: _scrollController,
             scrollDirection: Axis.horizontal,
@@ -81,7 +80,7 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
           text,
           style: TextStyle(
             fontFamily: FontFamily.cpMono.assetName,
-            fontSize: widget.size / 14,
+            fontSize: (widget.size / 7) * 0.8,
           ),
           textHeightBehavior: TextHeightBehavior(
             applyHeightToLastDescent: false,

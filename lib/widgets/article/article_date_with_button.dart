@@ -49,8 +49,6 @@ class ArticleDateWithButton extends StatelessWidget {
   }
 
   Widget? _buildReadMore() {
-
-
     return ReadMore(
       onTap: onReadMore,
       external: external,

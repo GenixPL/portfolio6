@@ -286,6 +286,8 @@ class _Section extends StatelessWidget {
           children: [
             Wrap(
               alignment: WrapAlignment.spaceBetween,
+              runAlignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -295,6 +297,7 @@ class _Section extends StatelessWidget {
                       title.toUpperCase(),
                       style: context.theme.textTheme.headlineSmall!.copyWith(
                         height: 1,
+                        fontFamily: FontFamily.inter.assetName,
                       ),
                       textHeightBehavior: TextHeightBehavior(
                         applyHeightToFirstAscent: false,
@@ -303,8 +306,10 @@ class _Section extends StatelessWidget {
                     ),
                   ],
                 ),
+
                 Row(
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     SizedBox(width: horizontalPadding),
                     ReadMore(

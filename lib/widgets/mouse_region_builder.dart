@@ -38,7 +38,9 @@ class _MouseRegionBuilderState extends State<MouseRegionBuilder> {
         },
         child: GenGestureDetector.base(
           onTap: widget.onTap,
-          child: widget.builder(context, _hovered),
+          child: SelectionContainer.disabled(
+            child: widget.builder(context, _hovered),
+          ),
         ),
       ),
     );
