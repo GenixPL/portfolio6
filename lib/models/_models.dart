@@ -1,3 +1,4 @@
+export 'github/_github.dart';
 export 'hackathons/_hackathons.dart';
 export 'internal_article.dart';
 export 'internal_article_component.dart';
