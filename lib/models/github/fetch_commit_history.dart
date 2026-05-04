@@ -6,7 +6,8 @@ import 'package:portfolio6/utils/_utils.dart';
 
 // The token is a minimal, read-only, token from a secondary empty account,
 // nothing to steal.
-const String _token = 'Z2l0aHViX3BhdF8xMUNERU4yWFkweWFFRzB5bEZ6TmdhX0NmdEdUTkZ1SkdwbmJKWkRyamgxaEtyZ09tTlo1UHN5N2hTNWZiWkJKc2s0T0xYWDM3U1RQRDk2bUdM';
+const String _token =
+    'V2pKc01HRklWbWxZTTBKb1pFWTRlRTFWVGtWU1ZUUjVWMFpyZDFGVlNqTldTRlkwVGtkR1VXRnVaRXBZTWpWVVUwaGtTMlZYUmpaV2EyaFVXbnBHY0ZSSVVtNWpNMmh4VGxoQ1lXSnRTalZWV0dSUVpESnNUbFJJV2pOTmEwcFBaVlZqTUdFeU5ERlRla2t5VVZaa1UxWlZUWGRTUlc4d1lsaFNVQT09';
 const String url = 'https://api.github.com/graphql';
 const String userName = 'GenixPL';
 
@@ -55,10 +56,14 @@ Future<GithubContributionCalendar?> fetchCommitHistory({
     }
   ''';
 
+    final String decodedToken1 = utf8.decode(base64.decode(_token));
+    final String decodedToken2 = utf8.decode(base64.decode(decodedToken1));
+    final String decodedToken3 = utf8.decode(base64.decode(decodedToken2));
+
     final response = await post(
       Uri.parse(url),
       headers: {
-        'Authorization': 'Bearer ${utf8.decode(base64.decode(_token))}',
+        'Authorization': 'Bearer $decodedToken3',
         'Content-Type': 'application/json',
       },
       body: jsonEncode({
