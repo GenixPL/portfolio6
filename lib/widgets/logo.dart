@@ -7,15 +7,15 @@ class Logo extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.child,
+    this.size = 40,
   });
 
   final VoidCallback onTap;
   final Widget child;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
-    const double size = 40;
-
     return MouseRegionBuilder(
       builder: (BuildContext context, bool hovered) {
         return Stack(

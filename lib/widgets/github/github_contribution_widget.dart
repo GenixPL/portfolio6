@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class GithubContributionWidget extends StatefulWidget {
   const GithubContributionWidget({super.key});
@@ -25,14 +26,31 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          runAlignment: WrapAlignment.spaceBetween,
           children: [
-            // GH link
-            // Contributions summary
-            // spacer
-            // year picker
-            Spacer(),
+            Row(
+              spacing: 8,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Logo(
+                  size: 30,
+                  onTap: () => launchUrlString('https://github.com/GenixPL'),
+                  child: Image.asset('assets/images/logos/github_logo.png'),
+                ),
+                if (_calendar != null)
+                  Flexible(
+                    child: Text(
+                      '${_calendar!.totalContributions} contributions in ${_year ?? 'Trailing Twelve Months'}',
+                      style: context.theme.textTheme.bodyMedium,
+                    ),
+                  ),
+              ],
+            ),
             _buildYearSelector(),
           ],
         ),
@@ -104,6 +122,7 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
 
   Future<void> _fetch() async {
     _loading = true;
+    _calendar = null;
     _calendar = await fetchCommitHistory(
       year: _year,
     );
