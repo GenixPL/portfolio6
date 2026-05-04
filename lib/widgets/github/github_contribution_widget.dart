@@ -4,6 +4,8 @@ import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+// TODO(genix): widget where the wrap has the last line from the right
+
 class GithubContributionWidget extends StatefulWidget {
   const GithubContributionWidget({super.key});
 
@@ -109,10 +111,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     }
 
     if (_calendar == null) {
-      // TODO(genix): imp
       return Center(
         child: Text(
-          'ERROR',
+          'SOMETHING WENT WRONG',
           style: TextStyle(
             fontFamily: FontFamily.cpMono.assetName,
             color: context.theme.colorScheme.error,
