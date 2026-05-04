@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio6/theme/font_family.dart';
+
 import 'package:portfolio6/theme/gen_theme.dart';
 
-
-class GithubContributionCalendarTableTile extends StatefulWidget {
+class GithubContributionCalendarTableTile extends StatelessWidget {
   const GithubContributionCalendarTableTile({
     super.key,
     required this.value,
@@ -12,48 +11,16 @@ class GithubContributionCalendarTableTile extends StatefulWidget {
   final int value;
 
   @override
-  State<GithubContributionCalendarTableTile> createState() => _GithubContributionCalendarTableTileState();
-}
-
-class _GithubContributionCalendarTableTileState extends State<GithubContributionCalendarTableTile> {
-  bool _hovered = false;
-
-  @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
-      child: MouseRegion(
-        onHover: (_) {
-          _hovered = true;
-          setState(() {});
-        },
-        onExit: (_) {
-          _hovered = false;
-          setState(() {});
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: Color.lerp(
-              Colors.grey.shade900,
-              context.theme.secondary,
-              _getColorT(widget.value),
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(4)),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color.lerp(
+            Colors.grey.shade900,
+            context.theme.secondary,
+            _getColorT(value),
           ),
-          child: Center(
-            child: _hovered
-                ? Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Text(
-                      widget.value.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: FontFamily.cpMono.assetName,
-                        fontSize: 12.0,
-                      ),
-                    ),
-                  )
-                : null,
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(4)),
         ),
       ),
     );
