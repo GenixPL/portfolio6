@@ -36,7 +36,6 @@ Future<void> downloadFile({
     anchor.remove();
     web.URL.revokeObjectURL(url);
   } catch (e) {
-    print('Error downloading asset: $e');
     rethrow;
   }
 }
