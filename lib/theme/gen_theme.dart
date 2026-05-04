@@ -67,6 +67,7 @@ class GenTheme {
       surface: Color(0xFF_18_18_18),
       primary: Colors.white,
       secondary: Colors.amberAccent,
+      error: Colors.redAccent,
     );
 
     final hovered = _hoveredColor(colorScheme.secondary.withAlpha(200));
