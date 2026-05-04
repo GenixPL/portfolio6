@@ -21,41 +21,38 @@ class _GithubContributionCalendarTableTileState extends State<GithubContribution
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
-      child: Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: MouseRegion(
-          onHover: (_) {
-            _hovered = true;
-            setState(() {});
-          },
-          onExit: (_) {
-            _hovered = false;
-            setState(() {});
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color.lerp(
-                Colors.grey.shade900,
-                context.theme.secondary,
-                _getColorT(widget.value),
-              ),
-              borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+      child: MouseRegion(
+        onHover: (_) {
+          _hovered = true;
+          setState(() {});
+        },
+        onExit: (_) {
+          _hovered = false;
+          setState(() {});
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: Color.lerp(
+              Colors.grey.shade900,
+              context.theme.secondary,
+              _getColorT(widget.value),
             ),
-            child: Center(
-              child: _hovered
-                  ? Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Text(
-                        widget.value.toString(),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: FontFamily.cpMono.assetName,
-                          fontSize: 12.0,
-                        ),
+            borderRadius: const BorderRadius.all(Radius.circular(4)),
+          ),
+          child: Center(
+            child: _hovered
+                ? Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(
+                      widget.value.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: FontFamily.cpMono.assetName,
+                        fontSize: 12.0,
                       ),
-                    )
-                  : null,
-            ),
+                    ),
+                  )
+                : null,
           ),
         ),
       ),

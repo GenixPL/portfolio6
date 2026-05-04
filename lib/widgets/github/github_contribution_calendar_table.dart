@@ -6,10 +6,14 @@ import 'package:portfolio6/widgets/_widgets.dart';
 class GithubContributionCalendarTable extends StatefulWidget {
   const GithubContributionCalendarTable({
     super.key,
-    required this.githubContributionCalendar,
+    required this.year,
+    required this.size,
+    required this.calendar,
   });
 
-  final GithubContributionCalendar githubContributionCalendar;
+  final int? year;
+  final double size;
+  final GithubContributionCalendar calendar;
 
   @override
   State<GithubContributionCalendarTable> createState() => _GithubContributionCalendarTableState();
@@ -20,12 +24,62 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
     initialScrollOffset: 1.0,
   );
 
-  static const double _tileSize = 26.0;
   static const double _scrollbarThickness = 8.0;
 
   @override
-  Widget build(BuildContext context) {
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    print('-');
+    print(widget.calendar.weeks.first.contributionDays.length);
+
+    return Row(
+      spacing: 8,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _buildDay('Sun'),
+            _buildDay('Mon'),
+            _buildDay('Tue'),
+            _buildDay('Wed'),
+            _buildDay('Thu'),
+            _buildDay('Fri'),
+            _buildDay('Sat'),
+          ],
+        ),
+        Expanded(
+          child: GridView.builder(
+            controller: _scrollController,
+            scrollDirection: Axis.horizontal,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 7,
+              mainAxisSpacing: 2,
+              crossAxisSpacing: 2,
+            ),
+            itemCount: widget.calendar.weeks.length * 7,
+            itemBuilder: (context, int i) {
+              final GithubContributionDay? day = widget.calendar.dayForIndex(i);
+              if (day == null) {
+                return SizedBox();
+              }
+
+              return GithubContributionCalendarTableTile(
+                value: day.contributionCount,
+              );
+
+              return Container(
+                color: Colors.redAccent,
+              );
+            },
+          ),
+        ),
+      ],
+    );
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +116,7 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
                     for (int i = 0; i < 7; i++)
                       _buildRow(
                         context,
-                        widget.githubContributionCalendar.weeks,
+                        widget.calendar.weeks,
                         i,
                       ),
                   ],
@@ -77,13 +131,13 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
 
   Widget _buildDay(String text) {
     return SizedBox(
-      height: _tileSize,
+      height: widget.size / 7,
       child: Center(
         child: Text(
           text,
           style: TextStyle(
             fontFamily: FontFamily.cpMono.assetName,
-            height: 1,
+            fontSize: widget.size / 14,
           ),
           textHeightBehavior: TextHeightBehavior(
             applyHeightToLastDescent: false,
@@ -98,12 +152,8 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
     return Row(
       children: <Widget>[
         for (GithubContributionWeek weekRaw in weeksRaw)
-          SizedBox(
-            width: _tileSize,
-            height: _tileSize,
-            child: GithubContributionCalendarTableTile(
-              value: weekRaw.contributionDays.elementAtOrNull(day)?.contributionCount ?? 0,
-            ),
+          GithubContributionCalendarTableTile(
+            value: weekRaw.contributionDays.elementAtOrNull(day)?.contributionCount ?? 0,
           ),
       ],
     );

@@ -25,6 +25,8 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
 
   @override
   Widget build(BuildContext context) {
+    const double size = 140;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -55,8 +57,10 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
           ],
         ),
         SizedBox(
-          height: 200,
-          child: _buildBody(),
+          height: size,
+          child: _buildBody(
+            size: size,
+          ),
         ),
       ],
     );
@@ -95,7 +99,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildBody({
+    required double size,
+  }) {
     if (_loading) {
       return Center(
         child: GenProgressIndicator(),
@@ -116,7 +122,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     }
 
     return GithubContributionCalendarTable(
-      githubContributionCalendar: _calendar!,
+      year: _year,
+      size: size,
+      calendar: _calendar!,
     );
   }
 
