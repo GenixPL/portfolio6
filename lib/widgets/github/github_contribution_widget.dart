@@ -27,44 +27,53 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const double size = 140;
+    const double size = 84;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Wrap(
-          alignment: WrapAlignment.spaceBetween,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          runAlignment: WrapAlignment.spaceBetween,
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 84 / 7 * 53 + 50,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          spacing: 2,
           children: [
             Row(
               spacing: 8,
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Logo(
-                  size: 30,
-                  onTap: () => launchUrlString('https://github.com/GenixPL'),
-                  child: Image.asset('assets/images/logos/github_logo.png'),
-                ),
-                if (_calendar != null)
-                  Flexible(
-                    child: Text(
-                      '${_calendar!.totalContributions} contributions in ${_year ?? 'Trailing Twelve Months'}',
-                      style: context.theme.textTheme.bodyMedium,
-                    ),
+                Flexible(
+                  child: Row(
+                    spacing: 8,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Logo(
+                        size: 30,
+                        onTap: () => launchUrlString('https://github.com/GenixPL'),
+                        child: Image.asset('assets/images/logos/github_logo.png'),
+                      ),
+                      if (_calendar != null)
+                        Flexible(
+                          child: Text(
+                            '${_calendar!.totalContributions} contributions in ${_year ?? 'Trailing Twelve Months'}',
+                            style: context.theme.textTheme.bodyMedium,
+                          ),
+                        ),
+                    ],
                   ),
+                ),
+                _buildYearSelector(),
               ],
             ),
-            _buildYearSelector(),
+            SizedBox(
+              height: size,
+              child: _buildBody(
+                size: size,
+              ),
+            ),
           ],
         ),
-        SizedBox(
-          height: size,
-          child: _buildBody(
-            size: size,
-          ),
-        ),
-      ],
+      ),
     );
   }
 
@@ -80,7 +89,6 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
         _fetch();
         setState(() {});
       },
-
       items: [
         DropdownMenuItem<int?>(
           value: null,

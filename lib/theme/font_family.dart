@@ -1,14 +1,14 @@
 enum FontFamily {
   cpMono,
   kontanter,
-  assistant,
+  inter,
   ;
 
   String get assetName {
     return switch (this) {
       cpMono => 'CPMono',
       kontanter => 'Kontanter',
-      assistant => 'Assistant',
+      inter => 'Inter',
     };
   }
 }
