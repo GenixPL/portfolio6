@@ -24,8 +24,6 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
     initialScrollOffset: 1.0,
   );
 
-  static const double _scrollbarThickness = 8.0;
-
   @override
   void dispose() {
     _scrollController.dispose();
@@ -34,9 +32,6 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
 
   @override
   Widget build(BuildContext context) {
-    print('-');
-    print(widget.calendar.weeks.first.contributionDays.length);
-
     return Row(
       spacing: 8,
       children: [
@@ -71,58 +66,7 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
               return GithubContributionCalendarTableTile(
                 value: day.contributionCount,
               );
-
-              return Container(
-                color: Colors.redAccent,
-              );
             },
-          ),
-        ),
-      ],
-    );
-
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildDay('Sun'),
-            _buildDay('Mon'),
-            _buildDay('Tue'),
-            _buildDay('Wed'),
-            _buildDay('Thu'),
-            _buildDay('Fri'),
-            _buildDay('Sat'),
-          ],
-        ),
-        const SizedBox(width: 4.0),
-        Flexible(
-          child: Scrollbar(
-            controller: _scrollController,
-            thumbVisibility: true,
-            thickness: _scrollbarThickness,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                bottom: _scrollbarThickness + 4.0,
-              ),
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                scrollDirection: Axis.horizontal,
-                reverse: true,
-                child: Column(
-                  children: [
-                    for (int i = 0; i < 7; i++)
-                      _buildRow(
-                        context,
-                        widget.calendar.weeks,
-                        i,
-                      ),
-                  ],
-                ),
-              ),
-            ),
           ),
         ),
       ],
@@ -145,17 +89,6 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildRow(BuildContext context, List<GithubContributionWeek> weeksRaw, int day) {
-    return Row(
-      children: <Widget>[
-        for (GithubContributionWeek weekRaw in weeksRaw)
-          GithubContributionCalendarTableTile(
-            value: weekRaw.contributionDays.elementAtOrNull(day)?.contributionCount ?? 0,
-          ),
-      ],
     );
   }
 }
