@@ -29,49 +29,51 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
   Widget build(BuildContext context) {
     const double size = 84;
 
-    return Center(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-          maxWidth: 84 / 7 * 53 + 50,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          spacing: 2,
-          children: [
-            Row(
-              spacing: 8,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: Row(
-                    spacing: 8,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Logo(
-                        size: 30,
-                        onTap: () => launchUrlString('https://github.com/GenixPL'),
-                        child: Image.asset('assets/images/logos/github_logo.png'),
-                      ),
-                      if (_calendar != null)
-                        Flexible(
-                          child: Text(
-                            '${_calendar!.totalContributions} contributions in ${_year ?? 'Trailing Twelve Months'}',
-                            style: context.theme.textTheme.bodyMedium,
-                          ),
+    return RepaintBoundary(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 84 / 7 * 53 + 50,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: 2,
+            children: [
+              Row(
+                spacing: 8,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Row(
+                      spacing: 8,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Logo(
+                          size: 30,
+                          onTap: () => launchUrlString('https://github.com/GenixPL'),
+                          child: Image.asset('assets/images/logos/github_logo.png'),
                         ),
-                    ],
+                        if (_calendar != null)
+                          Flexible(
+                            child: Text(
+                              '${_calendar!.totalContributions} contributions in ${_year ?? 'Trailing Twelve Months'}',
+                              style: context.theme.textTheme.bodyMedium,
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
-                ),
-                _buildYearSelector(),
-              ],
-            ),
-            SizedBox(
-              height: size,
-              child: _buildBody(
-                size: size,
+                  _buildYearSelector(),
+                ],
               ),
-            ),
-          ],
+              SizedBox(
+                height: size,
+                child: _buildBody(
+                  size: size,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -7,8 +7,7 @@ class PictilePersonalProject extends PersonalProject {
         assetImagePath: 'assets/images/projects/pictile/pictile-banner.jpg',
         name: 'Pictile',
         tags: ['Flutter', 'Dart', 'SQLite'],
-        // TODO(genix): add
-        dateText: null,
+        dateText: '24 - 28 Feb 2020',
       );
 
   @override
