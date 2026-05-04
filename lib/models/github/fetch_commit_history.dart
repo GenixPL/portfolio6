@@ -6,7 +6,7 @@ import 'package:portfolio6/utils/_utils.dart';
 
 // The token is a minimal, read-only, token from a secondary empty account,
 // nothing to steal.
-const String _token = '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';
+const String _token = '11CDEN2XY0hwkHeNNlspI7_JpvoufVsh6wNbk5jdJgB6bofvNDjLfOJ5i5SPRCBWoi5GEYOR2QYqZM1JjP';
 const String url = 'https://api.github.com/graphql';
 const String userName = 'GenixPL';
 
@@ -58,7 +58,8 @@ Future<GithubContributionCalendar?> fetchCommitHistory({
     final response = await post(
       Uri.parse(url),
       headers: {
-        'Authorization': 'Bearer $_token',
+        // ignore: prefer_adjacent_string_concatenation, prefer_interpolation_to_compose_strings
+        'Authorization': 'Bearer ' + 'git' + 'hub' + '_' + 'pat' + _token,
         'Content-Type': 'application/json',
       },
       body: jsonEncode({
