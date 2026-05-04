@@ -6,3 +6,4 @@ export 'work_page.dart';
 export 'dino_page.dart';
 export 'hackathons_page.dart';
 export 'internal_article_page.dart';
+export 'page_not_found.dart';

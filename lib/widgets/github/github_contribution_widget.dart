@@ -4,6 +4,8 @@ import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+// TODO(genix): widget where the wrap has the last line from the right
+
 class GithubContributionWidget extends StatefulWidget {
   const GithubContributionWidget({super.key});
 
@@ -25,44 +27,55 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const double size = 140;
+    const double size = 84;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Wrap(
-          alignment: WrapAlignment.spaceBetween,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          runAlignment: WrapAlignment.spaceBetween,
-          children: [
-            Row(
-              spacing: 8,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Logo(
-                  size: 30,
-                  onTap: () => launchUrlString('https://github.com/GenixPL'),
-                  child: Image.asset('assets/images/logos/github_logo.png'),
-                ),
-                if (_calendar != null)
+    return RepaintBoundary(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 84 / 7 * 53 + 50,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: 2,
+            children: [
+              Row(
+                spacing: 8,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
                   Flexible(
-                    child: Text(
-                      '${_calendar!.totalContributions} contributions in ${_year ?? 'Trailing Twelve Months'}',
-                      style: context.theme.textTheme.bodyMedium,
+                    child: Row(
+                      spacing: 8,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Logo(
+                          size: 30,
+                          onTap: () => launchUrlString('https://github.com/GenixPL'),
+                          child: Image.asset('assets/images/logos/github_logo.png'),
+                        ),
+                        if (_calendar != null)
+                          Flexible(
+                            child: Text(
+                              '${_calendar!.totalContributions} contributions in ${_year ?? 'Trailing Twelve Months'}',
+                              style: context.theme.textTheme.bodyMedium,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
-              ],
-            ),
-            _buildYearSelector(),
-          ],
-        ),
-        SizedBox(
-          height: size,
-          child: _buildBody(
-            size: size,
+                  _buildYearSelector(),
+                ],
+              ),
+              SizedBox(
+                height: size,
+                child: _buildBody(
+                  size: size,
+                ),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 
@@ -78,7 +91,6 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
         _fetch();
         setState(() {});
       },
-
       items: [
         DropdownMenuItem<int?>(
           value: null,
@@ -109,10 +121,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     }
 
     if (_calendar == null) {
-      // TODO(genix): imp
       return Center(
         child: Text(
-          'ERROR',
+          'SOMETHING WENT WRONG',
           style: TextStyle(
             fontFamily: FontFamily.cpMono.assetName,
             color: context.theme.colorScheme.error,

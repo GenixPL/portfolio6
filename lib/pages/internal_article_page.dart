@@ -42,8 +42,13 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
 
   Widget _buildNotFoundSliver() {
     return Center(
-      // TODO(genix): imp
-      child: Text('not found'),
+      child: Text(
+        'ARTICLE NOT FOUND',
+        style: TextStyle(
+          fontFamily: FontFamily.cpMono.assetName,
+          color: context.theme.colorScheme.error,
+        ),
+      ),
     ).sliver;
   }
 
@@ -144,7 +149,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
 
     return LogoWithLink(
       onTap: () => downloadFile(
-        assetPath: assetApk.path ,
+        assetPath: assetApk.path,
         fileName: fileName,
         type: 'application/vnd.android.package-archive',
       ),

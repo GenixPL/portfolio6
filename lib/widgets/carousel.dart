@@ -23,6 +23,8 @@ class _CarouselState extends State<Carousel> {
 
   @override
   void initState() {
+    super.initState();
+
     _pageController.addListener(() => setState(() {}));
 
     // Makes sure the widget is rendered at least once with
@@ -30,8 +32,6 @@ class _CarouselState extends State<Carousel> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {});
     });
-
-    super.initState();
   }
 
   @override
