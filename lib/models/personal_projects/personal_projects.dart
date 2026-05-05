@@ -6,6 +6,7 @@ final List<PersonalProject> personalProjects = [
   ColorRemoverPersonalProject(),
   RustMorsePersonalProject(),
   SudokuPersonalProject(),
+  CloxPersonalProject(),
   ThgPersonalProject(),
   PictilePersonalProject(),
   PlacelyticsPersonalProject(),

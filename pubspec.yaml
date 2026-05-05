@@ -46,6 +46,7 @@ flutter:
     - assets/images/hackathons/facebook/
     - assets/images/hackathons/hack_the_crisis/
 
+    - assets/images/projects/clox/
     - assets/images/projects/myword/
     - assets/images/projects/myword/first_version/
     - assets/images/projects/myword/second_version/

@@ -7,3 +7,4 @@ export 'sudoku_personal_project.dart';
 export 'placelytics_personal_project.dart';
 export 'thg_personal_project.dart';
 export 'website_personal_project.dart';
+export 'clox_personal_project.dart';
