@@ -23,6 +23,17 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
   final ScrollController _scrollController = ScrollController();
 
   @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+      }
+    });
+  }
+
+  @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();

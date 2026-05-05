@@ -54,7 +54,7 @@ class WebsitePersonalProject extends PersonalProject {
       Space.small(),
       Body(
         text:
-            "I designed the app like a mobile app, which didn't result in the best Ux. "
+            "I designed the app like a mobile app, which didn't result in the best UX. "
             "Additionally, it were the very beginnings (2020) of Flutter Web - huge "
             "performance issues.",
       ),
