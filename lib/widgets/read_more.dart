@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio6/theme/_theme.dart';
-import 'package:portfolio6/theme/font_family.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 
 class ReadMore extends StatelessWidget {
@@ -46,7 +45,7 @@ class ReadMore extends StatelessWidget {
                       fontFamily: FontFamily.cpMono.assetName,
                       color: color,
                     ),
-                    textHeightBehavior: TextHeightBehavior(
+                    textHeightBehavior: const TextHeightBehavior(
                       applyHeightToLastDescent: false,
                       applyHeightToFirstAscent: false,
                     ),

@@ -3,7 +3,7 @@
 
 import 'package:portfolio6/models/_models.dart';
 
-final List<Hackathon> hackathons = [
+const List<Hackathon> hackathons = [
   HackTheCrisisHackathon(),
   FacebookHackathon(),
   CampusAppChallengeHackathon(),

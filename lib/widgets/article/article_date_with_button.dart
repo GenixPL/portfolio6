@@ -33,7 +33,7 @@ class ArticleDateWithButton extends StatelessWidget {
     return Row(
       children: [
         ?_buildDate(),
-        Spacer(),
+        const Spacer(),
         ?_buildReadMore(),
       ],
     );

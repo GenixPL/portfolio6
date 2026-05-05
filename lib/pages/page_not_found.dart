@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio6/theme/_theme.dart';
-import 'package:portfolio6/utils/_utils.dart';
-import 'package:portfolio6/widgets/_widgets.dart';
 
 class PageNotFound extends StatelessWidget {
   const PageNotFound({super.key});
@@ -12,7 +10,9 @@ class PageNotFound extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(context.theme.defaultPageHorizontalPadding(context)),
+          padding: EdgeInsets.all(
+            context.theme.defaultPageHorizontalPadding(context),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

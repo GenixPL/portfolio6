@@ -1,30 +1,32 @@
 import 'package:portfolio6/models/_models.dart';
 
 class PictilePersonalProject extends PersonalProject {
-  PictilePersonalProject()
+  const PictilePersonalProject()
     : super(
         id: 'pictile',
         assetImagePath: 'assets/images/projects/pictile/pictile-banner.jpg',
         name: 'Pictile',
-        tags: ['Flutter', 'Dart', 'SQLite'],
+        tags: const ['Flutter', 'Dart', 'SQLite'],
         dateText: '24 - 28 Feb 2020',
       );
 
   @override
   List<InternalArticleComponent> get components {
     return [
-      AssetBanner(path: 'assets/images/projects/pictile/pictile-banner.jpg'),
-      Space.medium(),
-      Headline(
+      const AssetBanner(
+        path: 'assets/images/projects/pictile/pictile-banner.jpg',
+      ),
+      const Space.medium(),
+      const Headline(
         text: 'Pictile',
         center: true,
       ),
-      Space.big(),
-      GithubLink(url: 'https://github.com/GenixPL/pictile'),
-      Space.medium(),
+      const Space.big(),
+      const GithubLink(url: 'https://github.com/GenixPL/pictile'),
+      const Space.medium(),
       Tags(tags: tags),
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             "A simple application to help remember things. It consists "
             "of giving the user possibility to create their own "
@@ -32,8 +34,8 @@ class PictilePersonalProject extends PersonalProject {
             "and learn by displaying the picture and revealing "
             "the text only after tapping.",
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             "I made it for my sister, who needed "
             "such a tool to learn biology (the existing solutions did not "
@@ -43,12 +45,11 @@ class PictilePersonalProject extends PersonalProject {
             "implemented data storage in such a way that the data was persisted "
             "between installations.",
       ),
-      Space.big(),
+      const Space.big(),
       AssetImageCarousel(
         aspectRatio: 540 / 1080,
         imgPaths: [
-          for (int i = 1; i <= 7; i++)
-            'assets/images/projects/pictile/$i.jpg'
+          for (int i = 1; i <= 7; i++) 'assets/images/projects/pictile/$i.jpg',
         ],
       ),
     ];

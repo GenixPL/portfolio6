@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class WebsitePersonalProject extends PersonalProject {
-  WebsitePersonalProject()
+  const WebsitePersonalProject()
     : super(
         id: 'website',
         assetImagePath: 'assets/images/projects/website/website-banner.jpg',
         name: 'The website',
-        tags: [
+        tags: const [
           'Flutter',
           'Dart',
           'React',
@@ -23,27 +23,31 @@ class WebsitePersonalProject extends PersonalProject {
   @override
   List<InternalArticleComponent> get components {
     return [
-      AssetBanner(path: 'assets/images/projects/website/website-banner.jpg'),
+      const AssetBanner(
+        path: 'assets/images/projects/website/website-banner.jpg',
+      ),
 
-      Space.medium(),
-      Headline(
+      const Space.medium(),
+      const Headline(
         text: 'The website',
         center: true,
       ),
 
-      Space.big(),
-      Body(text: 'Blut, Schweiß und Tränen...'),
-      Space.small(),
-      Body(text: '...and yet another story of never-ending search for time to do personal projects.'),
+      const Space.big(),
+      const Body(text: 'Blut, Schweiß und Tränen...'),
+      const Space.small(),
+      const Body(
+        text: '...and yet another story of never-ending search for time to do personal projects.',
+      ),
 
-      Space.big(),
-      Title(text: 'First version'),
-      Space.small(),
-      Tags(tags: ['Flutter', 'Dart']),
-      Space.medium(),
-      GithubLink(url: 'https://github.com/GenixPL/portfolio'),
-      Space.medium(),
-      Body(
+      const Space.big(),
+      const Title(text: 'First version'),
+      const Space.small(),
+      const Tags(tags: ['Flutter', 'Dart']),
+      const Space.medium(),
+      const GithubLink(url: 'https://github.com/GenixPL/portfolio'),
+      const Space.medium(),
+      const Body(
         text:
             'At that point my web programming has so far been limited to one '
             'ASP.NET course and not quite a successful attempt to use NativeScript - '
@@ -51,14 +55,14 @@ class WebsitePersonalProject extends PersonalProject {
             'But! Flutter (which I knew) allowed you to write web applications, '
             'what could go wrong?',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
-            "I designed the app like a mobile app, which didn't result in the best Ux. "
+            "I designed the app like a mobile app, which didn't result in the best UX. "
             "Additionally, it were the very beginnings (2020) of Flutter Web - huge "
             "performance issues.",
       ),
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 1280 / 800,
         imgPaths: [
@@ -66,14 +70,14 @@ class WebsitePersonalProject extends PersonalProject {
         ],
       ),
 
-      Space.big(),
-      Title(text: 'Second version'),
-      Space.small(),
-      Tags(tags: ['Flutter', 'Dart']),
-      Space.medium(),
-      GithubLink(url: 'https://github.com/GenixPL/portfolio2'),
-      Space.medium(),
-      Body(
+      const Space.big(),
+      const Title(text: 'Second version'),
+      const Space.small(),
+      const Tags(tags: ['Flutter', 'Dart']),
+      const Space.medium(),
+      const GithubLink(url: 'https://github.com/GenixPL/portfolio2'),
+      const Space.medium(),
+      const Body(
         text:
             "I liked the second version much more. I had no problem writing "
             "more advanced views (experience helps, who would have thought). However, "
@@ -83,7 +87,7 @@ class WebsitePersonalProject extends PersonalProject {
             "(I saw only dark future for it, so thank god for WASM). "
             "A decision was made to rewrite it in a proper web framework.",
       ),
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 1280 / 800,
         imgPaths: [
@@ -91,32 +95,32 @@ class WebsitePersonalProject extends PersonalProject {
         ],
       ),
 
-      Space.big(),
-      Title(text: 'Third version'),
-      Space.small(),
-      Tags(
+      const Space.big(),
+      const Title(text: 'Third version'),
+      const Space.small(),
+      const Tags(
         tags: ['React', 'HTML', 'JavaScript', 'CSS'],
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             "I chose React because I thought it might come in handy in the form of "
             "React Native. However, but after 2 days of growing hatred, I moved, "
             "at the persuasion of my colleague, to...",
       ),
 
-      Space.big(),
-      Title(text: 'Fourth version'),
-      Space.small(),
-      Tags(
+      const Space.big(),
+      const Title(text: 'Fourth version'),
+      const Space.small(),
+      const Tags(
         tags: ['Vue', 'HTML', 'JavaScript', 'CSS'],
       ),
-      Space.medium(),
-      GithubLink(
+      const Space.medium(),
+      const GithubLink(
         url: 'https://github.com/GenixPL/portfolio4',
       ),
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             "...to Vue and it was a good(ish) decision. However, my lack of experience in web "
             "technologies (js, html, css) was definitely not helpful when it comes to "
@@ -124,7 +128,7 @@ class WebsitePersonalProject extends PersonalProject {
             "debugging and trying to write a simple button the way I wanted it. Fortunately, "
             "step by step, somehow I moved forward, and the version lived for some years.",
       ),
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 1280 / 831,
         imgPaths: [
@@ -132,21 +136,21 @@ class WebsitePersonalProject extends PersonalProject {
         ],
       ),
 
-      Space.big(),
-      Title(text: 'Fifth version'),
-      Space.small(),
-      Tags(
+      const Space.big(),
+      const Title(text: 'Fifth version'),
+      const Space.small(),
+      const Tags(
         tags: ['Flutter', 'Dart'],
       ),
-      Space.medium(),
-      GithubLink(
+      const Space.medium(),
+      const GithubLink(
         url: 'https://github.com/GenixPL/portfolio5',
       ),
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text: "Yet another attempt, far from finished.",
       ),
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 1280 / 831,
         imgPaths: [
@@ -154,30 +158,30 @@ class WebsitePersonalProject extends PersonalProject {
         ],
       ),
 
-      Space.big(),
-      Title(text: 'Sixth version'),
-      Space.small(),
-      Tags(
+      const Space.big(),
+      const Title(text: 'Sixth version'),
+      const Space.small(),
+      const Tags(
         tags: ['Flutter', 'Dart', 'Flame Engine', 'Gemini'],
       ),
-      Space.medium(),
-      GithubLink(
+      const Space.medium(),
+      const GithubLink(
         url: 'https://github.com/GenixPL/portfolio6',
       ),
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text: "And another one, the current one, and hopefully the last one.",
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'Both me and Flutter Web have come a long way. '
             'WASM makes it performance-reasonable, and I have take some solid time off and '
             'finally pushed myself to write proper 1.0.0 of the website.',
       ),
 
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             "One of interesting problems that I encountered, and that tickled my engineering soul, "
             "was a problem originating from that WASM - JS battle. Most of the website is written "
@@ -191,8 +195,8 @@ class WebsitePersonalProject extends PersonalProject {
             "again by giving me YouTube urls to the thumbnails, and the thumbnails navigate to a separate, "
             "non-scrollable, dialog that includes the \"native\" YouTube iframe.",
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text: 'Plus the thumbnails load faster.',
       ),
     ];

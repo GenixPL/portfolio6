@@ -33,13 +33,15 @@ class AsyncMutex {
     _counter++;
 
     // Set up actions for when the current future is done.
-    _next.whenComplete(() {
-      // Execute the new action.
-      completer.complete(Future<T>.sync(operation));
+    unawaited(
+      _next.whenComplete(() {
+        // Execute the new action.
+        completer.complete(Future<T>.sync(operation));
 
-      // Decrease the counter.
-      _counter--;
-    });
+        // Decrease the counter.
+        _counter--;
+      }),
+    );
 
     // Assign the new future as the newest one and return it.
     return _next = completer.future;
@@ -49,10 +51,12 @@ class AsyncMutex {
   Future<void> waitForAll() {
     final Completer<void> completer = Completer<void>();
 
-    _next.whenComplete(() => completer.complete());
+    unawaited(
+      _next.whenComplete(completer.complete),
+    );
 
     return completer.future;
   }
 
-// endregion
+  // endregion
 }

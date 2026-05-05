@@ -1,11 +1,8 @@
 import 'package:portfolio6/models/hackathons/hackathon.dart';
 import 'package:portfolio6/models/internal_article_component.dart';
 
-// TODO(genix): article about tribal wars notifications
-// TODO(genix): add github and stack stats (scrap)
-
 class CampusAppChallengeHackathon extends Hackathon {
-  CampusAppChallengeHackathon()
+  const CampusAppChallengeHackathon()
     : super(
         id: 'campus-app-challenge',
         duration: '24h',
@@ -21,25 +18,25 @@ class CampusAppChallengeHackathon extends Hackathon {
       AssetImage(
         path: assetImagePath,
       ),
-      Space.medium(),
+      const Space.medium(),
       Headline(
         text: name,
         center: true,
       ),
 
-      Space.big(),
-      GithubLink(
+      const Space.big(),
+      const GithubLink(
         url: 'https://github.com/GenixPL/xz_Hackathon',
       ),
 
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             'Our group of 4 spent 24h writing an app that helped students to move around our '
             "(Faculty of Mathematics and Information Science's) building.",
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'Indoorway used its bluetooth beacon mapping technology to map out the building, '
             "and gave us their SDK to play with it. Using triangulation we were presenting user's "

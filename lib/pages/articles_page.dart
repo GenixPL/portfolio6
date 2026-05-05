@@ -22,7 +22,7 @@ class ArticlesPage extends StatelessWidget {
             }
 
             final List<Future> futures = [
-              Future.delayed(Duration(milliseconds: 1000)),
+              Future.delayed(const Duration(milliseconds: 1000)),
             ];
 
             for (MediumFeedItem item in mediumFeedItems) {
@@ -38,7 +38,7 @@ class ArticlesPage extends StatelessWidget {
             // The _wereCached check was added here because the widget is sometimes
             // rebuilt and jumps between `waiting` and `done`, which causes flickers.
             if (snapshot.connectionState == ConnectionState.waiting && !_wereCached) {
-              return GenProgressIndicator().sliver;
+              return const GenProgressIndicator().sliver;
             }
 
             return SliverMainAxisGroup(

@@ -58,9 +58,9 @@ class _DinoState extends State<Dino> {
             }
 
             await Future.wait([
-              precacheImage(AssetImage(_eyePath), context),
-              precacheImage(AssetImage(_noEyePath), context),
-              Future.delayed(Duration(milliseconds: 500)),
+              precacheImage(const AssetImage(_eyePath), context),
+              precacheImage(const AssetImage(_noEyePath), context),
+              Future.delayed(const Duration(milliseconds: 500)),
             ]);
 
             _imagesCached = true;
@@ -86,7 +86,7 @@ class _DinoState extends State<Dino> {
                             ? Image.asset(
                                 _eye ? _eyePath : _noEyePath,
                               )
-                            : Center(
+                            : const Center(
                                 child: GenProgressIndicator(),
                               ),
                       ),
@@ -241,7 +241,7 @@ class _Painter extends CustomPainter {
     final TextPainter textPainter = TextPainter(
       text: textSpan,
       textDirection: TextDirection.ltr, // Required
-      textHeightBehavior: TextHeightBehavior(
+      textHeightBehavior: const TextHeightBehavior(
         applyHeightToLastDescent: false,
         applyHeightToFirstAscent: false,
       ),
