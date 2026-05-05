@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio6/theme/_theme.dart';
 
@@ -68,7 +70,9 @@ class _AnimatedValueBuilderState<T> extends State<AnimatedValueBuilder<T>> with 
       _to = widget.value;
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _controller.forward(from: 0.0);
+        unawaited(
+          _controller.forward(from: 0.0),
+        );
       });
     }
 
@@ -109,7 +113,9 @@ class _AnimatedValueBuilderState<T> extends State<AnimatedValueBuilder<T>> with 
 
     _from = _to;
     _to = widget.value;
-    _controller.forward(from: 0.0);
+    unawaited(
+      _controller.forward(from: 0.0),
+    );
   }
 
   /// Returns true if parameters are the same.

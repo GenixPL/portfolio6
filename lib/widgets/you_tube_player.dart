@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui_web' as ui;
 
 import 'package:flutter/material.dart';
@@ -42,37 +43,39 @@ class YouTubePlayer extends StatelessWidget {
   }
 
   void _showDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierColor: Colors.black87,
-      builder: (context) {
-        return Center(
-          child: Padding(
-            padding: EdgeInsets.all(
-              context.theme.defaultPageHorizontalPadding(context),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      onPressed: context.pop,
-                      icon: const Icon(Icons.close_sharp),
-                    ),
-                  ],
-                ),
-                Flexible(
-                  child: _Player(
-                    url: url,
+    unawaited(
+      showDialog(
+        context: context,
+        barrierColor: Colors.black87,
+        builder: (context) {
+          return Center(
+            child: Padding(
+              padding: EdgeInsets.all(
+                context.theme.defaultPageHorizontalPadding(context),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: context.pop,
+                        icon: const Icon(Icons.close_sharp),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  Flexible(
+                    child: _Player(
+                      url: url,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 

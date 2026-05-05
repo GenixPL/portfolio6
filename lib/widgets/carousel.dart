@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio6/theme/gen_theme.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
@@ -90,10 +92,12 @@ class _CarouselState extends State<Carousel> {
 
     return GenGestureDetector.base(
       onTap: () {
-        _pageController.animateToPage(
-          i,
-          duration: duration,
-          curve: curve,
+        unawaited(
+          _pageController.animateToPage(
+            i,
+            duration: duration,
+            curve: curve,
+          ),
         );
       },
       child: SizedBox(

@@ -8,7 +8,6 @@ import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-// TODO(genix): add proper lints and improve perf with consts and such
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 

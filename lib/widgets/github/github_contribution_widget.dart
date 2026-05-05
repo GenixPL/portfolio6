@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
@@ -22,7 +24,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
   @override
   void initState() {
     super.initState();
-    _fetch();
+    unawaited(
+      _fetch(),
+    );
   }
 
   @override
@@ -90,7 +94,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
       value: _year,
       onChanged: (item) {
         _year = item;
-        _fetch();
+        unawaited(
+          _fetch(),
+        );
         setState(() {});
       },
       items: [

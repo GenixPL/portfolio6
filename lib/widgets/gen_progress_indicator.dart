@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
@@ -48,24 +49,30 @@ class _GenProgressIndicatorState extends State<GenProgressIndicator> with Ticker
   void _animate() {
     _valueController.value = _valueController.value % 1;
     final double value = _valueController.value + ((Random().nextInt(35) + 25) / 100);
-    _valueController.animateTo(
-      value,
-      duration: const Duration(milliseconds: 750),
-      curve: Curves.ease,
+    unawaited(
+      _valueController.animateTo(
+        value,
+        duration: const Duration(milliseconds: 750),
+        curve: Curves.ease,
+      ),
     );
 
     final double width = ((Random().nextInt(65) + 10) / 100);
     if (width > _widthController.value) {
-      _widthController.animateBack(
-        width,
-        duration: const Duration(seconds: 1),
-        curve: Curves.ease,
+      unawaited(
+        _widthController.animateBack(
+          width,
+          duration: const Duration(seconds: 1),
+          curve: Curves.ease,
+        ),
       );
     } else {
-      _widthController.animateTo(
-        width,
-        duration: const Duration(seconds: 1),
-        curve: Curves.ease,
+      unawaited(
+        _widthController.animateTo(
+          width,
+          duration: const Duration(seconds: 1),
+          curve: Curves.ease,
+        ),
       );
     }
   }

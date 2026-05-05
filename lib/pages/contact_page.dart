@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio6/theme/_theme.dart';
@@ -176,7 +178,9 @@ class ContactPage extends StatelessWidget {
   }
 
   void _openUrl(String url) {
-    launchUrlString(url);
+    unawaited(
+      launchUrlString(url),
+    );
   }
 
   Widget _buildLogo({
