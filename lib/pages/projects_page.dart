@@ -30,6 +30,14 @@ class ProjectsPage extends StatelessWidget {
               external: false,
             ).sliver,
         ].withGaps(context.theme.cardSpacing),
+        SliverGap(64),
+        Text(
+          'AND MANY MANY MORE\n...',
+          style: TextStyle(
+            fontFamily: FontFamily.cpMono.assetName,
+          ),
+          textAlign: TextAlign.center,
+        ).sliver,
       ],
     );
   }

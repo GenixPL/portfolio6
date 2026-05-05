@@ -10,5 +10,6 @@ final List<PersonalProject> personalProjects = [
   ThgPersonalProject(),
   PictilePersonalProject(),
   PlacelyticsPersonalProject(),
+  TribalWarsNotificationsPersonalProject(),
   LanguageAppsPersonalProject(),
 ];
