@@ -93,3 +93,21 @@ flutter:
         weight: 800
       - asset: assets/fonts/Inter_24pt-Black.ttf
         weight: 900
+
+    - family: Assistant
+      fonts:
+      - asset: assets/fonts/Assistant-ExtraLight.ttf
+        weight: 200
+      - asset: assets/fonts/Assistant-Light.ttf
+        weight: 300
+      - asset: assets/fonts/Assistant-Regular.ttf
+        weight: 400
+      - asset: assets/fonts/Assistant-Medium.ttf
+        weight: 500
+      - asset: assets/fonts/Assistant-SemiBold.ttf
+        weight: 600
+      - asset: assets/fonts/Assistant-Bold.ttf
+        weight: 700
+      - asset: assets/fonts/Assistant-ExtraBold.ttf
+        weight: 800
+

@@ -85,7 +85,6 @@ class GenTheme {
           overlayColor: _singleColor(Colors.transparent),
         ),
       ),
-      fontFamily: FontFamily.inter.assetName,
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           overlayColor: _singleColor(Colors.transparent),
@@ -109,14 +108,45 @@ class GenTheme {
       chipTheme: ChipThemeData(
         shape: RoundedRectangleBorder(),
       ),
-      textTheme: TextTheme(
-        titleLarge: TextStyle(
-          fontWeight: FontWeight.w600,
-        ),
-        headlineSmall: TextStyle(
-          fontFamily: FontFamily.inter.assetName,
-          fontWeight: FontWeight.w700,
-        ),
+
+      // Set to kontanter so that it's obvious that it needs to be more specific.
+      fontFamily: FontFamily.kontanter.assetName,
+      textTheme: _textTheme(),
+    );
+  }
+
+  TextTheme _textTheme() {
+    return TextTheme(
+      headlineLarge: TextStyle(
+        fontFamily: FontFamily.inter.assetName,
+      ),
+      headlineMedium: TextStyle(
+        fontFamily: FontFamily.inter.assetName,
+      ),
+      headlineSmall: TextStyle(
+        fontFamily: FontFamily.inter.assetName,
+        fontWeight: FontWeight.w700,
+      ),
+
+      titleLarge: TextStyle(
+        fontFamily: FontFamily.inter.assetName,
+        fontWeight: FontWeight.w600,
+      ),
+      titleMedium: TextStyle(
+        fontFamily: FontFamily.inter.assetName,
+      ),
+      titleSmall: TextStyle(
+        fontFamily: FontFamily.inter.assetName,
+      ),
+
+      bodyLarge: TextStyle(
+        fontFamily: FontFamily.assistant.assetName,
+      ),
+      bodyMedium: TextStyle(
+        fontFamily: FontFamily.assistant.assetName,
+      ),
+      bodySmall: TextStyle(
+        fontFamily: FontFamily.assistant.assetName,
       ),
     );
   }

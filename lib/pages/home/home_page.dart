@@ -297,7 +297,6 @@ class _Section extends StatelessWidget {
                       title.toUpperCase(),
                       style: context.theme.textTheme.headlineSmall!.copyWith(
                         height: 1,
-                        fontFamily: FontFamily.inter.assetName,
                       ),
                       textHeightBehavior: TextHeightBehavior(
                         applyHeightToFirstAscent: false,
