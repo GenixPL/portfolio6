@@ -81,7 +81,7 @@ const List<MediumFeedItem> mediumFeedItems = [
   MediumFeedItem(
     title: 'Why you should stop using GetIt',
     description: null,
-    publicationDateString: '2024-8-23',
+    publicationDateString: '2024-08-23',
     mediaUrl: 'https://cdn-images-1.medium.com/max/700/1*pN5Dqw2iC7nrjFB2SyxKiQ.png',
     url: 'https://medium.com/@GenixPL/why-you-should-stop-using-getit-fa08b7f0699d',
     tags: [
@@ -96,7 +96,7 @@ const List<MediumFeedItem> mediumFeedItems = [
   MediumFeedItem(
     title: 'How to get rid of circular dependencies',
     description: 'There comes a time, in life of a programmer, when one has to get rid of a circular dependency.',
-    publicationDateString: '2024-8-23',
+    publicationDateString: '2024-08-23',
     mediaUrl: 'https://cdn-images-1.medium.com/max/397/1*Lji9mRHiFfDoEKe8DJFZIw.gif',
     url: 'https://medium.com/@GenixPL/how-to-get-rid-of-circular-dependencies-9c17303c169a',
     tags: ['programming', 'programming-tips', 'dependencies', 'clean-code'],
