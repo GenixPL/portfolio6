@@ -21,26 +21,26 @@ class RustMorsePersonalProject extends PersonalProject {
         center: true,
       ),
 
-      Space.big(),
-      GithubLink(
+      const Space.big(),
+      const GithubLink(
         url: 'https://github.com/GenixPL/rust_morse',
       ),
-      Space.medium(),
+      const Space.medium(),
       Tags(
         tags: tags,
       ),
 
-      Space.medium(),
-      Title(text: 'Why Rust'),
-      Space.small(),
-      Body(
+      const Space.medium(),
+      const Title(text: 'Why Rust'),
+      const Space.small(),
+      const Body(
         text:
             'After hearing so many good words about Rust, specifically its safety, '
             'I wanted to get to know it a bit, which combined nicely with my willingness to '
             'do something in a lower level language.',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'Imo learning completely different '
             'programming languages, in this case my normally highly abstract ones vs low level, '
@@ -50,44 +50,44 @@ class RustMorsePersonalProject extends PersonalProject {
             'programming paradigms.',
       ),
 
-      Space.medium(),
-      Title(text: 'Why morse code'),
-      Space.small(),
-      Body(
+      const Space.medium(),
+      const Title(text: 'Why morse code'),
+      const Space.small(),
+      const Body(
         text:
             'I once heard about this hacking project that took control over power-indicating '
             'diodes of two devices to communicate between them in morse code and send some data, '
             'so I wanted to recreate the initial software step of it and program a morse '
             'encoder-decoder in Rust as the learning project.',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'Boi had I no idea what I was up to. I thought the project would take me a week, '
             'instead I spent 3 weeks, of constant chatting with Gemini, and ended up with something '
             'just resembling a success.',
       ),
-      Space.small(),
+      const Space.small(),
 
-      Space.medium(),
-      Title(text: 'The problems'),
-      Space.small(),
-      Body(
+      const Space.medium(),
+      const Title(text: 'The problems'),
+      const Space.small(),
+      const Body(
         text:
             "I think reading Rust code is not the easiest thing on Earth. The closures aren't the "
             'most intuitive, the macros with their exclamation marks, all the Option handling, '
             'type declarations, and all these extras related to memory management...',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'All these things make, imo, the language excellent for actual "meaningful" work, but '
             "when it comes to pet projects, it's just so much more pleasant and faster to use "
             "something higher and with garbage collector.",
       ),
 
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             'Documentation is another thing that requires time to get used to, probably due to me '
             'being low-level novice and the previous point. Fortunately I could chat with Gemini for (free) '
@@ -96,8 +96,8 @@ class RustMorsePersonalProject extends PersonalProject {
             "understand half the things.",
       ),
 
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             'Lack of community support - 3rd party packages, is another problem. When it comes '
             'handling of in- and out- audio in the project, I started with using the most supported cpal '
@@ -107,8 +107,8 @@ class RustMorsePersonalProject extends PersonalProject {
             "pointing to a specific commit that fixed some dependency resolution problems.",
       ),
 
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             "And apparently we didn't have good general purpose morse audio decoders until "
             "the latest arrival of LLMs. Due to lack of commercial usage no one has spent time "
@@ -120,17 +120,17 @@ class RustMorsePersonalProject extends PersonalProject {
             "last for ten. It's all easy for our advances, pattern-searching, brains to extract and analyze, "
             "extremely difficult for an old-fashion (non LLM) algorithm.",
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             "In the end I just settled on decoding pure (without any background noise) sounds "
             "with fixed known frequencies. I just wanted to be done with the project.",
       ),
 
-      Space.medium(),
-      Title(text: 'Conclusions'),
-      Space.small(),
-      Body(
+      const Space.medium(),
+      const Title(text: 'Conclusions'),
+      const Space.small(),
+      const Body(
         text:
             'I would choose Rust for commercial work, over C and C++, 100% of the time. '
             'The safety provided by the language is worth all its negatives. But when it comes '
@@ -141,20 +141,20 @@ class RustMorsePersonalProject extends PersonalProject {
             'prefer implementing the same thing in some more-established higher-level thing '
             'in half the time.',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             "That being said, I highly recommend using it just for the sake of using it. It helps "
             "getting deeper low-level knowledge, and provides a nice challenge.",
       ),
 
-      Space.medium(),
-      YouTube(
+      const Space.medium(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/zG_l62RIHM4',
       ),
 
-      Space.big(),
-      Body(
+      const Space.big(),
+      const Body(
         text: "And decoding a morse code might not be the best language-learning project.",
       ),
     ];

@@ -16,29 +16,29 @@ class CloxPersonalProject extends PersonalProject {
       AssetBanner(
         path: assetImagePath!,
       ),
-      Space.medium(),
-      Headline(
+      const Space.medium(),
+      const Headline(
         text: 'Clox',
         center: true,
       ),
 
-      Space.big(),
-      Title(text: 'Coauthors'),
-      Space.small(),
-      Body(
+      const Space.big(),
+      const Title(text: 'Coauthors'),
+      const Space.small(),
+      const Body(
         text: 'Martyna Wolna (designer, the main author)',
       ),
 
-      Space.medium(),
-      Title(
+      const Space.medium(),
+      const Title(
         text: 'My part',
       ),
-      Space.small(),
+      const Space.small(),
       Tags(
         tags: tags,
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'After finishing my bachelor degree, during covid, I was doing all '
             'sorts of small projects, and the universe decided to make Martyna create '
@@ -49,8 +49,8 @@ class CloxPersonalProject extends PersonalProject {
             'I moved to Norway.',
       ),
 
-      Space.big(),
-      YouTube(
+      const Space.big(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/loQ0_snbUyc',
       ),
     ];

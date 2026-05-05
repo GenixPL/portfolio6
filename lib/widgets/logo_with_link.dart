@@ -21,7 +21,7 @@ class LogoWithLink extends StatelessWidget {
           onTap: onTap,
           child: logo,
         ),
-        Gap(8),
+        const Gap(8),
         Flexible(
           child: GenGestureDetector.base(
             onTap: onTap,
@@ -30,7 +30,7 @@ class LogoWithLink extends StatelessWidget {
                 text,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.blue,
                   decoration: TextDecoration.underline,
                   decorationColor: Colors.blue,

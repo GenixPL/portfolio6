@@ -68,7 +68,7 @@ class _CarouselState extends State<Carousel> {
                   ),
           ),
 
-          Gap(8),
+          const Gap(8),
           Wrap(
             alignment: WrapAlignment.center,
             spacing: 8,

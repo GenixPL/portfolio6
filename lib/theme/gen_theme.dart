@@ -9,7 +9,7 @@ extension ThemeBuildContextExtensions on BuildContext {
 
 extension ThemeDataExtensions on ThemeData {
   Duration get basicAnimationDuration {
-    return Duration(milliseconds: 300);
+    return const Duration(milliseconds: 300);
   }
 
   Curve get basicAnimationCurve {
@@ -63,7 +63,7 @@ class GenTheme {
   const GenTheme();
 
   ThemeData build() {
-    final ColorScheme colorScheme = .dark(
+    final ColorScheme colorScheme = const .dark(
       surface: Color(0xFF_18_18_18),
       primary: Colors.white,
       secondary: Colors.amberAccent,
@@ -94,9 +94,9 @@ class GenTheme {
       inputDecorationTheme: InputDecorationTheme(
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: colorScheme.secondary),
-          borderRadius: BorderRadius.all(Radius.zero),
+          borderRadius: const BorderRadius.all(Radius.zero),
         ),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.zero),
         ),
       ),
@@ -105,7 +105,7 @@ class GenTheme {
           for (TargetPlatform platform in TargetPlatform.values) platform: _PageTransitionBuilder(),
         },
       ),
-      chipTheme: ChipThemeData(
+      chipTheme: const ChipThemeData(
         shape: RoundedRectangleBorder(),
       ),
 
@@ -162,11 +162,11 @@ class GenTheme {
         0.5,
       ),
       width: 400,
-      insetPadding: EdgeInsets.all(24),
+      insetPadding: const EdgeInsets.all(24),
       contentTextStyle: TextStyle(
         color: colorScheme.primary,
       ),
-      shape: BeveledRectangleBorder(
+      shape: const BeveledRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16),
           bottomRight: Radius.circular(16),

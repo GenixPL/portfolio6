@@ -13,37 +13,37 @@ class LanguageAppsPersonalProject extends PersonalProject {
   @override
   List<InternalArticleComponent> get components {
     return [
-      AssetBanner(path: 'assets/images/projects/myword/myword-banner.jpg'),
-      Space.medium(),
-      Headline(
+      const AssetBanner(path: 'assets/images/projects/myword/myword-banner.jpg'),
+      const Space.medium(),
+      const Headline(
         text: 'Language learning apps',
         center: true,
       ),
-      Space.big(),
-      Body(
+      const Space.big(),
+      const Body(
         text:
             'I had long wanted to create a tailor-suited application for language learning. '
             'I wanted to have my own (easily expandable) data sets, and learning modes that '
             'I deemed effective.',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'No ads.\n'
             'No endless repetition of the same 50 words.\n'
             'No failure limits.',
       ),
 
-      Space.big(),
-      Title(text: 'First version'),
-      Space.medium(),
-      Tags(
+      const Space.big(),
+      const Title(text: 'First version'),
+      const Space.medium(),
+      const Tags(
         tags: ['Android', 'Java', 'SQLite'],
       ),
-      Space.medium(),
-      GithubLink(url: 'https://github.com/GenixPL/WordMemoriser'),
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const GithubLink(url: 'https://github.com/GenixPL/WordMemoriser'),
+      const Space.medium(),
+      const Body(
         text:
             "The first version of the app was very simple and ugly, but with it my "
             "mobile programming journey has started for good, so I owe it a lot. "
@@ -52,7 +52,7 @@ class LanguageAppsPersonalProject extends PersonalProject {
             "non-programming (university) subjects. In the hindsight, you can clearly see how I "
             "was solving problems I was creating myself, and the fact that I didn't quite know how things work.",
       ),
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 540 / 1110,
         imgPaths: [
@@ -60,10 +60,10 @@ class LanguageAppsPersonalProject extends PersonalProject {
         ],
       ),
 
-      Space.big(),
-      Title(text: 'Second version'),
-      Space.medium(),
-      Tags(
+      const Space.big(),
+      const Title(text: 'Second version'),
+      const Space.medium(),
+      const Tags(
         tags: [
           'NativeScript',
           'Firebase Auth',
@@ -74,35 +74,35 @@ class LanguageAppsPersonalProject extends PersonalProject {
           'CSS',
         ],
       ),
-      Space.medium(),
-      GithubLink(url: 'https://github.com/GenixPL/easyLearn'),
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const GithubLink(url: 'https://github.com/GenixPL/easyLearn'),
+      const Space.medium(),
+      const Body(
         text:
             "I decided to write the second version in NativeScript because I liked "
             "the possibility of writing one code for mobile and web.",
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text: 'Big mistake.',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             "NativeScript was terrible; tiny community and too few plugins. "
             "The fact that it was my first encounter with web technologies (Angular) did not "
             "make things any easier, it resulted in a pretty quick defeat.",
       ),
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 437 / 778,
         imgPaths: [for (int i = 1; i <= 14; i++) 'assets/images/projects/myword/second_version/$i.jpg'],
       ),
 
-      Space.big(),
-      Title(text: 'Third version'),
-      Space.medium(),
-      Tags(
+      const Space.big(),
+      const Title(text: 'Third version'),
+      const Space.medium(),
+      const Tags(
         tags: [
           'Flutter',
           'Dart',
@@ -111,10 +111,10 @@ class LanguageAppsPersonalProject extends PersonalProject {
           'Google Translation API',
         ],
       ),
-      Space.medium(),
-      GithubLink(url: 'https://github.com/GenixPL/my-word'),
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const GithubLink(url: 'https://github.com/GenixPL/my-word'),
+      const Space.medium(),
+      const Body(
         text:
             "With the third version I already had some experience "
             "(3 years), but I decided to write it in Flutter... "
@@ -125,21 +125,21 @@ class LanguageAppsPersonalProject extends PersonalProject {
             "for over six months. During that time I learned a lot, "
             'so before I could finish the application, I "had to" rewrite it...',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text: '...again.',
       ),
-      Space.small(),
-      Space.medium(),
+      const Space.small(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 540 / 1080,
         imgPaths: [for (int i = 1; i <= 10; i++) 'assets/images/projects/myword/third_version/$i.jpg'],
       ),
 
-      Space.big(),
-      Title(text: 'Fourth version'),
+      const Space.big(),
+      const Title(text: 'Fourth version'),
       // TODO(genix): add
-      Body(
+      const Body(
         text: 'TODO: add',
       ),
     ];

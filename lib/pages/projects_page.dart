@@ -21,7 +21,7 @@ class ProjectsPage extends StatelessWidget {
                       project.assetImagePath!,
                       fit: BoxFit.cover,
                     )
-                  : NoImage(),
+                  : const NoImage(),
               title: project.name,
               description: null,
               dateText: project.dateText,
@@ -30,7 +30,7 @@ class ProjectsPage extends StatelessWidget {
               external: false,
             ).sliver,
         ].withGaps(context.theme.cardSpacing),
-        SliverGap(64),
+        const SliverGap(64),
         Text(
           'AND MANY MANY MORE\n...',
           style: TextStyle(

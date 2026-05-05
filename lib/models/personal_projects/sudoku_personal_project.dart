@@ -16,26 +16,26 @@ class SudokuPersonalProject extends PersonalProject {
       AssetBanner(
         path: assetImagePath!,
       ),
-      Space.medium(),
+      const Space.medium(),
       Headline(
         text: name,
         center: true,
       ),
 
-      Space.big(),
-      WebLink(url: 'https://genixpl.github.io/sudoku'),
-      Space.small(),
-      AssetApk(
+      const Space.big(),
+      const WebLink(url: 'https://genixpl.github.io/sudoku'),
+      const Space.small(),
+      const AssetApk(
         path: 'assets/files/sudoku.apk',
       ),
 
-      Space.medium(),
-      MediumLink(
+      const Space.medium(),
+      const MediumLink(
         url: 'https://medium.com/@GenixPL/missing-fun-of-speedrunning-personal-projects-ad85b08706cd',
       ),
 
-      Space.medium(),
-      YouTube(
+      const Space.medium(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/ct4PwCOy9D8',
       ),
     ];

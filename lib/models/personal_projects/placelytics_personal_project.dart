@@ -19,40 +19,40 @@ class PlacelyticsPersonalProject extends PersonalProject {
   @override
   List<InternalArticleComponent> get components {
     return [
-      AssetBanner(path: 'assets/images/projects/placelytics/placelytics-banner.jpg'),
-      Space.medium(),
-      Headline(
+      const AssetBanner(path: 'assets/images/projects/placelytics/placelytics-banner.jpg'),
+      const Space.medium(),
+      const Headline(
         text: 'Placelytics',
         center: true,
       ),
-      Space.medium(),
+      const Space.medium(),
 
-      Body(
+      const Body(
         text:
             'An application created as the final engineering project. The goal '
             'was to create a system (backend, mobile, and web) to monitor '
             'and analyse places (scraped) from Google Maps.',
       ),
 
-      Space.medium(),
-      Title(text: 'Coauthors'),
-      Body(text: 'Karol Kłosowski'),
-      Body(text: 'Piotr Pilis'),
+      const Space.medium(),
+      const Title(text: 'Coauthors'),
+      const Body(text: 'Karol Kłosowski'),
+      const Body(text: 'Piotr Pilis'),
 
-      Space.medium(),
-      Title(text: 'My part'),
-      Space.small(),
+      const Space.medium(),
+      const Title(text: 'My part'),
+      const Space.small(),
       Tags(tags: tags),
 
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'I was responsible for the whole mobile app development. These were my first '
             'steps with Flutter, which was recommended to me by our promoter, for which I should '
             'be forever grateful. Lots of mistakes, lots of initial experience.',
       ),
 
-      Space.big(),
+      const Space.big(),
       AssetImageCarousel(
         aspectRatio: 540 / 1080,
         imgPaths: [
@@ -60,8 +60,8 @@ class PlacelyticsPersonalProject extends PersonalProject {
         ],
       ),
 
-      Space.big(),
-      YouTube(
+      const Space.big(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/h5CSd-B2x0w',
       ),
     ];

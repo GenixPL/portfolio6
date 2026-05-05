@@ -27,7 +27,7 @@ class ArticleTags extends StatelessWidget {
               style: context.theme.textTheme.titleSmall!.copyWith(
                 height: 1.0,
               ),
-              textHeightBehavior: TextHeightBehavior(
+              textHeightBehavior: const TextHeightBehavior(
                 applyHeightToLastDescent: false,
               ),
             ),

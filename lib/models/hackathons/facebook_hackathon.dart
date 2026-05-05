@@ -17,19 +17,19 @@ class FacebookHackathon extends Hackathon {
       AssetImage(
         path: assetImagePath,
       ),
-      Space.medium(),
+      const Space.medium(),
       Headline(
         text: name,
         center: true,
       ),
 
-      Space.big(),
-      GithubLink(
+      const Space.big(),
+      const GithubLink(
         url: 'https://github.com/GenixPL/fb_hackathon',
       ),
 
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
         'Our group of 3 spent 24h writing an app that allowed people to create, and join, socializing '
             'activities (something like Meetup).',

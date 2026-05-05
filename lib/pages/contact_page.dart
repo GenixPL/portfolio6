@@ -21,7 +21,7 @@ class ContactPage extends StatelessWidget {
       slivers: [
         Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               maxWidth: 400,
             ),
             child: Image.asset(
@@ -94,7 +94,7 @@ class ContactPage extends StatelessWidget {
     return [
       _buildLogo(
         context: context,
-        child: Icon(Icons.mail_outline_sharp),
+        child: const Icon(Icons.mail_outline_sharp),
         onTap: () => launchUrl(
           // Without this web on mobile will open new tab.
           mode: LaunchMode.externalApplication,
@@ -104,7 +104,7 @@ class ContactPage extends StatelessWidget {
       ),
       _buildLogo(
         context: context,
-        child: Icon(Icons.download_sharp),
+        child: const Icon(Icons.download_sharp),
         // TODO(genix): update cv
         onTap: () => downloadFile(
           assetPath: 'assets/files/niedzialek_cv.pdf',

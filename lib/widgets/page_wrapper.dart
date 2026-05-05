@@ -67,7 +67,7 @@ class _PageWrapperState extends State<PageWrapper> {
           ),
           child: _optionalRefreshWrap(
             child: CustomScrollView(
-              physics: _showMenu ? NeverScrollableScrollPhysics() : ClampingScrollPhysics(),
+              physics: _showMenu ? const NeverScrollableScrollPhysics() : const ClampingScrollPhysics(),
               controller: _scrollController,
               slivers: [
                 GenSliverAppBar(

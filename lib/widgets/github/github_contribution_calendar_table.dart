@@ -61,7 +61,7 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
           child: GridView.builder(
             controller: _scrollController,
             scrollDirection: Axis.horizontal,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 7,
               mainAxisSpacing: 2,
               crossAxisSpacing: 2,
@@ -70,7 +70,7 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
             itemBuilder: (context, int i) {
               final GithubContributionDay? day = widget.calendar.dayForIndex(i);
               if (day == null) {
-                return SizedBox();
+                return const SizedBox();
               }
 
               return GithubContributionCalendarTableTile(
@@ -93,7 +93,7 @@ class _GithubContributionCalendarTableState extends State<GithubContributionCale
             fontFamily: FontFamily.cpMono.assetName,
             fontSize: (widget.size / 7) * 0.8,
           ),
-          textHeightBehavior: TextHeightBehavior(
+          textHeightBehavior: const TextHeightBehavior(
             applyHeightToLastDescent: false,
             applyHeightToFirstAscent: false,
           ),

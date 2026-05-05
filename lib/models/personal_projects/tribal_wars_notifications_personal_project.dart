@@ -21,24 +21,24 @@ class TribalWarsNotificationsPersonalProject extends PersonalProject {
         center: true,
       ),
 
-      Space.big(),
-      GithubLink(
+      const Space.big(),
+      const GithubLink(
         url: 'https://github.com/GenixPL/Tribal-Wars-Notifications',
       ),
-      Space.medium(),
+      const Space.medium(),
       Tags(
         tags: tags,
       ),
 
-      Space.medium(),
-      Body(
+      const Space.medium(),
+      const Body(
         text:
             'An app that was creating background processes in order to monitor system '
             'notifications, and trigger an alarm if there was one coming from Tribal Wars '
             '(an online game crated by InnoGames).',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'The purpose of it was to be informed, as soon as possible (including'
             '/mainly during sleep), about incoming enemy attack, so that we (me '

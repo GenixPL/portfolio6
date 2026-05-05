@@ -190,7 +190,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     return LogoWithLink(
       onTap: () => launchUrlString(webLink.url),
       text: webLink.url,
-      logo: Icon(Icons.public_sharp),
+      logo: const Icon(Icons.public_sharp),
     ).sliver;
   }
 

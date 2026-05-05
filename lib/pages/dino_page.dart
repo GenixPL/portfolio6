@@ -14,7 +14,7 @@ class DinoPage extends StatefulWidget {
 
 class _DinoPageState extends State<DinoPage> {
   final TextEditingController _jumpForceController = TextEditingController.fromValue(
-    TextEditingValue(text: '1.0'),
+    const TextEditingValue(text: '1.0'),
   );
 
   @override
@@ -24,9 +24,9 @@ class _DinoPageState extends State<DinoPage> {
         child: Center(
           child: Column(
             children: [
-              Gap(64),
+              const Gap(64),
               ConstrainedBox(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 640,
                   maxHeight: 240,
                 ),
@@ -39,7 +39,7 @@ class _DinoPageState extends State<DinoPage> {
                   ),
                 ),
               ),
-              Gap(16),
+              const Gap(16),
               MenuButton(
                 onTap: () {
                   context.pop();
@@ -47,26 +47,26 @@ class _DinoPageState extends State<DinoPage> {
                 name: 'Go back',
                 routeName: '',
               ),
-              Gap(32),
+              const Gap(32),
               ConstrainedBox(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 160
                 ),
                 child: TextField(
                   controller: _jumpForceController,
-                  keyboardType: TextInputType.numberWithOptions(
+                  keyboardType: const TextInputType.numberWithOptions(
                     decimal: true,
                   ),
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(RegExp(r'^(\d+)?\.?\d{0,2}')),
                   ],
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: "Jump Force Multiplier",
                   ),
                   onChanged: (_) => setState(() {}),
                 ),
               ),
-              Gap(32),
+              const Gap(32),
             ],
           ),
         ),

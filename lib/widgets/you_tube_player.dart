@@ -17,7 +17,7 @@ class YouTubePlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         maxHeight: 300,
       ),
       child: GenGestureDetector.base(
@@ -59,7 +59,7 @@ class YouTubePlayer extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: context.pop,
-                      icon: Icon(Icons.close_sharp),
+                      icon: const Icon(Icons.close_sharp),
                     ),
                   ],
                 ),
@@ -142,7 +142,7 @@ class _PlayerState extends State<_Player> {
       child: Stack(
         children: [
           if (!_loaded)
-            Center(
+            const Center(
               child: GenProgressIndicator(),
             ),
           HtmlElementView(

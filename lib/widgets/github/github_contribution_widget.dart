@@ -32,7 +32,7 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     return RepaintBoundary(
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 84 / 7 * 53 + 50,
           ),
           child: Column(
@@ -115,7 +115,7 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     required double size,
   }) {
     if (_loading) {
-      return Center(
+      return const Center(
         child: GenProgressIndicator(),
       );
     }

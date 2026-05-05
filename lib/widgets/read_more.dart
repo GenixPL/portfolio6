@@ -45,7 +45,7 @@ class ReadMore extends StatelessWidget {
                       fontFamily: FontFamily.cpMono.assetName,
                       color: color,
                     ),
-                    textHeightBehavior: TextHeightBehavior(
+                    textHeightBehavior: const TextHeightBehavior(
                       applyHeightToLastDescent: false,
                       applyHeightToFirstAscent: false,
                     ),

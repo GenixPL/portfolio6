@@ -38,7 +38,7 @@ class ScrollWrapper extends StatelessWidget {
         width: width,
         decoration: ShapeDecoration(
           color: controller.offset > 0 ? Colors.black.withAlpha(200) : Colors.transparent,
-          shape: BeveledRectangleBorder(
+          shape: const BeveledRectangleBorder(
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(4),
               bottomRight: Radius.circular(4),
@@ -62,7 +62,7 @@ class ScrollWrapper extends StatelessWidget {
           color: controller.offset < controller.position.maxScrollExtent
               ? Colors.black.withAlpha(200)
               : Colors.transparent,
-          shape: BeveledRectangleBorder(
+          shape: const BeveledRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(4),
               bottomLeft: Radius.circular(4),

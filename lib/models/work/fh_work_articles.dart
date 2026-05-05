@@ -33,26 +33,26 @@ class FhWorkArticle extends WorkArticle {
       AssetBanner(
         path: assetImagePath,
       ),
-      Space.medium(),
+      const Space.medium(),
       Headline(
         text: name,
         center: true,
       ),
 
-      Space.big(),
-      Title(text: 'Position'),
-      Space.small(),
+      const Space.big(),
+      const Title(text: 'Position'),
+      const Space.small(),
       Body(text: positions.join(', ')),
 
-      Space.medium(),
-      Title(text: 'Location'),
-      Space.small(),
+      const Space.medium(),
+      const Title(text: 'Location'),
+      const Space.small(),
       Body(text: location),
 
-      Space.medium(),
-      Title(text: 'Work'),
-      Space.small(),
-      Body(
+      const Space.medium(),
+      const Title(text: 'Work'),
+      const Space.small(),
+      const Body(
         text:
             'Futurehome is (/used to be) a Norwegian startup / scaleup. We produced '
             'hardware and software related to the smart housing industry. From single'
@@ -61,92 +61,92 @@ class FhWorkArticle extends WorkArticle {
             'targeted at the single units.',
       ),
 
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'I started working there in april 2020, remotely as it was still covid time, '
             'and while waiting for my move to Norway, I developed their native widgets '
             '(using the old widget frameworks so it was a hell), and the watchOS app.',
       ),
-      Space.small(),
+      const Space.small(),
       AssetImageCarousel(
         aspectRatio: 540 / 1170,
         imgPaths: [
           for (int i = 1; i <= 3; i++) 'assets/images/work/fh/1_$i.jpg',
         ],
       ),
-      Space.medium(),
-      YouTube(
+      const Space.medium(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/lFLZhzvNi_o?list=PLoipzfN0Ixbgt74hq2agzL1KTs6C4uJpl',
       ),
-      Body(
+      const Body(
         text: 'iOS',
         center: true,
       ),
 
-      Space.medium(),
-      YouTube(
+      const Space.medium(),
+      const YouTube(
         embedUrl: "https://www.youtube.com/embed/CSHAo-kaXGc?list=PLoipzfN0Ixbgt74hq2agzL1KTs6C4uJpl",
       ),
-      Body(
+      const Body(
         text: 'Android',
         center: true,
       ),
 
-      Space.medium(),
-      YouTube(
+      const Space.medium(),
+      const YouTube(
         embedUrl: "https://www.youtube.com/embed/BCPDjRZ25Nw?list=PLoipzfN0Ixbgt74hq2agzL1KTs6C4uJpl",
       ),
-      Body(
+      const Body(
         text: 'watchOS',
         center: true,
       ),
 
-      Space.big(),
-      Body(
+      const Space.big(),
+      const Body(
         text:
             'I then moved to Oslo, and continued working with them for another 4 years. '
             'Gradually my responsibilities have increased, and I ended up being one of '
             'the key developers. Some of the things I was responsible for include:',
       ),
-      ListItem(
+      const ListItem(
         text: "big chunk of the app's development;",
       ),
-      ListItem(
+      const ListItem(
         text: "designing, planning and transitioning the app's code into a proper (MVVM) architecture;",
       ),
-      ListItem(
+      const ListItem(
         text: 'writing lots of tests;',
       ),
-      ListItem(
+      const ListItem(
         text: 'ensuring quality of the code;',
       ),
-      ListItem(
+      const ListItem(
         text: 'ensuring quality of the code;',
       ),
-      ListItem(
+      const ListItem(
         text: 'creating and maintaining a set of internal dart packages used between several projects;',
       ),
-      ListItem(
+      const ListItem(
         text: 'planning deliveries with designers and business;',
       ),
-      ListItem(
+      const ListItem(
         text: 'CI/CD work for the app;',
       ),
-      ListItem(
+      const ListItem(
         text: 'recruiting new people;',
       ),
 
-      Space.big(),
-      YouTube(
+      const Space.big(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/3up-bm87izc?list=PLoipzfN0IxbjLP4OxXkmnIalCasijNUqo',
       ),
-      Body(
+      const Body(
         text: 'Pairing of our ev charger.',
         center: true,
       ),
 
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 621 / 1344,
         imgPaths: [
@@ -154,23 +154,23 @@ class FhWorkArticle extends WorkArticle {
         ],
       ),
 
-      Space.big(),
-      YouTube(
+      const Space.big(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/KH629Uzr_ck',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text: '🫡',
         center: true,
       ),
 
-      Space.big(),
-      Headline(
+      const Space.big(),
+      const Headline(
         text: 'Good People, Fun times',
         center: true,
       ),
 
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 16 / 9,
         imgPaths: [
@@ -178,7 +178,7 @@ class FhWorkArticle extends WorkArticle {
         ],
       ),
 
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 540 / 1200,
         imgPaths: [
@@ -186,8 +186,8 @@ class FhWorkArticle extends WorkArticle {
         ],
       ),
 
-      Space.medium(),
-      AssetImage(
+      const Space.medium(),
+      const AssetImage(
         path: 'assets/images/work/fh/5_1.jpg',
       ),
     ];

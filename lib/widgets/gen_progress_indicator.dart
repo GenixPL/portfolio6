@@ -50,7 +50,7 @@ class _GenProgressIndicatorState extends State<GenProgressIndicator> with Ticker
     final double value = _valueController.value + ((Random().nextInt(35) + 25) / 100);
     _valueController.animateTo(
       value,
-      duration: Duration(milliseconds: 750),
+      duration: const Duration(milliseconds: 750),
       curve: Curves.ease,
     );
 
@@ -58,13 +58,13 @@ class _GenProgressIndicatorState extends State<GenProgressIndicator> with Ticker
     if (width > _widthController.value) {
       _widthController.animateBack(
         width,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         curve: Curves.ease,
       );
     } else {
       _widthController.animateTo(
         width,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         curve: Curves.ease,
       );
     }
