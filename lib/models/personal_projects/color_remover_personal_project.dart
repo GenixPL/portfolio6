@@ -2,12 +2,12 @@ import 'package:portfolio6/models/internal_article_component.dart';
 import 'package:portfolio6/models/personal_projects/personal_project.dart';
 
 class ColorRemoverPersonalProject extends PersonalProject {
-  ColorRemoverPersonalProject()
+  const ColorRemoverPersonalProject()
     : super(
         id: 'color-remover',
         assetImagePath: 'assets/images/projects/color-remover/color-remover-banner.png',
         name: 'PyScript color remover',
-        tags: ['PyScript', 'Python', 'HTML'],
+        tags: const ['PyScript', 'Python', 'HTML'],
         dateText: '5-11 Apr 2026',
       );
 

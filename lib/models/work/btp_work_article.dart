@@ -2,16 +2,16 @@ import 'package:portfolio6/models/internal_article_component.dart';
 import 'package:portfolio6/models/work/_work.dart';
 
 class BtpWorkArticle extends WorkArticle {
-  BtpWorkArticle()
+  const BtpWorkArticle()
     : super(
         id: 'beside-the-park',
         assetImagePath: 'assets/images/work/btp/btp-banner.jpg',
         name: 'Beside The Park',
-        tags: ['Java', 'Objective-C', 'Location Services'],
+        tags: const ['Java', 'Objective-C', 'Location Services'],
         startDateText: 'Apr 2018',
         endDateText: 'September 2018',
         location: '[Warsaw]',
-        positions: ['Mobile Dev'],
+        positions: const ['Mobile Dev'],
         description: 'Work: Tracking SDK',
       );
 

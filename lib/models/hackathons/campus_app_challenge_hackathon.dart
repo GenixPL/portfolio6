@@ -2,7 +2,7 @@ import 'package:portfolio6/models/hackathons/hackathon.dart';
 import 'package:portfolio6/models/internal_article_component.dart';
 
 class CampusAppChallengeHackathon extends Hackathon {
-  CampusAppChallengeHackathon()
+  const CampusAppChallengeHackathon()
     : super(
         id: 'campus-app-challenge',
         duration: '24h',

@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class FhWorkArticle extends WorkArticle {
-  FhWorkArticle()
+  const FhWorkArticle()
     : super(
         id: 'futurehome',
         assetImagePath: 'assets/images/work/fh/fh-banner.png',
         name: 'Futurehome',
-        tags: [
+        tags: const [
           'Flutter',
           'Dart',
           'Kotlin',
@@ -23,7 +23,7 @@ class FhWorkArticle extends WorkArticle {
         startDateText: 'Apr 2020',
         endDateText: 'May 2024',
         location: '[Warsaw, Oslo]',
-        positions: ['Jr. Mobile Dev', 'Sr. Mobile Dev', 'Mobile Tech Lead'],
+        positions: const ['Jr. Mobile Dev', 'Sr. Mobile Dev', 'Mobile Tech Lead'],
         description: 'Work: Smart home application',
       );
 

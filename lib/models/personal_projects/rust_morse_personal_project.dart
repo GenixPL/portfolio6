@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class RustMorsePersonalProject extends PersonalProject {
-  RustMorsePersonalProject()
+  const RustMorsePersonalProject()
     : super(
         id: 'rust-morse',
         assetImagePath: 'assets/images/projects/rust-morse/rust-morse-banner.png',
         name: 'Morse encoder-decoder CLI app in Rust',
-        tags: ['Rust', 'TUI', 'morse code', 'audio'],
+        tags: const ['Rust', 'TUI', 'morse code', 'audio'],
         dateText: '5 - 27 Mar 2026',
       );
 

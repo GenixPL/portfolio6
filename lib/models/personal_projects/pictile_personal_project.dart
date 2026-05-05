@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class PictilePersonalProject extends PersonalProject {
-  PictilePersonalProject()
+  const PictilePersonalProject()
     : super(
         id: 'pictile',
         assetImagePath: 'assets/images/projects/pictile/pictile-banner.jpg',
         name: 'Pictile',
-        tags: ['Flutter', 'Dart', 'SQLite'],
+        tags: const ['Flutter', 'Dart', 'SQLite'],
         dateText: '24 - 28 Feb 2020',
       );
 

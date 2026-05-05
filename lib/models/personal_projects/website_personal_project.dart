@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class WebsitePersonalProject extends PersonalProject {
-  WebsitePersonalProject()
+  const WebsitePersonalProject()
     : super(
         id: 'website',
         assetImagePath: 'assets/images/projects/website/website-banner.jpg',
         name: 'The website',
-        tags: [
+        tags: const [
           'Flutter',
           'Dart',
           'React',

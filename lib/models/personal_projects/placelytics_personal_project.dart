@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class PlacelyticsPersonalProject extends PersonalProject {
-  PlacelyticsPersonalProject()
+  const PlacelyticsPersonalProject()
     : super(
         id: 'placelytics',
         assetImagePath: 'assets/images/projects/placelytics/placelytics-banner.jpg',
         name: 'Placelytics (engineering project)',
-        tags: [
+        tags: const [
           'Flutter',
           'Firebase Auth',
           'Firestore',

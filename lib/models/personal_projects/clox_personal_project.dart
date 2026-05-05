@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class CloxPersonalProject extends PersonalProject {
-  CloxPersonalProject()
+  const CloxPersonalProject()
     : super(
         id: 'clox',
         assetImagePath: 'assets/images/projects/clox/clox-banner.png',
         name: 'Clox',
-        tags: ['Flutter', 'Dart', 'wearOS'],
+        tags: const ['Flutter', 'Dart', 'wearOS'],
         dateText: 'Apr - May 2020',
       );
 

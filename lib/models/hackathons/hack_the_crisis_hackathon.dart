@@ -2,7 +2,7 @@ import 'package:portfolio6/models/hackathons/hackathon.dart';
 import 'package:portfolio6/models/internal_article_component.dart';
 
 class HackTheCrisisHackathon extends Hackathon {
-  HackTheCrisisHackathon()
+  const HackTheCrisisHackathon()
     : super(
         id: 'hack-the-crisis',
         duration: '5 days',

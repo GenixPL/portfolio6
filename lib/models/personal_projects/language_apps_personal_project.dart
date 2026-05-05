@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class LanguageAppsPersonalProject extends PersonalProject {
-  LanguageAppsPersonalProject()
+  const LanguageAppsPersonalProject()
     : super(
         id: 'language-apps',
         assetImagePath: 'assets/images/projects/myword/myword-banner.jpg',
         name: 'Language learning apps',
-        tags: ['< MANY >'],
+        tags: const ['< MANY >'],
         dateText: '2018 - 2023',
       );
 

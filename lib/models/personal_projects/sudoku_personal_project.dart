@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class SudokuPersonalProject extends PersonalProject {
-  SudokuPersonalProject()
+  const SudokuPersonalProject()
     : super(
         id: 'sudoku',
         assetImagePath: 'assets/images/projects/sudoku/sudoku-banner.png',
         name: 'Sudoku',
-        tags: ['flutter', 'mobile'],
+        tags: const ['flutter', 'mobile'],
         dateText: '10 - 12 Mar 2026',
       );
 

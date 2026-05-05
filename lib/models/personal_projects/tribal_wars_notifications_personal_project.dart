@@ -1,12 +1,12 @@
 import 'package:portfolio6/models/_models.dart';
 
 class TribalWarsNotificationsPersonalProject extends PersonalProject {
-  TribalWarsNotificationsPersonalProject()
+  const TribalWarsNotificationsPersonalProject()
     : super(
         id: 'tribal-wars-notifications',
         assetImagePath: null,
         name: 'Tribal Wars Notifications',
-        tags: [
+        tags: const [
           'Android',
           'Kotlin',
         ],
