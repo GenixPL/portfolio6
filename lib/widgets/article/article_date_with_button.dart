@@ -15,27 +15,12 @@ class ArticleDateWithButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (MediaQuery.sizeOf(context).width < 320) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ?_buildDate(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              ?_buildReadMore(),
-            ],
-          ),
-        ],
-      );
-    }
-
-    return Row(
-      children: [
-        ?_buildDate(),
-        const Spacer(),
-        ?_buildReadMore(),
-      ],
+    return GenWrap(
+      first: _buildDate() ?? const SizedBox(),
+      second: Padding(
+        padding: const EdgeInsets.only(left: 8),
+        child: _buildReadMore() ?? const SizedBox(),
+      ),
     );
   }
 

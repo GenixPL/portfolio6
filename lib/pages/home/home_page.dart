@@ -282,42 +282,28 @@ class _Section extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              runAlignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(width: horizontalPadding),
-                    Text(
-                      title.toUpperCase(),
-                      style: context.theme.textTheme.headlineSmall!.copyWith(
-                        height: 1,
-                      ),
-                      textHeightBehavior: const TextHeightBehavior(
-                        applyHeightToFirstAscent: false,
-                        applyHeightToLastDescent: false,
-                      ),
-                    ),
-                  ],
+            GenWrap(
+              first: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
+                child: Text(
+                  title.toUpperCase(),
+                  style: context.theme.textTheme.headlineSmall!.copyWith(
+                    height: 1,
+                  ),
+                  textHeightBehavior: const TextHeightBehavior(
+                    applyHeightToFirstAscent: false,
+                    applyHeightToLastDescent: false,
+                  ),
                 ),
-
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const SizedBox(width: horizontalPadding),
-                    ReadMore(
-                      text: 'see all',
-                      onTap: onTap,
-                      external: false,
-                    ),
-                    const SizedBox(width: horizontalPadding),
-                  ],
+              ),
+              second: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
+                child: ReadMore(
+                  text: 'see all',
+                  onTap: onTap,
+                  external: false,
                 ),
-              ],
+              ),
             ),
             const Gap(12),
             Center(
