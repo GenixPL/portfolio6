@@ -1,6 +1,5 @@
 import 'package:portfolio6/models/_models.dart';
 
-// TODO(genix): add the two flutter challenges from my shorts
 class FhWorkArticle extends WorkArticle {
   FhWorkArticle()
     : super(

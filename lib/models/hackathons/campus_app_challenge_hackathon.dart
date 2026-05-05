@@ -1,9 +1,6 @@
 import 'package:portfolio6/models/hackathons/hackathon.dart';
 import 'package:portfolio6/models/internal_article_component.dart';
 
-// TODO(genix): article about tribal wars notifications
-// TODO(genix): add github and stack stats (scrap)
-
 class CampusAppChallengeHackathon extends Hackathon {
   CampusAppChallengeHackathon()
     : super(
