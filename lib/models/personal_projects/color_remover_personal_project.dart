@@ -82,7 +82,6 @@ class ColorRemoverPersonalProject extends PersonalProject {
       ),
 
       const Space.big(),
-      // TODO(genix): add full screen image display button
       AssetImageCarousel(
         aspectRatio: 1200 / 779,
         imgPaths: [
