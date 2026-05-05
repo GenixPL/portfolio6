@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio6/theme/_theme.dart';
-import 'package:portfolio6/utils/_utils.dart';
-import 'package:portfolio6/widgets/_widgets.dart';
 
 class PageNotFound extends StatelessWidget {
   const PageNotFound({super.key});
