@@ -13,7 +13,9 @@ class LanguageAppsPersonalProject extends PersonalProject {
   @override
   List<InternalArticleComponent> get components {
     return [
-      const AssetBanner(path: 'assets/images/projects/myword/myword-banner.jpg'),
+      const AssetBanner(
+        path: 'assets/images/projects/myword/myword-banner.jpg',
+      ),
       const Space.medium(),
       const Headline(
         text: 'Language learning apps',
@@ -96,7 +98,9 @@ class LanguageAppsPersonalProject extends PersonalProject {
       const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 437 / 778,
-        imgPaths: [for (int i = 1; i <= 14; i++) 'assets/images/projects/myword/second_version/$i.jpg'],
+        imgPaths: [
+          for (int i = 1; i <= 14; i++) 'assets/images/projects/myword/second_version/$i.jpg',
+        ],
       ),
 
       const Space.big(),
@@ -133,7 +137,9 @@ class LanguageAppsPersonalProject extends PersonalProject {
       const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 540 / 1080,
-        imgPaths: [for (int i = 1; i <= 10; i++) 'assets/images/projects/myword/third_version/$i.jpg'],
+        imgPaths: [
+          for (int i = 1; i <= 10; i++) 'assets/images/projects/myword/third_version/$i.jpg',
+        ],
       ),
 
       const Space.big(),

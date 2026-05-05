@@ -51,7 +51,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
                         Logo(
                           size: 30,
                           onTap: () => launchUrlString('https://github.com/GenixPL'),
-                          child: Image.asset('assets/images/logos/github_logo.png'),
+                          child: Image.asset(
+                            'assets/images/logos/github_logo.png',
+                          ),
                         ),
                         if (_calendar != null)
                           Flexible(

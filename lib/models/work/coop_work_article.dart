@@ -115,8 +115,7 @@ class CoopWorkArticle extends WorkArticle {
       AssetImageCarousel(
         aspectRatio: 4 / 3,
         imgPaths: [
-          for (int i = 1; i <= 14; i++)
-            'assets/images/work/coop/1_$i.jpg'
+          for (int i = 1; i <= 14; i++) 'assets/images/work/coop/1_$i.jpg',
         ],
       ),
     ];

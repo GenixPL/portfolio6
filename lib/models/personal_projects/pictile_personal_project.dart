@@ -13,7 +13,9 @@ class PictilePersonalProject extends PersonalProject {
   @override
   List<InternalArticleComponent> get components {
     return [
-      const AssetBanner(path: 'assets/images/projects/pictile/pictile-banner.jpg'),
+      const AssetBanner(
+        path: 'assets/images/projects/pictile/pictile-banner.jpg',
+      ),
       const Space.medium(),
       const Headline(
         text: 'Pictile',
@@ -47,8 +49,7 @@ class PictilePersonalProject extends PersonalProject {
       AssetImageCarousel(
         aspectRatio: 540 / 1080,
         imgPaths: [
-          for (int i = 1; i <= 7; i++)
-            'assets/images/projects/pictile/$i.jpg'
+          for (int i = 1; i <= 7; i++) 'assets/images/projects/pictile/$i.jpg',
         ],
       ),
     ];

@@ -19,7 +19,9 @@ class PlacelyticsPersonalProject extends PersonalProject {
   @override
   List<InternalArticleComponent> get components {
     return [
-      const AssetBanner(path: 'assets/images/projects/placelytics/placelytics-banner.jpg'),
+      const AssetBanner(
+        path: 'assets/images/projects/placelytics/placelytics-banner.jpg',
+      ),
       const Space.medium(),
       const Headline(
         text: 'Placelytics',

@@ -23,7 +23,9 @@ class WebsitePersonalProject extends PersonalProject {
   @override
   List<InternalArticleComponent> get components {
     return [
-      const AssetBanner(path: 'assets/images/projects/website/website-banner.jpg'),
+      const AssetBanner(
+        path: 'assets/images/projects/website/website-banner.jpg',
+      ),
 
       const Space.medium(),
       const Headline(
@@ -34,7 +36,9 @@ class WebsitePersonalProject extends PersonalProject {
       const Space.big(),
       const Body(text: 'Blut, Schweiß und Tränen...'),
       const Space.small(),
-      const Body(text: '...and yet another story of never-ending search for time to do personal projects.'),
+      const Body(
+        text: '...and yet another story of never-ending search for time to do personal projects.',
+      ),
 
       const Space.big(),
       const Title(text: 'First version'),

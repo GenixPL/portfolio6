@@ -10,7 +10,9 @@ class PageNotFound extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(context.theme.defaultPageHorizontalPadding(context)),
+          padding: EdgeInsets.all(
+            context.theme.defaultPageHorizontalPadding(context),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

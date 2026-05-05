@@ -31,7 +31,9 @@ class _DinoPageState extends State<DinoPage> {
                   maxHeight: 240,
                 ),
                 child: DinoGame(
-                  jumpForceMultiplier: double.tryParse(_jumpForceController.text),
+                  jumpForceMultiplier: double.tryParse(
+                    _jumpForceController.text,
+                  ),
                   scoreTextStyle: TextStyle(
                     color: context.theme.primary,
                     fontSize: 16,
@@ -49,16 +51,16 @@ class _DinoPageState extends State<DinoPage> {
               ),
               const Gap(32),
               ConstrainedBox(
-                constraints: const BoxConstraints(
-                  maxWidth: 160
-                ),
+                constraints: const BoxConstraints(maxWidth: 160),
                 child: TextField(
                   controller: _jumpForceController,
                   keyboardType: const TextInputType.numberWithOptions(
                     decimal: true,
                   ),
                   inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'^(\d+)?\.?\d{0,2}')),
+                    FilteringTextInputFormatter.allow(
+                      RegExp(r'^(\d+)?\.?\d{0,2}'),
+                    ),
                   ],
                   decoration: const InputDecoration(
                     labelText: "Jump Force Multiplier",

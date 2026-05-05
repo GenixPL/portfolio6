@@ -47,7 +47,9 @@ class HackTheCrisisHackathon extends Hackathon {
       ),
 
       const Space.big(),
-      const AssetBanner(path: 'assets/images/projects/quarantino/quarantino-banner.jpg'),
+      const AssetBanner(
+        path: 'assets/images/projects/quarantino/quarantino-banner.jpg',
+      ),
       const Body(
         text: 'Quarantino',
         center: true,

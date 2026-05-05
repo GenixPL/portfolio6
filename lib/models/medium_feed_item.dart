@@ -5,7 +5,13 @@ final List<MediumFeedItem> mediumFeedItems = [
     publicationDate: DateTime(2026, 3, 19),
     mediaUrl: 'https://cdn-images-1.medium.com/max/496/1*L2PD6oH28myhZQLWz7c2WQ.gif',
     url: 'https://medium.com/@GenixPL/missing-fun-of-speedrunning-personal-projects-ad85b08706cd',
-    tags: ['mobile-app-development', 'flutter', 'careers', 'programming', 'mobile'],
+    tags: [
+      'mobile-app-development',
+      'flutter',
+      'careers',
+      'programming',
+      'mobile',
+    ],
   ),
 
   MediumFeedItem(
@@ -14,7 +20,13 @@ final List<MediumFeedItem> mediumFeedItems = [
     publicationDate: DateTime(2025, 12, 30),
     mediaUrl: 'https://cdn-images-1.medium.com/max/1024/1*SW_WKMu6L40rf58uUTYCKA.png',
     url: 'https://medium.com/@GenixPL/a-way-of-managing-flutter-dependencies-d9540d4221ed',
-    tags: ['flutter', 'dart', 'programming', 'mobile-app-development', 'software-architecture'],
+    tags: [
+      'flutter',
+      'dart',
+      'programming',
+      'mobile-app-development',
+      'software-architecture',
+    ],
   ),
 
   MediumFeedItem(
@@ -24,7 +36,13 @@ final List<MediumFeedItem> mediumFeedItems = [
     mediaUrl: 'https://cdn-images-1.medium.com/max/1024/1*6nP1fRgjATjSneDipdNLdQ.png',
     url:
         'https://medium.com/@GenixPL/beginners-guide-to-go-notifications-service-with-firebase-messaging-v1-oauth-2-18da115f3618',
-    tags: ['coding', 'golang', 'programming', 'google-cloud-platform', 'firebase'],
+    tags: [
+      'coding',
+      'golang',
+      'programming',
+      'google-cloud-platform',
+      'firebase',
+    ],
   ),
 
   MediumFeedItem(
@@ -33,7 +51,13 @@ final List<MediumFeedItem> mediumFeedItems = [
     publicationDate: DateTime(2024, 11, 22),
     mediaUrl: 'https://cdn-images-1.medium.com/max/496/1*7ix5V_0nPQHkvki2_imE7A.png',
     url: 'https://medium.com/@GenixPL/why-tdd-isnt-always-the-best-option-0aba2e5ec705',
-    tags: ['software-development', 'programming', 'clean-code', 'testing', 'software-engineering'],
+    tags: [
+      'software-development',
+      'programming',
+      'clean-code',
+      'testing',
+      'software-engineering',
+    ],
   ),
 
   MediumFeedItem(
@@ -60,7 +84,13 @@ final List<MediumFeedItem> mediumFeedItems = [
     publicationDate: DateTime(2024, 8, 23),
     mediaUrl: 'https://cdn-images-1.medium.com/max/700/1*pN5Dqw2iC7nrjFB2SyxKiQ.png',
     url: 'https://medium.com/@GenixPL/why-you-should-stop-using-getit-fa08b7f0699d',
-    tags: ['service-locator', 'clean-code', 'flutter', 'dart-programming-language', 'programming'],
+    tags: [
+      'service-locator',
+      'clean-code',
+      'flutter',
+      'dart-programming-language',
+      'programming',
+    ],
   ),
 
   MediumFeedItem(

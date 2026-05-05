@@ -86,8 +86,14 @@ class _PageWrapperState extends State<PageWrapper> {
                       ),
                       sliver: SliverMainAxisGroup(
                         slivers: widget.slivers
-                            .withPadding(context.theme.defaultPageVerticalPadding(context))
-                            .withHorizontalPadding(context.theme.defaultPageHorizontalPadding(context)),
+                            .withPadding(
+                              context.theme.defaultPageVerticalPadding(context),
+                            )
+                            .withHorizontalPadding(
+                              context.theme.defaultPageHorizontalPadding(
+                                context,
+                              ),
+                            ),
                       ),
                     );
                   },
