@@ -126,7 +126,9 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
         for (String path in assetImageCarousel.imgPaths)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Image.asset(path),
+            child: ExpandableImage(
+              image: Image.asset(path),
+            ),
           ),
       ],
     ).sliver;
@@ -147,7 +149,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
   }
 
   Widget _buildAssetApkSliver(AssetApk assetApk) {
-    final fileName = assetApk.path.split('/').last;
+    final String fileName = assetApk.path.split('/').last;
 
     return LogoWithLink(
       onTap: () => downloadFile(

@@ -16,5 +16,6 @@ export 'logo.dart';
 export 'you_tube_player.dart';
 export 'logo_with_link.dart';
 export 'github/_github.dart';
+export 'expandable_image.dart';
 
 export 'package:gap/gap.dart';
