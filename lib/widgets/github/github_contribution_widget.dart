@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio6/models/_models.dart';
 import 'package:portfolio6/theme/_theme.dart';
@@ -22,7 +24,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
   @override
   void initState() {
     super.initState();
-    _fetch();
+    unawaited(
+      _fetch(),
+    );
   }
 
   @override
@@ -32,7 +36,7 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     return RepaintBoundary(
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 84 / 7 * 53 + 50,
           ),
           child: Column(
@@ -51,7 +55,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
                         Logo(
                           size: 30,
                           onTap: () => launchUrlString('https://github.com/GenixPL'),
-                          child: Image.asset('assets/images/logos/github_logo.png'),
+                          child: Image.asset(
+                            'assets/images/logos/github_logo.png',
+                          ),
                         ),
                         if (_calendar != null)
                           Flexible(
@@ -88,7 +94,9 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
       value: _year,
       onChanged: (item) {
         _year = item;
-        _fetch();
+        unawaited(
+          _fetch(),
+        );
         setState(() {});
       },
       items: [
@@ -115,7 +123,7 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
     required double size,
   }) {
     if (_loading) {
-      return Center(
+      return const Center(
         child: GenProgressIndicator(),
       );
     }

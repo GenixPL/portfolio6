@@ -40,44 +40,44 @@ class _MyAppState extends State<MyApp> {
       GoRoute(
         path: '/',
         name: 'home',
-        builder: (_, _) => HomePage(),
+        builder: (_, _) => const HomePage(),
         routes: [
           GoRoute(
             path: '/dino',
             name: 'dino',
-            builder: (_, _) => DinoPage(),
+            builder: (_, _) => const DinoPage(),
           ),
           GoRoute(
             path: '/articles',
             name: 'articles',
-            builder: (_, _) => ArticlesPage(),
+            builder: (_, _) => const ArticlesPage(),
           ),
           ArticleRoute(),
           GoRoute(
             path: '/work',
             name: 'work',
-            builder: (_, _) => WorkPage(),
+            builder: (_, _) => const WorkPage(),
           ),
           GoRoute(
             path: '/projects',
             name: 'projects',
-            builder: (_, _) => ProjectsPage(),
+            builder: (_, _) => const ProjectsPage(),
           ),
           GoRoute(
             path: '/hackathons',
             name: 'hackathons',
-            builder: (_, _) => HackathonsPage(),
+            builder: (_, _) => const HackathonsPage(),
           ),
           GoRoute(
             path: '/contact',
             name: 'contact',
-            builder: (_, _) => ContactPage(),
+            builder: (_, _) => const ContactPage(),
           ),
         ],
       ),
     ],
     errorBuilder: (_, _) {
-      return PageNotFound();
+      return const PageNotFound();
     },
   );
 

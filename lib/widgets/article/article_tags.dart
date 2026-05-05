@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio6/theme/_theme.dart';
 
 class ArticleTags extends StatelessWidget {
   const ArticleTags(
@@ -23,10 +24,10 @@ class ArticleTags extends StatelessWidget {
             mouseCursor: mouseCursor,
             label: Text(
               tag,
-              style: TextStyle(
+              style: context.theme.textTheme.titleSmall!.copyWith(
                 height: 1.0,
               ),
-              textHeightBehavior: TextHeightBehavior(
+              textHeightBehavior: const TextHeightBehavior(
                 applyHeightToLastDescent: false,
               ),
             ),

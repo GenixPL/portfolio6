@@ -35,8 +35,8 @@ class ArticleCard extends StatelessWidget {
             maxWidth: context.theme.maxHorizontalCardWidth,
           ),
           decoration: ShapeDecoration(
-            color: Color(0xff_09_09_09),
-            shadows: [
+            color: const Color(0xff_09_09_09),
+            shadows: const [
               BoxShadow(
                 color: Colors.black,
                 blurRadius: 6,

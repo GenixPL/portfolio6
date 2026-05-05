@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio6/theme/_theme.dart';
@@ -21,7 +23,7 @@ class ContactPage extends StatelessWidget {
       slivers: [
         Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(
+            constraints: const BoxConstraints(
               maxWidth: 400,
             ),
             child: Image.asset(
@@ -94,7 +96,7 @@ class ContactPage extends StatelessWidget {
     return [
       _buildLogo(
         context: context,
-        child: Icon(Icons.mail_outline_sharp),
+        child: const Icon(Icons.mail_outline_sharp),
         onTap: () => launchUrl(
           // Without this web on mobile will open new tab.
           mode: LaunchMode.externalApplication,
@@ -104,7 +106,7 @@ class ContactPage extends StatelessWidget {
       ),
       _buildLogo(
         context: context,
-        child: Icon(Icons.download_sharp),
+        child: const Icon(Icons.download_sharp),
         // TODO(genix): update cv
         onTap: () => downloadFile(
           assetPath: 'assets/files/niedzialek_cv.pdf',
@@ -139,13 +141,17 @@ class ContactPage extends StatelessWidget {
       _buildLogo(
         context: context,
         child: Image.asset('assets/images/logos/linkedin_logo.png'),
-        onTap: () => _openUrl('https://www.linkedin.com/in/łukasz-niedziałek-12b78930b/'),
+        onTap: () => _openUrl(
+          'https://www.linkedin.com/in/łukasz-niedziałek-12b78930b/',
+        ),
         text: 'LinkedIn',
       ),
       _buildLogo(
         context: context,
         child: Image.asset('assets/images/logos/spotify_logo.png'),
-        onTap: () => _openUrl('https://open.spotify.com/user/47jyt37hiwy2ry4ao3y8bdtt7?si=29305cec818042fe'),
+        onTap: () => _openUrl(
+          'https://open.spotify.com/user/47jyt37hiwy2ry4ao3y8bdtt7?si=29305cec818042fe',
+        ),
         text: 'Spotify',
       ),
       _buildLogo(
@@ -172,7 +178,9 @@ class ContactPage extends StatelessWidget {
   }
 
   void _openUrl(String url) {
-    launchUrlString(url);
+    unawaited(
+      launchUrlString(url),
+    );
   }
 
   Widget _buildLogo({

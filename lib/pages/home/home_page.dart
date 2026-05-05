@@ -8,8 +8,6 @@ import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-// TODO(genix): add proper lints and improve perf with consts and such
-// TODO(genix): add Clox
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -33,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       slivers: [
         _buildAbout().sliver,
 
-        GithubContributionWidget().sliver,
+        const GithubContributionWidget().sliver,
 
         _Section(
           title: 'latest articles',
@@ -51,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                       return child;
                     }
 
-                    return Center(
+                    return const Center(
                       child: GenProgressIndicator(),
                     );
                   },
@@ -73,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 title: project.name,
                 subtitle: null,
                 image: project.assetImagePath == null
-                    ? NoImage()
+                    ? const NoImage()
                     : Image.asset(
                         project.assetImagePath!,
                         fit: BoxFit.cover,
@@ -118,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                   hackathon.assetImagePath,
                   fit: BoxFit.cover,
                 ),
-                tags: [],
+                tags: const [],
                 dateText: hackathon.dateText,
                 external: false,
                 onTap: () => ArticleRoute.go(context, hackathon.id),
@@ -184,28 +182,28 @@ class _HomePageState extends State<HomePage> {
                     TextSpan(
                       style: titleStyle,
                       children: [
-                        TextSpan(
+                        const TextSpan(
                           text: "I have ",
                         ),
                         TextSpan(
                           text: (programmingForMonths ~/ 12).toString(),
                           style: contrastHeadStyle,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: ' years (and ',
                         ),
                         TextSpan(
                           text: (programmingForMonths % 12).toString(),
                           style: contrastHeadStyle,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: ' months) of programming experience, including ',
                         ),
                         TextSpan(
                           text: '$commercialForYears+',
                           style: contrastHeadStyle,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text:
                               " years of commercial work. I'm strongly focused on mobile development, with specializations in ",
                         ),
@@ -213,28 +211,28 @@ class _HomePageState extends State<HomePage> {
                           text: 'Flutter',
                           style: contrastHeadStyle,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: ' and ',
                         ),
                         TextSpan(
                           text: 'Android',
                           style: contrastHeadStyle,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: ", but I've touched countless other technologies. I'm located somewhere between ",
                         ),
                         TextSpan(
                           text: 'Warsaw',
                           style: contrastHeadStyle,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: ' and ',
                         ),
                         TextSpan(
                           text: 'Oslo',
                           style: contrastHeadStyle,
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text:
                               ". Outside of programming I am deep into investing and devoting my free time to long hikes, books, beer, cigars, and German rap.",
                         ),
@@ -278,7 +276,7 @@ class _Section extends StatelessWidget {
 
     return Center(
       child: ConstrainedBox(
-        constraints: BoxConstraints(
+        constraints: const BoxConstraints(
           maxWidth: 600,
         ),
         child: Column(
@@ -292,14 +290,13 @@ class _Section extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(width: horizontalPadding),
+                    const SizedBox(width: horizontalPadding),
                     Text(
                       title.toUpperCase(),
                       style: context.theme.textTheme.headlineSmall!.copyWith(
                         height: 1,
-                        fontFamily: FontFamily.inter.assetName,
                       ),
-                      textHeightBehavior: TextHeightBehavior(
+                      textHeightBehavior: const TextHeightBehavior(
                         applyHeightToFirstAscent: false,
                         applyHeightToLastDescent: false,
                       ),
@@ -311,18 +308,18 @@ class _Section extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SizedBox(width: horizontalPadding),
+                    const SizedBox(width: horizontalPadding),
                     ReadMore(
                       text: 'see all',
                       onTap: onTap,
                       external: false,
                     ),
-                    SizedBox(width: horizontalPadding),
+                    const SizedBox(width: horizontalPadding),
                   ],
                 ),
               ],
             ),
-            Gap(12),
+            const Gap(12),
             Center(
               child: Carousel(
                 maxHeight: 400,

@@ -64,7 +64,9 @@ class HomePageCard extends StatelessWidget {
                       spacing: 8,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        ArticleTags(tags.length > 5 ? (tags.sublist(0, 4)..add('...')) : tags),
+                        ArticleTags(
+                          tags.length > 5 ? (tags.sublist(0, 4)..add('...')) : tags,
+                        ),
                         ArticleDateWithButton(
                           onReadMore: onTap,
                           dateText: dateText,

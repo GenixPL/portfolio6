@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/rendering/sliver.dart';
+import 'package:flutter/rendering.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
 import 'package:portfolio6/widgets/_widgets.dart';
@@ -67,7 +67,7 @@ class _PageWrapperState extends State<PageWrapper> {
           ),
           child: _optionalRefreshWrap(
             child: CustomScrollView(
-              physics: _showMenu ? NeverScrollableScrollPhysics() : ClampingScrollPhysics(),
+              physics: _showMenu ? const NeverScrollableScrollPhysics() : const ClampingScrollPhysics(),
               controller: _scrollController,
               slivers: [
                 GenSliverAppBar(
@@ -86,8 +86,14 @@ class _PageWrapperState extends State<PageWrapper> {
                       ),
                       sliver: SliverMainAxisGroup(
                         slivers: widget.slivers
-                            .withPadding(context.theme.defaultPageVerticalPadding(context))
-                            .withHorizontalPadding(context.theme.defaultPageHorizontalPadding(context)),
+                            .withPadding(
+                              context.theme.defaultPageVerticalPadding(context),
+                            )
+                            .withHorizontalPadding(
+                              context.theme.defaultPageHorizontalPadding(
+                                context,
+                              ),
+                            ),
                       ),
                     );
                   },

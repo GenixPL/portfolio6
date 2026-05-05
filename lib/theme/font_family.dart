@@ -2,6 +2,7 @@ enum FontFamily {
   cpMono,
   kontanter,
   inter,
+  assistant,
   ;
 
   String get assetName {
@@ -9,6 +10,7 @@ enum FontFamily {
       cpMono => 'CPMono',
       kontanter => 'Kontanter',
       inter => 'Inter',
+      assistant => 'Assistant',
     };
   }
 }

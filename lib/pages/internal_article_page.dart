@@ -25,7 +25,9 @@ class InternalArticlePage extends StatefulWidget {
 class _InternalArticlePageState extends State<InternalArticlePage> {
   @override
   Widget build(BuildContext context) {
-    final InternalArticle? article = internalArticles.firstWhereOrNull((e) => e.id == widget.id);
+    final InternalArticle? article = internalArticles.firstWhereOrNull(
+      (e) => e.id == widget.id,
+    );
 
     return PageWrapper(
       pageId: 'article-${widget.id}',
@@ -190,7 +192,7 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     return LogoWithLink(
       onTap: () => launchUrlString(webLink.url),
       text: webLink.url,
-      logo: Icon(Icons.public_sharp),
+      logo: const Icon(Icons.public_sharp),
     ).sliver;
   }
 

@@ -2,7 +2,7 @@ import 'package:portfolio6/models/hackathons/hackathon.dart';
 import 'package:portfolio6/models/internal_article_component.dart';
 
 class HackTheCrisisHackathon extends Hackathon {
-  HackTheCrisisHackathon()
+  const HackTheCrisisHackathon()
     : super(
         id: 'hack-the-crisis',
         duration: '5 days',
@@ -18,42 +18,44 @@ class HackTheCrisisHackathon extends Hackathon {
       AssetImage(
         path: assetImagePath,
       ),
-      Space.medium(),
+      const Space.medium(),
       Headline(
         text: name,
         center: true,
       ),
 
-      Space.big(),
-      Body(
+      const Space.big(),
+      const Body(
         text:
             'An application created during a 5-day hackathon to support Polish uniformed services in '
             'checking mandatory quarantines and to promote voluntary quarantines for people not '
             'covered by mandatory ones.',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'It works on the principle of checking the user\'s location '
             'every 15 minutes (in the background) and through several random verifications during '
             'the day. This verification involves taking a photo of your face and the same '
             'background (rear camera image) each time.',
       ),
-      Space.small(),
-      Body(
+      const Space.small(),
+      const Body(
         text:
             'We had a bigger group of people consisting of: a designer, data guy, backend/cloud dev, '
             '"business" folks, and me (mobile dev).',
       ),
 
-      Space.big(),
-      AssetBanner(path: 'assets/images/projects/quarantino/quarantino-banner.jpg'),
-      Body(
+      const Space.big(),
+      const AssetBanner(
+        path: 'assets/images/projects/quarantino/quarantino-banner.jpg',
+      ),
+      const Body(
         text: 'Quarantino',
         center: true,
       ),
 
-      Space.medium(),
+      const Space.medium(),
       AssetImageCarousel(
         aspectRatio: 804 / 1608,
         imgPaths: [
@@ -61,8 +63,8 @@ class HackTheCrisisHackathon extends Hackathon {
         ],
       ),
 
-      Space.medium(),
-      YouTube(
+      const Space.medium(),
+      const YouTube(
         embedUrl: 'https://www.youtube.com/embed/JhSBDsFtAM4',
       ),
     ];
