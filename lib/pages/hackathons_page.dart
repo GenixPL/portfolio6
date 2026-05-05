@@ -24,7 +24,7 @@ class HackathonsPage extends StatelessWidget {
               description: hackathon.description,
               dateText: hackathon.dateText,
               onTap: () => ArticleRoute.go(context, hackathon.id),
-              tags: [],
+              tags: const [],
               external: false,
             ).sliver,
         ].withGaps(context.theme.cardSpacing),

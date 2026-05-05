@@ -36,8 +36,8 @@ class ArticleCard extends StatelessWidget {
           ),
           decoration: ShapeDecoration(
             color: const Color(0xff_09_09_09),
-            shadows: [
-              const BoxShadow(
+            shadows: const [
+              BoxShadow(
                 color: Colors.black,
                 blurRadius: 6,
               ),

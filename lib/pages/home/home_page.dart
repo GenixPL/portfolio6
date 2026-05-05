@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                   hackathon.assetImagePath,
                   fit: BoxFit.cover,
                 ),
-                tags: [],
+                tags: const [],
                 dateText: hackathon.dateText,
                 external: false,
                 onTap: () => ArticleRoute.go(context, hackathon.id),
