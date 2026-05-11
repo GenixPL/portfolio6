@@ -52,6 +52,8 @@ class FhWorkArticle extends WorkArticle {
       const Space.medium(),
       const Title(text: 'Work'),
       const Space.small(),
+      Tags(tags: tags),
+      const Space.small(),
       const Body(
         text:
             'Futurehome is (/used to be) a Norwegian startup / scaleup. We produced '
@@ -117,9 +119,6 @@ class FhWorkArticle extends WorkArticle {
       ),
       const ListItem(
         text: 'writing lots of tests;',
-      ),
-      const ListItem(
-        text: 'ensuring quality of the code;',
       ),
       const ListItem(
         text: 'ensuring quality of the code;',
