@@ -12,16 +12,14 @@ class GithubContributionCalendarTableTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepaintBoundary(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Color.lerp(
-            Colors.grey.shade900,
-            context.theme.secondary,
-            _getColorT(value),
-          ),
-          borderRadius: const BorderRadius.all(Radius.circular(1)),
+    return Container(
+      decoration: BoxDecoration(
+        color: Color.lerp(
+          Colors.grey.shade900,
+          context.theme.secondary,
+          _getColorT(value),
         ),
+        borderRadius: const BorderRadius.all(Radius.circular(1)),
       ),
     );
   }
