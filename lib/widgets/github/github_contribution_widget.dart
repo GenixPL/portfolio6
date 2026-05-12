@@ -29,7 +29,7 @@ class _GithubContributionWidgetState extends State<GithubContributionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const double size = 84;
+    const double size = 96;
 
     return RepaintBoundary(
       child: Center(
