@@ -1,4 +1,20 @@
+// https://medium.com/feed/@GenixPL
 const List<MediumFeedItem> mediumFeedItems = [
+  MediumFeedItem(
+    title: 'Using Go code in your mobile (Android) app',
+    description: null,
+    publicationDateString: '2026-05-19',
+    mediaUrl: 'https://miro.medium.com/v2/resize:fit:900/format:webp/1*runSN5hVf6YfDtVFDCzt5Q.png',
+    url: 'https://medium.com/@GenixPL/using-go-code-in-your-mobile-android-app-e6f990f51ed1',
+    tags: [
+      'Android',
+      'Golang',
+      'Android App Development',
+      'Android Development',
+      'Mobile App Development',
+    ],
+  ),
+
   MediumFeedItem(
     title: 'Missing fun of speedrunning personal projects',
     description: 'Coding without thinking (much)',
