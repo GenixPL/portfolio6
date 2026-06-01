@@ -107,11 +107,8 @@ class ContactPage extends StatelessWidget {
       _buildLogo(
         context: context,
         child: const Icon(Icons.download_sharp),
-        // TODO(genix): update cv
         onTap: () => downloadFile(
           assetPath: 'assets/files/niedzialek_cv.pdf',
-          fileName: 'niedzialek_cv.pdf',
-          type: 'application/pdf',
         ),
         text: 'Resume',
       ),
