@@ -1,6 +1,7 @@
 import 'dart:js_interop';
 
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:web/web.dart' as web;
 
 Future<void> downloadFile({
@@ -8,6 +9,9 @@ Future<void> downloadFile({
   required String fileName,
   required String type,
 }) async {
+  launchUrlString('https://raw.githubusercontent.com/GenixPL/portfolio6/main/assets/files/niedzialek_cv.pdf');
+  return;
+
   try {
     // 1. Load the PDF file from assets as ByteData
     final ByteData data = await rootBundle.load(assetPath);
