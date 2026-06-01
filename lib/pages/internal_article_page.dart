@@ -154,8 +154,6 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     return LogoWithLink(
       onTap: () => downloadFile(
         assetPath: assetApk.path,
-        fileName: fileName,
-        type: 'application/vnd.android.package-archive',
       ),
       text: fileName,
       logo: Image.asset('assets/images/logos/apk_logo.png'),
