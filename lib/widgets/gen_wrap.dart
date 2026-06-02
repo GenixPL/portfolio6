@@ -23,6 +23,27 @@ class _ParentData extends ContainerBoxParentData<RenderBox> {}
 class _RenderBox extends RenderBox
     with ContainerRenderObjectMixin<RenderBox, _ParentData>, RenderBoxContainerDefaultsMixin<RenderBox, _ParentData> {
   @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    // 1. Check if the touch position falls within this RenderBox's size bounds
+    if (size.contains(position)) {
+      // 2. Check if the touch hits any of the children first.
+      // defaultHitTestChildren handles the child offsets automatically.
+      if (hitTestChildren(result, position: position) || hitTestSelf(position)) {
+        result.add(BoxHitTestEntry(this, position));
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+    // This helper wanders through your child list backwards (from visually top to bottom)
+    // and correctly factors in the parentData.offset values you set in performLayout.
+    return defaultHitTestChildren(result, position: position);
+  }
+
+  @override
   void setupParentData(RenderBox child) {
     if (child.parentData is! _ParentData) {
       child.parentData = _ParentData();
