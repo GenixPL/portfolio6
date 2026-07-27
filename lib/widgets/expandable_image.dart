@@ -48,7 +48,9 @@ class ExpandableImage extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  image,
+                  InteractiveViewer(
+                    child: image,
+                  ),
                   Positioned(
                     right: 0,
                     bottom: 0,
