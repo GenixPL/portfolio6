@@ -16,3 +16,13 @@ linter:
     avoid_slow_async_io: true
     prefer_final_fields: true
     unnecessary_lambdas: true
+    
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
