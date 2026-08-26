@@ -18,6 +18,12 @@ class _DinoPageState extends State<DinoPage> {
   );
 
   @override
+  void dispose() {
+    _jumpForceController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
