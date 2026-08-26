@@ -28,7 +28,7 @@ jobs:
         run: flutter --version
 
       - name: Build web 🔨
-        run: flutter build web --release --base-href "/portfolio6/"
+        run: flutter build web --wasm --release --base-href "/portfolio6/"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
