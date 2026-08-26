@@ -23,7 +23,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version-file: pubspec.yaml
+          flutter-version-file: .fvmrc
           cache: true
 
       - name: Verify Flutter installation 👀
@@ -33,7 +33,7 @@ jobs:
         run: sed -i '14s/.*/    var pathSegmentsToKeep = 0;/' web/404.html
 
       - name: Build web 🔨
-        run: flutter build web --release
+        run: flutter build web --wasm --release
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
