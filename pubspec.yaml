@@ -65,6 +65,7 @@ flutter:
     - assets/images/work/btp/
     - assets/images/work/coop/
     - assets/images/work/fh/
+    - assets/images/work/ots-finonex/
 
   fonts:
     - family: CPMono
