@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:js_interop';
+
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio6/theme/_theme.dart';
 import 'package:portfolio6/utils/_utils.dart';
@@ -156,18 +158,71 @@ class _PageWrapperState extends State<PageWrapper> {
         onTap: _hideMenu,
         child: Container(
           color: Colors.black.withAlpha(240),
-          child: Center(
-            child: Column(
-              spacing: 10,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: MenuButton.buildButtons(
-                onTap: _hideMenu,
+          child: Stack(
+            children: [
+              Center(
+                child: Column(
+                  spacing: 10,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: MenuButton.buildButtons(
+                    onTap: _hideMenu,
+                  ),
+                ),
               ),
-            ),
+
+              Positioned(
+                left: 16,
+                bottom: 16,
+                child: Column(
+                  children: [
+                    TextButton(
+                      onPressed: _clearCache,
+                      child: Text(
+                        'CLEAR CACHE',
+                        style: TextStyle(
+                          fontFamily: FontFamily.cpMono.assetName,
+                          fontSize: 8,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'b: ${getBuildDate()}',
+                      style: TextStyle(
+                        fontFamily: FontFamily.cpMono.assetName,
+                        fontSize: 8,
+                        color: Colors.white54,
+                        decoration: TextDecoration.none,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _clearCache() async {
+    try {
+      final registrations = (await web.window.navigator.serviceWorker.getRegistrations().toDart).toDart;
+      for (final registration in registrations) {
+        await registration.unregister().toDart;
+      }
+
+      final keys = (await web.window.caches.keys().toDart).toDart;
+      for (final key in keys) {
+        await web.window.caches.delete(key.toDart).toDart;
+      }
+
+      web.window.localStorage.clear();
+      web.window.sessionStorage.clear();
+    } catch (_) {
+      // Reload anyway.
+    }
+
+    web.window.location.reload();
   }
 
   void _hideMenu() {
