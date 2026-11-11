@@ -174,7 +174,7 @@ class _PageWrapperState extends State<PageWrapper> {
                 child: Column(
                   children: [
                     TextButton(
-                      onPressed: clearCache,
+                      onPressed: _onClearCacheTap,
                       child: Text(
                         'CLEAR CACHE',
                         style: TextStyle(
@@ -200,6 +200,20 @@ class _PageWrapperState extends State<PageWrapper> {
         ),
       ),
     );
+  }
+
+  Future<void> _onClearCacheTap() async {
+    // The menu overlay covers the Scaffold, so close it for the SnackBar to be visible.
+    _hideMenu();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Fetching...'),
+        duration: Duration(minutes: 1),
+      ),
+    );
+
+    await clearCache();
   }
 
   void _hideMenu() {
