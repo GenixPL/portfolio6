@@ -10,7 +10,7 @@ class Logo extends StatelessWidget {
     this.size = 40,
   });
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Widget child;
   final double size;
 

@@ -144,9 +144,52 @@ class LanguageAppsPersonalProject extends PersonalProject {
 
       const Space.big(),
       const Title(text: 'Fourth version'),
-      // TODO(genix): add
+      const Space.medium(),
+      const Tags(
+        tags: [
+          'Flutter',
+          'Dart',
+        ],
+      ),
+      const Space.medium(),
+      const GithubLinkPrivate(),
+      const Space.medium(),
+      const AssetApk(
+        path: 'assets/files/sermopus.apk',
+      ),
+      const Space.medium(),
+      const Body(text: "Fourth, and hopefully final, version."),
+      const Space.small(),
       const Body(
-        text: 'TODO: add',
+        text:
+            "It let's you create your own sets, and assign priorities to pairs. "
+            "It then takes those priorities in order to determine how often to check you "
+            "on given pairs (in combination with the timestamp of the last correct answer and"
+            "your streak of good answers for given pair).",
+      ),
+      const Space.small(),
+      const Body(
+        text:
+            "Other than the daily checkups and ability to manage your data, it consisted "
+            "of two learning modes (tap to show, and select amongst a bunch), dictionary "
+            "of all your data and statistics of your pair streaks.",
+      ),
+      const Space.small(),
+      const Body(
+        text: "I've also used the project as a teaching ground for my colleague Mathias.",
+      ),
+      const Space.small(),
+      const Body(
+        text:
+            "After several years, I've re-built the project, and I'm satisfied with it as "
+            "much as I was previously.",
+      ),
+      const Space.medium(),
+      AssetImageCarousel(
+        aspectRatio: 720 / 1280,
+        imgPaths: [
+          for (int i = 1; i <= 7; i++) 'assets/images/projects/myword/fourth_version/$i.png',
+        ],
       ),
     ];
   }

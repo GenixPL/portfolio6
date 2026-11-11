@@ -69,12 +69,14 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             Tags() => _buildTagsSliver(component),
             AssetImageCarousel() => _buildAssetImageCarouselSliver(component),
             GithubLink() => _buildGithubLinkSliver(component),
+            GithubLinkPrivate() => _buildGithubLinkPrivateSliver(),
             YouTube() => _buildYouTubeSliver(component),
             AssetApk() => _buildAssetApkSliver(component),
             ListItem() => _buildListItemSliver(component),
             AssetImage() => _buildAssetImageSliver(component),
             WebLink() => _buildWebLinkSliver(component),
             MediumLink() => _buildMediumLinkSliver(component),
+
           },
       ],
     );
@@ -138,6 +140,14 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
     return LogoWithLink(
       onTap: () => launchUrlString(githubLink.url),
       text: githubLink.url,
+      logo: Image.asset('assets/images/logos/github_logo.png'),
+    ).sliver;
+  }
+
+  Widget _buildGithubLinkPrivateSliver() {
+    return LogoWithLink(
+      onTap: null,
+      text: '[ PRIVATE ]',
       logo: Image.asset('assets/images/logos/github_logo.png'),
     ).sliver;
   }
