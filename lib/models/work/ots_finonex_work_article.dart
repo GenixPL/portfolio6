@@ -12,7 +12,7 @@ class OtsFinonexWorkArticle extends WorkArticle {
           'Dart',
           'Design System',
         ],
-        startDateText: 'Sep 2026',
+        startDateText: 'Sep 2026 - Present',
         endDateText: null,
         location: '[Warsaw, Remote]',
         positions: const ['Sr. Mobile Dev'],
@@ -43,8 +43,10 @@ class OtsFinonexWorkArticle extends WorkArticle {
 
       const Space.medium(),
       const Title(text: 'Work'),
+
       const Space.small(),
       Tags(tags: tags),
+
       const Space.small(),
       const Body(
         text:
