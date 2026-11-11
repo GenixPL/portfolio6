@@ -19,7 +19,19 @@ Future<void> clearCache() async {
 
     // Standalone PWAs (esp. iOS) keep serving the HTTP-cached app shell on a plain reload,
     // so force-refresh the main files in the HTTP cache first.
-    for (final file in ['./', 'flutter_bootstrap.js', 'flutter.js', 'main.dart.js']) {
+    // The site is built with --wasm, so the app code is main.dart.wasm/.mjs (not main.dart.js).
+    const files = [
+      './',
+      'flutter_bootstrap.js',
+      'flutter.js',
+      'flutter_service_worker.js',
+      'version.json',
+      'manifest.json',
+      'main.dart.mjs',
+      'main.dart.wasm',
+      'main.dart.js',
+    ];
+    for (final file in files) {
       try {
         await web.window.fetch(file.toJS, web.RequestInit(cache: 'reload')).toDart;
       } catch (_) {
