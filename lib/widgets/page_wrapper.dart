@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio6/theme/_theme.dart';
@@ -176,7 +174,7 @@ class _PageWrapperState extends State<PageWrapper> {
                 child: Column(
                   children: [
                     TextButton(
-                      onPressed: _clearCache,
+                      onPressed: clearCache,
                       child: Text(
                         'CLEAR CACHE',
                         style: TextStyle(
@@ -202,27 +200,6 @@ class _PageWrapperState extends State<PageWrapper> {
         ),
       ),
     );
-  }
-
-  Future<void> _clearCache() async {
-    try {
-      final registrations = (await web.window.navigator.serviceWorker.getRegistrations().toDart).toDart;
-      for (final registration in registrations) {
-        await registration.unregister().toDart;
-      }
-
-      final keys = (await web.window.caches.keys().toDart).toDart;
-      for (final key in keys) {
-        await web.window.caches.delete(key.toDart).toDart;
-      }
-
-      web.window.localStorage.clear();
-      web.window.sessionStorage.clear();
-    } catch (_) {
-      // Reload anyway.
-    }
-
-    web.window.location.reload();
   }
 
   void _hideMenu() {

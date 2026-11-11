@@ -1,4 +1,5 @@
 export 'async_mutex.dart';
+export 'clear_cache.dart';
 export 'download_file.dart';
 export 'date_time_extensions.dart';
 export 'get_build_date.dart';
