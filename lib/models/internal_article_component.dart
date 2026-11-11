@@ -72,6 +72,10 @@ class GithubLink extends InternalArticleComponent {
   final String url;
 }
 
+class GithubLinkPrivate extends InternalArticleComponent {
+  const GithubLinkPrivate();
+}
+
 class YouTube extends InternalArticleComponent {
   const YouTube({
     required this.embedUrl,

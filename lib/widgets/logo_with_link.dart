@@ -9,7 +9,7 @@ class LogoWithLink extends StatelessWidget {
     required this.logo,
   });
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final String text;
   final Widget logo;
 
@@ -30,11 +30,13 @@ class LogoWithLink extends StatelessWidget {
                 text,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.blue,
-                ),
+                style: onTap != null
+                    ? const TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.blue,
+                      )
+                    : null,
               ),
             ),
           ),
