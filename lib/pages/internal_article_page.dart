@@ -72,11 +72,11 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
             GithubLinkPrivate() => _buildGithubLinkPrivateSliver(),
             YouTube() => _buildYouTubeSliver(component),
             AssetApk() => _buildAssetApkSliver(component),
+            LinkApk() => _buildLinkApkSliver(component),
             ListItem() => _buildListItemSliver(component),
             AssetImage() => _buildAssetImageSliver(component),
             WebLink() => _buildWebLinkSliver(component),
             MediumLink() => _buildMediumLinkSliver(component),
-
           },
       ],
     );
@@ -166,6 +166,14 @@ class _InternalArticlePageState extends State<InternalArticlePage> {
         assetPath: assetApk.path,
       ),
       text: fileName,
+      logo: Image.asset('assets/images/logos/apk_logo.png'),
+    ).sliver;
+  }
+
+  Widget _buildLinkApkSliver(LinkApk linkApk) {
+    return LogoWithLink(
+      onTap: () => launchUrlString(linkApk.url),
+      text: linkApk.name,
       logo: Image.asset('assets/images/logos/apk_logo.png'),
     ).sliver;
   }
