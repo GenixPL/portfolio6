@@ -92,6 +92,16 @@ class AssetApk extends InternalArticleComponent {
   final String path;
 }
 
+class LinkApk extends InternalArticleComponent {
+  const LinkApk({
+    required this.url,
+    required this.name,
+  });
+
+  final String url;
+  final String name;
+}
+
 class ListItem extends InternalArticleComponent {
   const ListItem({
     required this.text,

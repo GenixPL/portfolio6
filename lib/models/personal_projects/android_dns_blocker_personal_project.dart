@@ -29,8 +29,9 @@ class AndroidDnsBlockerPersonalProject extends PersonalProject {
       ),
 
       const Space.medium(),
-      const AssetApk(
-        path: 'assets/files/android_dns_blocker.apk',
+      const LinkApk(
+        url: 'https://raw.githubusercontent.com/GenixPL/android_dns_blocker/builds/builds/dns_blocker.apk',
+        name: 'dns_blocker.apk',
       ),
 
       const Space.medium(),
