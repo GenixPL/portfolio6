@@ -209,6 +209,8 @@ class _PageWrapperState extends State<PageWrapper> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Fetching...'),
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         duration: Duration(minutes: 1),
       ),
     );
