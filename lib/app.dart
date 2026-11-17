@@ -87,6 +87,18 @@ class _MyAppState extends State<MyApp> {
       routerConfig: _router,
       scrollBehavior: const GenScrollBehavior(),
       theme: const GenTheme().build(),
+      builder: (context, child) {
+        final theme = Theme.of(context);
+
+        return Theme(
+          data: theme.copyWith(
+            snackBarTheme: theme.snackBarTheme.copyWith(
+              insetPadding: GenTheme.snackBarInsets(MediaQuery.sizeOf(context).width),
+            ),
+          ),
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
     );
   }
 }

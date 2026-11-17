@@ -62,6 +62,16 @@ extension ThemeDataExtensions on ThemeData {
 class GenTheme {
   const GenTheme();
 
+  static const double _snackBarMaxWidth = 400;
+  static const double _snackBarMargin = 24;
+
+  /// Insets keeping the snackbar at most [_snackBarMaxWidth] wide, centered,
+  /// with at least [_snackBarMargin] on the sides.
+  static EdgeInsets snackBarInsets(double screenWidth) {
+    final horizontal = ((screenWidth - _snackBarMaxWidth) / 2).clamp(_snackBarMargin, double.infinity);
+    return EdgeInsets.symmetric(horizontal: horizontal, vertical: _snackBarMargin);
+  }
+
   ThemeData build() {
     final ColorScheme colorScheme = const .dark(
       surface: Color(0xFF_18_18_18),
@@ -161,8 +171,7 @@ class GenTheme {
         Colors.black,
         0.5,
       ),
-      width: 400,
-      insetPadding: const EdgeInsets.all(24),
+      insetPadding: const EdgeInsets.all(_snackBarMargin),
       contentTextStyle: TextStyle(
         color: colorScheme.primary,
       ),
