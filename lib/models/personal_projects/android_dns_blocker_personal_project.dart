@@ -4,7 +4,7 @@ class AndroidDnsBlockerPersonalProject extends PersonalProject {
   const AndroidDnsBlockerPersonalProject()
     : super(
         id: 'android-dns-blocker',
-        assetImagePath: null,
+        assetImagePath: 'assets/images/projects/android-dns-blocker/android-dns-blocker-banner.png',
         name: 'Android DNS Blocker',
         tags: const [
           'Android',
@@ -12,12 +12,16 @@ class AndroidDnsBlockerPersonalProject extends PersonalProject {
           'VPN Service',
           'Claude',
         ],
-        dateText: '7-11 Nov 2026',
+        dateText: '7-20 Nov 2026',
       );
 
   @override
   List<InternalArticleComponent> get components {
     return [
+      AssetBanner(
+        path: assetImagePath!,
+      ),
+      const Space.medium(),
       Headline(
         text: name,
         center: true,
