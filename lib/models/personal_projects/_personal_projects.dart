@@ -11,3 +11,4 @@ export 'sudoku_personal_project.dart';
 export 'thg_personal_project.dart';
 export 'tribal_wars_notifications_personal_project.dart';
 export 'website_personal_project.dart';
+export 'hello_compiler_personal_project.dart';

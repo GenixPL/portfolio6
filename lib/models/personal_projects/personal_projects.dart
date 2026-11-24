@@ -2,6 +2,7 @@ import 'package:portfolio6/models/_models.dart';
 
 const List<PersonalProject> personalProjects = [
   AndroidDnsBlockerPersonalProject(),
+  HelloCompilerPersonalProject(),
   WebsitePersonalProject(),
   ColorRemoverPersonalProject(),
   RustMorsePersonalProject(),

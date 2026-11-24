@@ -41,7 +41,7 @@ class HomePageCard extends StatelessWidget {
           ),
           Positioned.fill(
             child: Container(
-              color: Colors.black.withAlpha(225),
+              color: Colors.black.withAlpha(210),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 16,

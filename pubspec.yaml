@@ -50,18 +50,19 @@ flutter:
 
     - assets/images/projects/android-dns-blocker/
     - assets/images/projects/clox/
+    - assets/images/projects/color-remover/
+    - assets/images/projects/hello-compiler/
     - assets/images/projects/myword/
     - assets/images/projects/myword/first_version/
+    - assets/images/projects/myword/fourth_version/
     - assets/images/projects/myword/second_version/
     - assets/images/projects/myword/third_version/
-    - assets/images/projects/myword/fourth_version/
     - assets/images/projects/pictile/
     - assets/images/projects/placelytics/
     - assets/images/projects/quarantino/
     - assets/images/projects/rust-morse/
-    - assets/images/projects/thg/
     - assets/images/projects/sudoku/
-    - assets/images/projects/color-remover/
+    - assets/images/projects/thg/
     - assets/images/projects/website/
 
     - assets/images/work/
