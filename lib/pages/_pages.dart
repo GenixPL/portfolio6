@@ -1,3 +1,4 @@
+export 'app_store_page.dart';
 export 'articles_page.dart';
 export 'contact_page.dart';
 export 'home/_home.dart';

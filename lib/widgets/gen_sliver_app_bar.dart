@@ -81,18 +81,10 @@ class GenSliverAppBar extends StatelessWidget {
 
                 const Spacer(),
 
-                if (MediaQuery.sizeOf(context).width >= _shortAppBarWidth)
-                  ...MenuButton.buildButtons(
-                    onTap: () {},
-                  ).withGaps(
-                    spacing,
-                    sliver: false,
-                  )
-                else
-                  MenuIcon(
-                    menuOpen: menuOpen,
-                    onTap: onMenuTap,
-                  ),
+                MenuIcon(
+                  menuOpen: menuOpen,
+                  onTap: onMenuTap,
+                ),
               ],
             ),
           ),

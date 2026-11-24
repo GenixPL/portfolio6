@@ -43,6 +43,11 @@ class _MyAppState extends State<MyApp> {
         builder: (_, _) => const HomePage(),
         routes: [
           GoRoute(
+            path: '/app-store',
+            name: 'app-store',
+            builder: (_, _) => const AppStorePage(),
+          ),
+          GoRoute(
             path: '/dino',
             name: 'dino',
             builder: (_, _) => const DinoPage(),

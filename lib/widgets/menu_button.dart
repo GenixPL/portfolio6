@@ -20,6 +20,11 @@ class MenuButton extends StatelessWidget {
         onTap: onTap,
       ),
       MenuButton(
+        name: 'app store',
+        routeName: 'app-store',
+        onTap: onTap,
+      ),
+      MenuButton(
         name: 'projects',
         routeName: 'projects',
         onTap: onTap,
