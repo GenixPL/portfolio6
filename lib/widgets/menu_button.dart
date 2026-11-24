@@ -20,6 +20,11 @@ class MenuButton extends StatelessWidget {
         onTap: onTap,
       ),
       MenuButton(
+        name: 'projects',
+        routeName: 'projects',
+        onTap: onTap,
+      ),
+      MenuButton(
         name: 'articles',
         routeName: 'articles',
         onTap: onTap,
@@ -27,11 +32,6 @@ class MenuButton extends StatelessWidget {
       MenuButton(
         name: 'work',
         routeName: 'work',
-        onTap: onTap,
-      ),
-      MenuButton(
-        name: 'projects',
-        routeName: 'projects',
         onTap: onTap,
       ),
       MenuButton(

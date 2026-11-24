@@ -4,20 +4,25 @@ class AndroidDnsBlockerPersonalProject extends PersonalProject {
   const AndroidDnsBlockerPersonalProject()
     : super(
         id: 'android-dns-blocker',
-        assetImagePath: null,
+        assetImagePath: 'assets/images/projects/android-dns-blocker/android-dns-blocker-banner.png',
         name: 'Android DNS Blocker',
         tags: const [
           'Android',
           'Kotlin',
           'VPN Service',
           'Claude',
+          'Github Actions',
         ],
-        dateText: '7-11 Nov 2026',
+        dateText: '7-20 Nov 2026',
       );
 
   @override
   List<InternalArticleComponent> get components {
     return [
+      AssetBanner(
+        path: assetImagePath!,
+      ),
+      const Space.medium(),
       Headline(
         text: name,
         center: true,
@@ -70,8 +75,8 @@ class AndroidDnsBlockerPersonalProject extends PersonalProject {
       const Space.small(),
       const Body(
         text:
-            'Having my own solution solves all of these issues while draining'
-            ' only 0.2% of battery per day.',
+            'Having my own solution solves all of these issues while draining '
+            'only 0.2% of battery per day.',
       ),
 
       const Space.medium(),
@@ -84,6 +89,21 @@ class AndroidDnsBlockerPersonalProject extends PersonalProject {
       const Space.medium(),
       const YouTube(
         embedUrl: 'https://www.youtube.com/embed/vPV8ubaw7EU',
+      ),
+
+      const Space.medium(),
+      const Body(text: "UPDATE:"),
+
+      const Space.small(),
+      const Body(
+        text: "I've added home widget and extended the notification with on/off toggles.",
+      ),
+
+      const Space.small(),
+      const Body(
+        text:
+            "Additionally there is now CD through Github Actions that builds the project "
+            "to a separate branch, and the link at the top allows to get it.",
       ),
     ];
   }
